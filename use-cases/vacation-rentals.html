@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI agent voor vakantieverhuurders — not-a-bot.ai</title>
+  <meta name="description" content="Stop met het beantwoorden van dezelfde vragen. Uw AI agent beantwoordt gastenvragen 24/7, in elke taal — automatisch. Probeer 5 dagen gratis.">
+  <link rel="canonical" href="https://not-a-bot.ai/use-cases/vacation-rentals.html">
+  <meta property="og:title" content="AI agent voor vakantieverhuurders — not-a-bot.ai">
+  <meta property="og:description" content="Check-in tijden, huisregels, lokale tips — uw AI agent antwoordt 24/7, in elke taal.">
+  <meta property="og:url" content="https://not-a-bot.ai/use-cases/vacation-rentals.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Schema.org for use case page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI agent voor vakantieverhuurders",
+    "description": "not-a-bot.ai voor vakantieverhuurders: automatisch gastenvragen beantwoorden in elke taal",
+    "url": "https://not-a-bot.ai/use-cases/vacation-rentals.html",
+    "isPartOf": { "@type": "WebSite", "url": "https://not-a-bot.ai" }
+  }
+  </script>
+
+  <style>
+    /* Vacation rentals specific styles */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 768px) {
+      .pain-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .pain-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      border-top: 3px solid var(--color-error);
+    }
+    .pain-card .pain-emoji {
+      font-size: 2rem;
+      margin-bottom: var(--space-3);
+    }
+    .pain-card h4 {
+      font-size: var(--text-base);
+      margin-bottom: var(--space-2);
+    }
+    .pain-card p {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: 0;
+    }
+
+    .solution-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+    @media (min-width: 1024px) {
+      .solution-layout { grid-template-columns: 1fr 1fr; }
+    }
+
+    .use-case-example {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.06), rgba(124, 58, 237, 0.06));
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+    }
+
+    .use-case-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+    }
+
+    .use-case-stat {
+      text-align: center;
+      padding: var(--space-4);
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+    }
+
+    .use-case-stat-value {
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      color: var(--color-accent);
+    }
+
+    .use-case-stat-label {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+    }
+
+    .demo-form-inline {
+      background: var(--color-white);
+      border: 2px solid var(--color-accent);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.08);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <nav class="nav" role="navigation" aria-label="Hoofdnavigatie">
+      <div class="nav__inner">
+        <a href="/" class="nav__logo" aria-label="not-a-bot.ai homepagina">
+          <span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span>
+        </a>
+        <div class="nav__links">
+          <a href="/#features" class="nav__link">Functies</a>
+          <a href="/pricing.html" class="nav__link">Prijzen</a>
+          <a href="/#use-cases" class="nav__link">Toepassingen</a>
+          <a href="/roi-calculator.html" class="nav__link">ROI Calculator</a>
+          <a href="/demo.html" class="nav__link">Demo</a>
+        </div>
+        <div class="nav__actions">
+          <div class="nav__lang">
+            <a href="/" class="nav__lang-link" data-lang="en">EN</a>
+            <span class="nav__lang-sep">|</span>
+            <a href="/nl/" class="nav__lang-link" data-lang="nl">NL</a>
+            <span class="nav__lang-sep">|</span>
+            <a href="/fr/" class="nav__lang-link" data-lang="fr">FR</a>
+          </div>
+          <a href="/roi-calculator.html" class="btn btn-primary btn-sm">Gratis starten</a>
+        </div>
+        <button class="nav__hamburger" aria-label="Mobiel menu openen">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <nav class="nav__mobile" aria-label="Mobiele navigatie">
+      <a href="/#features" class="nav__mobile-link">Functies</a>
+      <a href="/pricing.html" class="nav__mobile-link">Prijzen</a>
+      <a href="/#use-cases" class="nav__mobile-link">Toepassingen</a>
+      <a href="/roi-calculator.html" class="nav__mobile-link">ROI Calculator</a>
+      <a href="/demo.html" class="nav__mobile-link">Demo</a>
+      <a href="/roi-calculator.html" class="btn btn-primary btn-full nav__mobile-cta">Gratis starten</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero" style="background: linear-gradient(170deg, rgba(14,165,233,0.08) 0%, var(--color-bg) 60%);" aria-labelledby="vr-hero-heading">
+      <div class="container hero__inner">
+        <div class="hero__eyebrow fade-in">
+          <span class="badge badge-teal">Vakantieverhuurders</span>
+          <span class="badge badge-success">5 dagen gratis</span>
+        </div>
+
+        <h1 class="hero__title fade-in delay-1" id="vr-hero-heading">
+          Stop met het beantwoorden<br>van <span style="color: var(--color-teal);">dezelfde vragen</span>
+        </h1>
+
+        <p class="hero__subtitle fade-in delay-2">
+          Check-in tijden, huisregels, lokale tips — uw AI agent antwoordt 24/7, in elke taal. Uw gasten zijn tevreden. U heeft uw weekend terug.
+        </p>
+
+        <div class="hero__ctas fade-in delay-3">
+          <a href="/roi-calculator.html" class="btn btn-primary btn-lg">Probeer 5 dagen gratis</a>
+          <a href="#demo-aanvraag" class="btn btn-secondary btn-lg">Zie een demo</a>
+        </div>
+
+        <p class="hero__note fade-in delay-4">
+          Geen creditcard nodig &nbsp;·&nbsp; Klaar in 30 minuten &nbsp;·&nbsp; GDPR-conform
+        </p>
+
+        <!-- Chat mockup in NL/FR context -->
+        <div class="hero__visual fade-in delay-5" aria-hidden="true">
+          <div class="chat-mockup">
+            <div class="chat-mockup__header">
+              <div class="chat-mockup__avatar">🏡</div>
+              <div>
+                <div class="chat-mockup__name">Maison de Provence — AI Gastenservice</div>
+                <div class="chat-mockup__status">Online — altijd beschikbaar</div>
+              </div>
+            </div>
+            <div class="chat-messages">
+              <div class="chat-message user">Bonjour! À quelle heure puis-je m'enregistrer?</div>
+              <div class="chat-message bot">Bonjour! L'enregistrement est possible à partir de 15h00. Si vous arrivez plus tôt, nous pouvons garder vos bagages. Le code de la porte d'entrée vous sera envoyé par e-mail 24h avant votre arrivée.</div>
+              <div class="chat-message user">Is er gratis WiFi?</div>
+              <div class="chat-message bot">Ja! Het wifi-wachtwoord hangt in de keuken op een kaartje. Het netwerk heet "MaisonGuest" en is beschikbaar in alle kamers en op het terras.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF BAR -->
+    <section class="social-proof-bar" aria-label="Bewezen resultaten">
+      <div class="container">
+        <p class="social-proof-bar__label">Resultaten van verhuurders die not-a-bot.ai gebruiken</p>
+        <div class="social-proof-bar__logos">
+          <span class="logo-pill">40% minder vragen</span>
+          <span class="logo-pill">24/7 beschikbaar</span>
+          <span class="logo-pill">8+ talen</span>
+          <span class="logo-pill">100% response rate</span>
+          <span class="logo-pill">Klaar in &lt;30 minuten</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIJNPUNTEN -->
+    <section class="section bg-white" aria-labelledby="pijn-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Herkent u dit?</span>
+          <h2 id="pijn-heading">De frustraties van elke verhuurder</h2>
+          <p>Elke verhuurder kent ze: de berichten die binnenkomen om 23u, de vraag die u al 50 keer heeft beantwoord, de gast die geen Nederlands spreekt.</p>
+        </div>
+
+        <div class="pain-grid">
+          <div class="pain-card fade-in delay-1">
+            <div class="pain-emoji" aria-hidden="true">🔄</div>
+            <h4>Dezelfde vragen, elke dag</h4>
+            <p>Check-in tijd, wifi-wachtwoord, parkeerplaats, dichtstbijzijnde supermarkt. U beantwoordt ze tientallen keren per maand.</p>
+          </div>
+
+          <div class="pain-card fade-in delay-2">
+            <div class="pain-emoji" aria-hidden="true">🌙</div>
+            <h4>Nachtberichten</h4>
+            <p>Gasten boeken vanuit andere tijdzones of hebben een vraag na hun aankomst om middernacht. U kunt niet altijd beschikbaar zijn.</p>
+          </div>
+
+          <div class="pain-card fade-in delay-3">
+            <div class="pain-emoji" aria-hidden="true">🌍</div>
+            <h4>Taalbarrières</h4>
+            <p>Uw gasten spreken Frans, Engels, Duits. Elk antwoord vertalen kost tijd — en u maakt fouten wanneer u moe bent.</p>
+          </div>
+
+          <div class="pain-card fade-in delay-4">
+            <div class="pain-emoji" aria-hidden="true">📉</div>
+            <h4>Slechte response rate</h4>
+            <p>Airbnb en Booking.com meten hoe snel u antwoordt. Een trage reactie kost u rankings — en boekingen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPLOSSING -->
+    <section class="section bg-bg" aria-labelledby="oplossing-heading">
+      <div class="container">
+        <div class="solution-layout">
+          <div class="fade-in">
+            <span class="section-label">De oplossing</span>
+            <h2 id="oplossing-heading">Uw agent kent uw woning van binnen en buiten</h2>
+            <p class="text-lg" style="color: var(--color-text-muted); margin-bottom: var(--space-6);">U uploadt uw gastengids, huisregels en FAQ. not-a-bot.ai traint een AI agent die precies weet wat uw gasten mogen verwachten — en het in hun taal uitlegt.</p>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Altijd gebaseerd op uw documenten</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">De agent zegt nooit iets verkeerds over uw woning. Enkel wat u heeft ingevuld.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Automatische taaldetectie</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">Gast schrijft in het Frans? Agent antwoordt in het Frans. Geen configuratie nodig.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Embed op uw eigen website</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">Een chat bubble op uw website. Direct boekingsaanvragen ontvangen zonder commissie aan platforms.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Klaar in minder dan 30 minuten</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">Upload uw gastengids, activeer de agent, plak één regel code. Geen developer nodig.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-in delay-2">
+            <!-- How it works visual for vacation rentals -->
+            <div class="card" style="padding: var(--space-8);">
+              <h3 style="margin-bottom: var(--space-6);">Wat uw agent automatisch beantwoordt</h3>
+              <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">🔑</span> Check-in en check-out tijden
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">📶</span> Wifi-wachtwoord en toegangscodes
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">🐕</span> Huisdierenbeleid en huisregels
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">🛒</span> Dichtstbijzijnde supermarkt en restaurants
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">🚗</span> Parkeermogelijkheden en routebeschrijving
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">🏖️</span> Lokale tips en uitstapjes
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">💳</span> Betalings- en annuleringsbeleid
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: rgba(124, 58, 237, 0.06); border: 1px dashed rgba(124,58,237,0.3); border-radius: var(--radius-md); font-size: var(--text-sm); color: var(--color-accent);">
+                  <span aria-hidden="true">➕</span> En alles wat u zelf toevoegt...
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- USE CASE VOORBEELD -->
+    <section class="section bg-white" aria-labelledby="example-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Succesverhaal</span>
+          <h2 id="example-heading">Maison de Provence: 40% minder vragen</h2>
+        </div>
+
+        <div class="use-case-example fade-in">
+          <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-8);" class="solution-layout">
+            <div>
+              <p class="text-lg" style="margin-bottom: var(--space-4);">Cécile verhuurt drie vakantiewoningen in de Provence. In het hoogseizoen ontving ze dagelijks 15–20 berichten van gasten — van check-in vragen tot restauranttips in drie talen.</p>
+              <p style="color: var(--color-text-muted); margin-bottom: var(--space-4);">"Ik was continu aan het typen. Na een weekend met gasten was ik uitgeput, niet van het verhuren maar van de berichten. Ik had het gevoel dat ik een fulltime telefoniste was geworden."</p>
+              <p style="color: var(--color-text-muted); margin-bottom: var(--space-6);">Ze uploadde haar gastengids per woning (3 PDF's) en activeerde een agent per property. Binnen 30 minuten was haar eerste agent live — volledig getraind op de specifieke details van elke woning.</p>
+
+              <div class="use-case-stats">
+                <div class="use-case-stat">
+                  <div class="use-case-stat-value">40%</div>
+                  <div class="use-case-stat-label">Minder directe vragen</div>
+                </div>
+                <div class="use-case-stat">
+                  <div class="use-case-stat-value">8u</div>
+                  <div class="use-case-stat-label">Bespaard per week</div>
+                </div>
+                <div class="use-case-stat">
+                  <div class="use-case-stat-value">4.9★</div>
+                  <div class="use-case-stat-label">Gemiddelde gast score</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="testimonial-card">
+                <div class="stars" aria-label="5 sterren">★★★★★</div>
+                <p class="testimonial-quote">Mijn gasten zijn verbaast hoe snel ze antwoord krijgen — ook om 11u 's avonds. En de agent spreekt hun taal, zonder dat ik ooit iets heb geconfigureerd. Dat is pas magie.</p>
+                <div class="testimonial-author">
+                  <div class="testimonial-avatar" aria-hidden="true">CM</div>
+                  <div>
+                    <div class="testimonial-name">Cécile M.</div>
+                    <div class="testimonial-company">Eigenaar, Maison de Provence (fictief voorbeeld)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES VOOR VERHUURDERS -->
+    <section class="section bg-bg" aria-labelledby="features-vr-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Functies</span>
+          <h2 id="features-vr-heading">Speciaal geschikt voor vakantieverhuurders</h2>
+        </div>
+
+        <div class="grid-3">
+          <article class="feature-card fade-in delay-1">
+            <div class="feature-icon teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m12 8-4 4 4 4"/><path d="m16 12H8"/></svg>
+            </div>
+            <h3>Multi-language — gratis inbegrepen</h3>
+            <p>Alle plannen bevatten automatische taaldetectie. De agent detecteert de taal van de gast en antwoordt onmiddellijk in dezelfde taal — NL, FR, EN, DE, ES, IT en meer.</p>
+          </article>
+
+          <article class="feature-card fade-in delay-2">
+            <div class="feature-icon amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.63 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <h3>WhatsApp integratie (Enterprise)</h3>
+            <p>Gasten die via WhatsApp communiceren? Op het Enterprise plan koppelt u uw agent rechtstreeks aan uw WhatsApp Business nummer.</p>
+          </article>
+
+          <article class="feature-card fade-in delay-3">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3>Per property configureerbaar</h3>
+            <p>Meerdere woningen? Elk pand krijgt zijn eigen agent met zijn eigen gastengids. Gasten krijgen altijd antwoorden specifiek voor hun verblijf.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING VOOR VERHUURDERS -->
+    <section class="section bg-white" aria-labelledby="pricing-vr-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Prijzen</span>
+          <h2 id="pricing-vr-heading">Goedkoper dan één gemiste boeking</h2>
+          <p>Het Basic plan op €19/maand kost minder dan de commissie op één gemiste directe boeking. Voor kleine verhuurders is dit het startpunt.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card fade-in delay-1">
+            <div class="pricing-tier basic">Basic — Ideaal voor 1 woning</div>
+            <div class="pricing-price">
+              <span class="currency">€</span>
+              <span class="amount">19</span>
+              <span class="period">/agent/maand</span>
+            </div>
+            <p class="pricing-tagline">1 AI agent voor 1 woning. Klaar in 30 minuten. Eerste 5 dagen gratis.</p>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>100.000 tokens / maand</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>1 gastengids uploaden</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Chat bubble op uw website</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Multi-language (automatisch)</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Eerste agent: 5 dagen gratis</li>
+            </ul>
+            <a href="/roi-calculator.html" class="btn btn-secondary btn-full">Gratis starten</a>
+          </div>
+
+          <div class="pricing-card popular fade-in delay-2">
+            <div class="pricing-badge">Meest gekozen</div>
+            <div class="pricing-tier advanced">Advanced — Voor meerdere panden</div>
+            <div class="pricing-price">
+              <span class="currency">€</span>
+              <span class="amount">49</span>
+              <span class="period">/agent/maand</span>
+            </div>
+            <p class="pricing-tagline">3 gastengidsen, CRM-koppeling voor boekingen, uitgebreide analytics.</p>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>500.000 tokens / maand</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>3 gastengidsen uploaden</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>CRM integratie voor boekingen</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>5 gebruikers</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Volledige chatgeschiedenis</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Eerste agent: 5 dagen gratis</li>
+            </ul>
+            <a href="/roi-calculator.html" class="btn btn-primary btn-full">Gratis starten</a>
+          </div>
+
+          <div class="pricing-card fade-in delay-3">
+            <div class="pricing-tier enterprise">Enterprise — Grote portefeuilles</div>
+            <div class="pricing-price">
+              <span class="currency">€</span>
+              <span class="amount">249</span>
+              <span class="period">+/agent/maand</span>
+            </div>
+            <p class="pricing-tagline">WhatsApp, onbeperkt panden, webhooks en dedicated support.</p>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>5.000.000 tokens / maand</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Onbeperkt gastengidsen</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>WhatsApp integratie</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Custom ontwikkeling</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Dedicated implementatieondersteuning</li>
+            </ul>
+            <a href="#demo-aanvraag" class="btn btn-secondary btn-full">Demo aanvragen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMO AANVRAAG SECTIE -->
+    <section id="demo-aanvraag" class="section bg-bg" aria-labelledby="demo-vr-heading">
+      <div class="container" style="max-width: 640px;">
+        <div class="section-header fade-in">
+          <span class="section-label">Bekijk het live</span>
+          <h2 id="demo-vr-heading">Zie hoe het werkt voor uw verhuurpand</h2>
+          <p>Vraag een gratis demo aan. We tonen u live hoe uw agent eruit zou zien — getraind op uw eigen gastengids.</p>
+        </div>
+
+        <div class="demo-form-inline fade-in">
+          <form data-form="demo" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="vr-name">Naam <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" class="form-input" id="vr-name" name="name" placeholder="Uw naam" required autocomplete="name">
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="vr-email">E-mailadres <span class="required" aria-hidden="true">*</span></label>
+              <input type="email" class="form-input" id="vr-email" name="email" placeholder="u@uw-woning.be" required autocomplete="email">
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="vr-company">Naam woning / bedrijf <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" class="form-input" id="vr-company" name="company" placeholder="Bijv. Villa La Roque" required autocomplete="organization">
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="vr-size">Aantal panden</label>
+              <select class="form-select" id="vr-size" name="company_size">
+                <option value="1-10">1 pand</option>
+                <option value="1-10">2–5 panden</option>
+                <option value="11-50">6–20 panden</option>
+                <option value="51-200">Meer dan 20 panden</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="vr-usecase">Wat wil u automatiseren? <span class="required" aria-hidden="true">*</span></label>
+              <textarea class="form-textarea" id="vr-usecase" name="use_case" required
+                placeholder="Bijv.: Gastenvragen over check-in tijden, huisregels en wifi-wachtwoord — in NL, FR en EN."
+                rows="3"></textarea>
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="vr-phone">Telefoonnummer (optioneel)</label>
+              <input type="tel" class="form-input" id="vr-phone" name="phone" placeholder="+32 of +31..." autocomplete="tel">
+            </div>
+
+            <input type="hidden" name="current_tools" value="vacation-rental">
+
+            <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top: var(--space-4);">
+              Demo aanvragen
+            </button>
+
+            <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-3); margin-bottom: 0; text-align: center;">
+              Wij reageren binnen 24 uur. Geen verplichtingen.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/"><span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span></a>
+          <p>Aangepaste AI agents getraind op uw bedrijfsdata. Geen hallucinaties. In minuten live.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="/#features">Functies</a></li>
+            <li><a href="/pricing.html">Prijzen</a></li>
+            <li><a href="/roi-calculator.html">ROI Calculator</a></li>
+            <li><a href="/demo.html">Demo aanvragen</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Toepassingen</h4>
+          <ul>
+            <li><a href="/use-cases/vacation-rentals.html">Vakantieverhuur</a></li>
+            <li><a href="/#use-cases">Klantenservice</a></li>
+            <li><a href="/#use-cases">Professionele diensten</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Talen</h4>
+          <ul>
+            <li><a href="/">English</a></li>
+            <li><a href="/nl/">Nederlands</a></li>
+            <li><a href="/fr/">Français</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 not-a-bot.ai — Alle rechten voorbehouden.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/supabase-forms.js"></script>
+</body>
+</html>

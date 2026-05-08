@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROI Calculator — not-a-bot.ai</title>
+  <meta name="description" content="Calculate exactly how much time and money an AI agent saves your business. Enter your monthly question volume and see the ROI in seconds.">
+  <link rel="canonical" href="https://not-a-bot.ai/roi-calculator.html">
+  <meta property="og:title" content="ROI Calculator — not-a-bot.ai">
+  <meta property="og:description" content="See exactly how many hours and euros your AI agent saves per month.">
+  <meta property="og:url" content="https://not-a-bot.ai/roi-calculator.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <style>
+    /* Page-specific enhancements */
+    .calc-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      align-items: start;
+    }
+    @media (min-width: 1024px) {
+      .calc-layout {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .roi-results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav__inner">
+        <a href="/" class="nav__logo" aria-label="not-a-bot.ai home">
+          <span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span>
+        </a>
+        <div class="nav__links">
+          <a href="/#features" class="nav__link">Features</a>
+          <a href="/pricing.html" class="nav__link">Pricing</a>
+          <a href="/#use-cases" class="nav__link">Use Cases</a>
+          <a href="/roi-calculator.html" class="nav__link">ROI Calculator</a>
+          <a href="/demo.html" class="nav__link">Demo</a>
+        </div>
+        <div class="nav__actions">
+          <div class="nav__lang">
+            <a href="/" class="nav__lang-link active" data-lang="en">EN</a>
+            <span class="nav__lang-sep">|</span>
+            <a href="/nl/" class="nav__lang-link" data-lang="nl">NL</a>
+            <span class="nav__lang-sep">|</span>
+            <a href="/fr/" class="nav__lang-link" data-lang="fr">FR</a>
+          </div>
+          <a href="/roi-calculator.html" class="btn btn-primary btn-sm">Start free trial</a>
+        </div>
+        <button class="nav__hamburger" aria-label="Toggle mobile menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <nav class="nav__mobile" aria-label="Mobile navigation">
+      <a href="/#features" class="nav__mobile-link">Features</a>
+      <a href="/pricing.html" class="nav__mobile-link">Pricing</a>
+      <a href="/#use-cases" class="nav__mobile-link">Use Cases</a>
+      <a href="/roi-calculator.html" class="nav__mobile-link">ROI Calculator</a>
+      <a href="/demo.html" class="nav__mobile-link">Demo</a>
+      <a href="/roi-calculator.html" class="btn btn-primary btn-full nav__mobile-cta">Start free trial</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="page-hero" aria-labelledby="calc-hero-heading">
+      <div class="container">
+        <span class="section-label fade-in">ROI Calculator</span>
+        <h1 class="fade-in delay-1" id="calc-hero-heading">Calculate your ROI</h1>
+        <p class="fade-in delay-2">See exactly how much time and money an AI agent saves your business — based on your actual numbers.</p>
+      </div>
+    </section>
+
+    <!-- CALCULATOR + LEAD FORM -->
+    <section class="section bg-white" aria-labelledby="calculator-heading">
+      <div class="container">
+        <h2 class="sr-only" id="calculator-heading">ROI Calculator tool</h2>
+
+        <div class="calc-layout">
+
+          <!-- Calculator -->
+          <div>
+            <div class="roi-calculator fade-in">
+              <h3 style="margin-bottom: var(--space-6);">Your business inputs</h3>
+
+              <!-- Slider: Monthly questions -->
+              <div class="roi-slider-group">
+                <div class="roi-slider-header">
+                  <label class="roi-slider-label" for="roi-questions">Customer questions per month</label>
+                  <span class="roi-slider-value" aria-live="polite" id="roi-val-questions">500</span>
+                </div>
+                <input
+                  type="range"
+                  class="roi-slider"
+                  id="roi-questions"
+                  min="50"
+                  max="5000"
+                  step="50"
+                  value="500"
+                  aria-label="Monthly customer questions: 500"
+                >
+                <div style="display: flex; justify-content: space-between; font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-1);">
+                  <span>50</span><span>5,000</span>
+                </div>
+              </div>
+
+              <!-- Slider: Minutes per response -->
+              <div class="roi-slider-group">
+                <div class="roi-slider-header">
+                  <label class="roi-slider-label" for="roi-minutes">Average minutes per manual response</label>
+                  <span class="roi-slider-value" aria-live="polite" id="roi-val-minutes">10 min</span>
+                </div>
+                <input
+                  type="range"
+                  class="roi-slider"
+                  id="roi-minutes"
+                  min="5"
+                  max="30"
+                  step="1"
+                  value="10"
+                  aria-label="Minutes per manual response: 10"
+                >
+                <div style="display: flex; justify-content: space-between; font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-1);">
+                  <span>5 min</span><span>30 min</span>
+                </div>
+              </div>
+
+              <!-- Slider: Hourly rate -->
+              <div class="roi-slider-group">
+                <div class="roi-slider-header">
+                  <label class="roi-slider-label" for="roi-rate">Average employee hourly rate</label>
+                  <span class="roi-slider-value" aria-live="polite" id="roi-val-rate">€30</span>
+                </div>
+                <input
+                  type="range"
+                  class="roi-slider"
+                  id="roi-rate"
+                  min="15"
+                  max="60"
+                  step="1"
+                  value="30"
+                  aria-label="Hourly rate: €30"
+                >
+                <div style="display: flex; justify-content: space-between; font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-1);">
+                  <span>€15</span><span>€60</span>
+                </div>
+              </div>
+
+              <!-- Business type -->
+              <div class="form-group">
+                <label class="roi-slider-label" for="roi-type">Business type</label>
+                <select class="form-select" id="roi-type" aria-label="Select your business type">
+                  <option value="retailer">Retailer / e-commerce</option>
+                  <option value="horeca">Hospitality (hotel, restaurant, café)</option>
+                  <option value="vakantieverhuur">Vacation rental</option>
+                  <option value="professional_services">Professional services (legal, consulting, architecture)</option>
+                  <option value="overig">Other</option>
+                </select>
+              </div>
+
+              <button id="btn-calculate" class="btn btn-primary btn-full btn-lg" style="margin-top: var(--space-4);">
+                Calculate my ROI
+              </button>
+            </div>
+
+            <!-- Results (hidden until calculated) -->
+            <div id="roi-results" style="display: none; margin-top: var(--space-6);" aria-live="polite" aria-label="ROI calculation results">
+              <div class="card" style="border-color: rgba(124,58,237,0.2);">
+                <h3 style="margin-bottom: var(--space-6); color: var(--color-accent);">Your estimated savings</h3>
+
+                <div class="roi-results-grid">
+                  <div class="roi-result-card">
+                    <div class="roi-result-icon" aria-hidden="true">⏱</div>
+                    <div class="roi-result-value accent" id="result-hours">—</div>
+                    <div class="roi-result-label">Hours saved / month</div>
+                  </div>
+                  <div class="roi-result-card highlight">
+                    <div class="roi-result-icon" aria-hidden="true">💶</div>
+                    <div class="roi-result-value accent" id="result-cost">—</div>
+                    <div class="roi-result-label">€ saved / month</div>
+                  </div>
+                  <div class="roi-result-card">
+                    <div class="roi-result-icon" aria-hidden="true">📈</div>
+                    <div class="roi-result-value" id="result-roi">—</div>
+                    <div class="roi-result-label">ROI on Basic plan</div>
+                  </div>
+                  <div class="roi-result-card highlight">
+                    <div class="roi-result-icon" aria-hidden="true">⚡</div>
+                    <div class="roi-result-value" id="result-payback">—</div>
+                    <div class="roi-result-label">Payback period</div>
+                  </div>
+                </div>
+
+                <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-4); margin-bottom: 0;">
+                  Based on 80% automation rate and Basic plan at €19/month. Actual results may vary.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lead capture form -->
+          <div id="roi-lead-section" style="display: none;">
+            <div class="form-wrapper fade-in">
+              <span class="section-label">Get your full report</span>
+              <h3 style="margin-bottom: var(--space-2);">Receive your personalised ROI report</h3>
+              <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-6);">We will send you a detailed breakdown with industry benchmarks and a tailored recommendation — straight to your inbox.</p>
+
+              <form data-form="lead" data-lang="en" novalidate>
+                <!-- Hidden ROI fields (populated by roi-calculator.js) -->
+                <input type="hidden" name="roi_hours_saved" id="h-hours">
+                <input type="hidden" name="roi_cost_saved" id="h-cost">
+                <input type="hidden" name="roi_percent" id="h-roi">
+                <input type="hidden" name="roi_payback_days" id="h-payback">
+                <input type="hidden" name="monthly_questions" id="h-questions">
+                <input type="hidden" name="minutes_per_question" id="h-minutes">
+                <input type="hidden" name="hourly_rate" id="h-rate">
+
+                <div class="form-group">
+                  <label class="form-label" for="lead-name">Name <span class="required" aria-hidden="true">*</span></label>
+                  <input type="text" class="form-input" id="lead-name" name="name" placeholder="Your name" required autocomplete="name">
+                  <span class="form-error" role="alert"></span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="lead-email">Business email <span class="required" aria-hidden="true">*</span></label>
+                  <input type="email" class="form-input" id="lead-email" name="email" placeholder="you@company.com" required autocomplete="email">
+                  <span class="form-error" role="alert"></span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="lead-company">Company name <span class="required" aria-hidden="true">*</span></label>
+                  <input type="text" class="form-input" id="lead-company" name="company" placeholder="Your company" required autocomplete="organization">
+                  <span class="form-error" role="alert"></span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="lead-type">Business type <span class="required" aria-hidden="true">*</span></label>
+                  <select class="form-select" id="lead-type" name="company_type" required>
+                    <option value="">Select your business type</option>
+                    <option value="retailer">Retailer / e-commerce</option>
+                    <option value="horeca">Hospitality (hotel, restaurant, café)</option>
+                    <option value="vakantieverhuur">Vacation rental</option>
+                    <option value="professional_services">Professional services</option>
+                    <option value="overig">Other</option>
+                  </select>
+                  <span class="form-error" role="alert"></span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="lead-phone">Phone (optional)</label>
+                  <input type="tel" class="form-input" id="lead-phone" name="phone" placeholder="+32 or +31..." autocomplete="tel">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full" style="margin-top: var(--space-4);">
+                  Send my ROI report
+                </button>
+
+                <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-3); margin-bottom: 0; text-align: center;">
+                  No spam. We will only send your report and relevant updates.
+                </p>
+              </form>
+            </div>
+
+            <!-- Link to demo -->
+            <div class="card-flat card text-center" style="margin-top: var(--space-4);">
+              <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-3);">Want to see the agent live before committing?</p>
+              <a href="/demo.html" class="btn btn-ghost">Request a free demo →</a>
+            </div>
+          </div>
+
+          <!-- Placeholder when results not yet shown -->
+          <div id="calc-placeholder">
+            <div class="card text-center" style="padding: var(--space-12);">
+              <div style="font-size: 3rem; margin-bottom: var(--space-4);" aria-hidden="true">📊</div>
+              <h3 style="margin-bottom: var(--space-3);">Your ROI is one click away</h3>
+              <p style="font-size: var(--text-sm); color: var(--color-text-muted);">Adjust the sliders on the left to match your business, then hit "Calculate my ROI" to see your personalised savings breakdown.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST SIGNALS -->
+    <section class="section bg-bg" aria-labelledby="trust-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2 id="trust-heading">What businesses typically save</h2>
+          <p>Based on aggregate data from not-a-bot.ai customers across industries.</p>
+        </div>
+        <div class="stat-grid fade-in">
+          <div class="stat-item">
+            <div class="stat-value">47%</div>
+            <div class="stat-label">Average ticket reduction</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">8h</div>
+            <div class="stat-label">Average hours recovered / week</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">30min</div>
+            <div class="stat-label">Average setup time</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">3 days</div>
+            <div class="stat-label">Average payback period</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta-section">
+      <div class="container cta-section__inner">
+        <h2 style="color: var(--color-white);">Ready to start saving?</h2>
+        <p>Try not-a-bot.ai free for 5 days. No credit card required.</p>
+        <div class="cta-section__buttons">
+          <a href="/roi-calculator.html" class="btn btn-white btn-lg">Start free trial</a>
+          <a href="/demo.html" class="btn btn-outline-white btn-lg">Book a demo</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/"><span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span></a>
+          <p>Custom AI agents trained on your business data. No hallucinations. Live in minutes.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/pricing.html">Pricing</a></li>
+            <li><a href="/roi-calculator.html">ROI Calculator</a></li>
+            <li><a href="/demo.html">Book a demo</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Languages</h4>
+          <ul>
+            <li><a href="/">English</a></li>
+            <li><a href="/nl/">Nederlands</a></li>
+            <li><a href="/fr/">Français</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 not-a-bot.ai — All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hide placeholder when lead section is shown
+    document.getElementById('roi-lead-section').addEventListener('DOMContentLoaded', function() {});
+    document.addEventListener('DOMContentLoaded', function() {
+      const leadSection = document.getElementById('roi-lead-section');
+      const placeholder = document.getElementById('calc-placeholder');
+
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(m) {
+          if (m.type === 'attributes' && m.attributeName === 'style') {
+            if (leadSection.style.display !== 'none') {
+              if (placeholder) placeholder.style.display = 'none';
+            }
+          }
+        });
+      });
+      if (leadSection) {
+        observer.observe(leadSection, { attributes: true });
+      }
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/supabase-forms.js"></script>
+  <script src="/assets/js/roi-calculator.js"></script>
+</body>
+</html>
