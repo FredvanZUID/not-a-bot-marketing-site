@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-agent voor vakantieverhuurders — not-a-bot.ai</title>
+  <meta name="description" content="Beantwoord 24/7 alle gastenberichten automatisch. Getraind op uw gastengids. Klaar in 30 minuten. GDPR-conform. 5 dagen gratis proberen.">
+  <!-- Paid landing page — do not index -->
+  <meta name="robots" content="noindex">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Base styles -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <style>
+    /* ---- Landing page: no full nav, minimal chrome ---- */
+
+    /* Logo-only nav bar */
+    .lp-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-height);
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+    }
+    .lp-nav__inner {
+      max-width: var(--container-max);
+      width: 100%;
+      margin-inline: auto;
+      padding-inline: var(--container-pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Hero */
+    .lp-hero {
+      padding-top: calc(var(--nav-height) + var(--space-16));
+      padding-bottom: var(--space-16);
+      background: linear-gradient(170deg, #E0F2FE 0%, var(--color-bg) 65%);
+      text-align: center;
+    }
+    .lp-hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: rgba(14, 165, 233, 0.12);
+      color: var(--color-teal-dark);
+      border-radius: var(--radius-full);
+      padding: 6px 16px;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      margin-bottom: var(--space-6);
+      letter-spacing: 0.03em;
+    }
+    .lp-hero h1 {
+      font-size: clamp(1.75rem, 5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.12;
+      color: var(--color-text);
+      max-width: 760px;
+      margin-inline: auto;
+      margin-bottom: var(--space-6);
+    }
+    .lp-hero h1 .accent { color: var(--color-teal-dark); }
+    .lp-hero__sub {
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      max-width: 580px;
+      margin-inline: auto;
+      margin-bottom: var(--space-6);
+      line-height: 1.65;
+    }
+    .lp-hero__urgency {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+    .lp-hero__urgency strong { color: var(--color-accent); }
+
+    /* Extra-large CTA button for landing pages */
+    .btn-xl {
+      padding: 20px 48px;
+      font-size: var(--text-xl);
+      border-radius: var(--radius-lg);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    /* Trust strip below CTA */
+    .trust-strip {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-top: var(--space-4);
+    }
+    .trust-strip .stars { color: var(--color-amber); }
+
+    /* Problem / Solution 2-col */
+    .ps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 640px) {
+      .ps-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .ps-col {
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+    }
+    .ps-col.problem {
+      background: rgba(239, 68, 68, 0.05);
+      border: 1px solid rgba(239, 68, 68, 0.15);
+    }
+    .ps-col.solution {
+      background: rgba(16, 185, 129, 0.05);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+    .ps-col h3 {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-4);
+    }
+    .ps-col.problem h3 { color: #DC2626; }
+    .ps-col.solution h3 { color: #059669; }
+    .ps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .ps-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--color-text);
+    }
+    .ps-list li::before {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .ps-col.problem .ps-list li::before { content: '✗'; color: #DC2626; font-weight: 700; }
+    .ps-col.solution .ps-list li::before { content: '✓'; color: #059669; font-weight: 700; }
+
+    /* 3-stat strip */
+    .stat-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-8);
+      padding: var(--space-8) 0;
+    }
+    .stat-strip__item { text-align: center; }
+    .stat-strip__value {
+      font-size: var(--text-3xl);
+      font-weight: 800;
+      color: var(--color-accent);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-strip__label {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+    }
+
+    /* Steps - horizontal on desktop */
+    .lp-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 640px) {
+      .lp-steps { grid-template-columns: repeat(3, 1fr); }
+    }
+    .lp-step {
+      text-align: center;
+      padding: var(--space-6);
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+    }
+    .lp-step__num {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-teal), var(--color-accent));
+      color: white;
+      font-size: var(--text-xl);
+      font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin-inline: auto;
+      margin-bottom: var(--space-3);
+    }
+    .lp-step__time {
+      display: inline-block;
+      font-size: var(--text-xs);
+      color: var(--color-teal-dark);
+      font-weight: 700;
+      background: rgba(14, 165, 233, 0.1);
+      padding: 2px 10px;
+      border-radius: var(--radius-full);
+      margin-top: var(--space-2);
+    }
+
+    /* Risk reversal strip */
+    .risk-strip {
+      text-align: center;
+      padding: var(--space-4);
+      background: rgba(16, 185, 129, 0.05);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: var(--radius-lg);
+      font-size: var(--text-sm);
+      color: #065F46;
+      font-weight: 500;
+    }
+
+    /* Mid-page CTA */
+    .mid-cta {
+      background: linear-gradient(135deg, var(--color-dark) 0%, #1a3a5c 100%);
+      padding: var(--space-16) 0;
+      text-align: center;
+    }
+    .mid-cta h2 { color: white; margin-bottom: var(--space-4); }
+    .mid-cta p { color: rgba(255,255,255,0.7); font-size: var(--text-lg); max-width: 500px; margin-inline: auto; margin-bottom: var(--space-8); }
+  </style>
+</head>
+<body>
+
+  <!-- ======================================================================
+       LOGO-ONLY NAV (no links — conversion focus)
+  ======================================================================= -->
+  <header>
+    <nav class="lp-nav" role="navigation" aria-label="Site navigation">
+      <div class="lp-nav__inner">
+        <a href="/" class="nav__logo" aria-label="not-a-bot.ai home">
+          <span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span>
+        </a>
+        <a href="/roi-calculator.html" class="btn btn-primary btn-sm">
+          Gratis proberen →
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ====================================================================
+         HERO
+    ===================================================================== -->
+    <section class="lp-hero" aria-labelledby="lp-vr-heading">
+      <div class="container">
+
+        <div class="lp-hero__badge" aria-label="Doelgroep en aanbod">
+          Vakantieverhuurders &nbsp;·&nbsp; 5 dagen gratis
+        </div>
+
+        <h1 id="lp-vr-heading">
+          Uw gasten krijgen direct antwoord.<br>
+          <span class="accent">U heeft uw avond terug.</span>
+        </h1>
+
+        <p class="lp-hero__sub">
+          Één AI-agent, getraind op uw gastengids. Beantwoordt 24/7 alle vragen — check-in tijden, wifi-code, huisregels — in elke taal.
+        </p>
+
+        <p class="lp-hero__urgency" aria-label="Voordelen">
+          <strong>&#9889; Klaar in 30 minuten</strong>
+          &nbsp;·&nbsp; Geen creditcard
+          &nbsp;·&nbsp; GDPR-conform
+        </p>
+
+        <a href="/roi-calculator.html" class="btn btn-primary btn-xl" aria-label="Start uw gratis trial van 5 dagen">
+          Probeer 5 dagen gratis &nbsp;→
+        </a>
+
+        <p class="trust-strip">
+          <span class="stars" aria-label="5 sterren beoordeling">★★★★★</span>
+          &nbsp;4.9/5 &nbsp;·&nbsp; Meer dan 200 verhuurders &nbsp;·&nbsp; GDPR-conform
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         PROBLEM / SOLUTION
+    ===================================================================== -->
+    <section class="section bg-white" aria-labelledby="ps-heading">
+      <div class="container" style="max-width: 800px;">
+        <h2 id="ps-heading" class="text-center" style="margin-bottom: var(--space-8);">Herkenbaar?</h2>
+
+        <div class="ps-grid">
+          <div class="ps-col problem" role="region" aria-label="Huidige situatie">
+            <h3>Nu: elke dag opnieuw</h3>
+            <ul class="ps-list">
+              <li>Elke dag dezelfde vragen</li>
+              <li>Berichten om 23u en in het weekend</li>
+              <li>Antwoorden in 3 verschillende talen</li>
+              <li>Gemiste boekingen door trage responstijd</li>
+            </ul>
+          </div>
+
+          <div class="ps-col solution" role="region" aria-label="Met not-a-bot.ai">
+            <h3>Met not-a-bot.ai</h3>
+            <ul class="ps-list">
+              <li>Agent antwoordt automatisch, 24/7</li>
+              <li>Altijd beschikbaar, ook 's nachts</li>
+              <li>8+ talen inbegrepen, zonder configuratie</li>
+              <li>100% response rate, nooit een vraag gemist</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         STATS STRIP
+    ===================================================================== -->
+    <section class="bg-bg" aria-label="Resultaten in cijfers">
+      <div class="container">
+        <div class="stat-strip">
+          <div class="stat-strip__item">
+            <div class="stat-strip__value">40%</div>
+            <div class="stat-strip__label">Minder directe vragen</div>
+          </div>
+          <div class="stat-strip__item">
+            <div class="stat-strip__value">8 uur</div>
+            <div class="stat-strip__label">Bespaard per week</div>
+          </div>
+          <div class="stat-strip__item">
+            <div class="stat-strip__value">4.9★</div>
+            <div class="stat-strip__label">Gastbeoordeling behouden</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         HOW IT WORKS
+    ===================================================================== -->
+    <section class="section bg-white" aria-labelledby="how-vr-heading">
+      <div class="container" style="max-width: 900px;">
+        <h2 id="how-vr-heading" class="text-center" style="margin-bottom: var(--space-2);">Hoe het werkt</h2>
+        <p class="text-center text-muted" style="margin-bottom: var(--space-10);">Van nul tot werkende agent in minder dan een halfuur.</p>
+
+        <div class="lp-steps">
+          <div class="lp-step">
+            <div class="lp-step__num" aria-hidden="true">1</div>
+            <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Upload uw gastengids</h3>
+            <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 0;">PDF, Word of gewoon plakken. De agent leert alles wat uw gasten moeten weten.</p>
+            <span class="lp-step__time">5 minuten</span>
+          </div>
+
+          <div class="lp-step">
+            <div class="lp-step__num" aria-hidden="true">2</div>
+            <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Activeer uw agent</h3>
+            <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 0;">Test een paar vragen, pas de toon aan, klik op activeren. Geen code, geen technische kennis vereist.</p>
+            <span class="lp-step__time">5 minuten</span>
+          </div>
+
+          <div class="lp-step">
+            <div class="lp-step__num" aria-hidden="true">3</div>
+            <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Gasten vragen, agent antwoordt</h3>
+            <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 0;">Embed de chatknop op uw website of booking pagina. Uw gasten krijgen direct antwoord, u krijgt rust.</p>
+            <span class="lp-step__time">Altijd online</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         MID-PAGE CTA
+    ===================================================================== -->
+    <section class="mid-cta" aria-labelledby="mid-cta-vr-heading">
+      <div class="container">
+        <h2 id="mid-cta-vr-heading">Klaar om te starten?</h2>
+        <p>Geen installatie, geen contract. Uw eerste agent is 5 dagen volledig gratis.</p>
+        <a href="/roi-calculator.html" class="btn btn-white btn-xl" aria-label="Start uw gratis trial">
+          Start uw gratis trial &nbsp;→
+        </a>
+        <p style="color: rgba(255,255,255,0.5); font-size: var(--text-sm); margin-top: var(--space-4); margin-bottom: 0;">
+          Gemiddeld 28 minuten tot uw eerste live antwoord
+        </p>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TESTIMONIAL
+    ===================================================================== -->
+    <section class="section bg-bg" aria-labelledby="testimonial-vr-heading">
+      <div class="container" style="max-width: 720px;">
+        <h2 id="testimonial-vr-heading" class="sr-only">Klantervaring</h2>
+
+        <article class="testimonial-card" aria-label="Getuigenis van Cécile M.">
+          <div class="stars" aria-label="5 van 5 sterren">★★★★★</div>
+          <p class="testimonial-quote">
+            "Wij verhuren 6 gîtes in de Provence. Vroeger was mijn avond altijd half verloren aan berichten — dezelfde vragen over de sleutelkluis, het zwembad, de wifi. Nu pakt de agent dat allemaal op. Ik heb de notificaties van mijn telefoon verwijderd en niemand klaagt. Gastbeoordelingen zijn alleen maar beter geworden."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">CM</div>
+            <div>
+              <div class="testimonial-name">Cécile M.</div>
+              <div class="testimonial-company">Maison de Provence — vakantieverhuurder <em style="font-weight: 400;">(composite voorbeeld)</em></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         BOTTOM CTA + RISK REVERSAL
+    ===================================================================== -->
+    <section class="section bg-white" aria-labelledby="bottom-cta-vr-heading">
+      <div class="container" style="max-width: 640px; text-align: center;">
+        <h2 id="bottom-cta-vr-heading" style="margin-bottom: var(--space-4);">Uw gasten verdienen direct antwoord. U verdient een vrije avond.</h2>
+        <p style="color: var(--color-text-muted); margin-bottom: var(--space-8);">
+          Probeer not-a-bot.ai 5 dagen gratis. Geen creditcard, geen verplichting. Na 5 dagen beslist u.
+        </p>
+
+        <a href="/roi-calculator.html" class="btn btn-primary btn-xl" style="margin-bottom: var(--space-6);" aria-label="Start gratis trial, geen creditcard vereist">
+          Probeer 5 dagen gratis &nbsp;→
+        </a>
+
+        <div class="risk-strip" aria-label="Garanties">
+          Geen creditcard &nbsp;·&nbsp; Geen verplichting &nbsp;·&nbsp; Na 5 dagen beslissen
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- NO FOOTER on landing page — removes exit routes -->
+
+  <!-- Main JS (nav scroll behavior, fade-in animations) -->
+  <script src="/assets/js/main.js"></script>
+
+</body>
+</html>

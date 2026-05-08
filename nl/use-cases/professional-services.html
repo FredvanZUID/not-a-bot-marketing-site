@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-agent voor professionele dienstverleners — not-a-bot.ai</title>
+  <meta name="description" content="Stop met het uitleggen van uw werkwijze in elke klantmail. Uw AI-agent beantwoordt vragen over uw diensten, tarieven, beschikbaarheid en werkwijze — 24/7. Gratis starten voor 5 dagen.">
+  <link rel="canonical" href="https://not-a-bot.ai/nl/use-cases/professional-services.html">
+  <link rel="alternate" hreflang="en" href="https://not-a-bot.ai/use-cases/professional-services.html">
+  <link rel="alternate" hreflang="nl" href="https://not-a-bot.ai/nl/use-cases/professional-services.html">
+  <link rel="alternate" hreflang="x-default" href="https://not-a-bot.ai/use-cases/professional-services.html">
+  <meta property="og:title" content="AI-agent voor professionele dienstverleners — not-a-bot.ai">
+  <meta property="og:description" content="Stop met het uitleggen van uw werkwijze in elke klantmail. Uw AI-agent beantwoordt vragen over uw diensten, tarieven, beschikbaarheid en werkwijze — 24/7.">
+  <meta property="og:url" content="https://not-a-bot.ai/nl/use-cases/professional-services.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Schema.org for use case page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI-agent voor professionele dienstverleners",
+    "description": "not-a-bot.ai voor professionele dienstverleners: automatisch klantvragen beantwoorden over uw diensten, tarieven en werkwijze",
+    "url": "https://not-a-bot.ai/nl/use-cases/professional-services.html",
+    "isPartOf": { "@type": "WebSite", "url": "https://not-a-bot.ai" }
+  }
+  </script>
+
+  <style>
+    /* Professional Services specific styles */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 768px) {
+      .pain-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .pain-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      border-top: 3px solid var(--color-error);
+    }
+    .pain-card .pain-emoji {
+      font-size: 2rem;
+      margin-bottom: var(--space-3);
+    }
+    .pain-card h4 {
+      font-size: var(--text-base);
+      margin-bottom: var(--space-2);
+    }
+    .pain-card p {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: 0;
+    }
+
+    .solution-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+    @media (min-width: 1024px) {
+      .solution-layout { grid-template-columns: 1fr 1fr; }
+    }
+
+    .use-case-example {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.06), rgba(14, 165, 233, 0.06));
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+    }
+
+    .use-case-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+    }
+
+    .use-case-stat {
+      text-align: center;
+      padding: var(--space-4);
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+    }
+
+    .use-case-stat-value {
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      color: var(--color-accent);
+    }
+
+    .use-case-stat-label {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+    }
+
+    .demo-form-inline {
+      background: var(--color-white);
+      border: 2px solid var(--color-accent);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.08);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <nav class="nav" role="navigation" aria-label="Hoofdnavigatie">
+      <div class="nav__inner">
+        <a href="/nl/" class="nav__logo" aria-label="not-a-bot.ai homepagina">
+          <span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span>
+        </a>
+        <div class="nav__links">
+          <a href="/nl/#functies" class="nav__link">Functies</a>
+          <a href="/pricing.html" class="nav__link">Prijzen</a>
+          <a href="/nl/#toepassingen" class="nav__link">Toepassingen</a>
+          <a href="/roi-calculator.html" class="nav__link">ROI Calculator</a>
+          <a href="/demo.html" class="nav__link">Demo</a>
+        </div>
+        <div class="nav__actions">
+          <div class="nav__lang">
+            <a href="/use-cases/professional-services.html" class="nav__lang-link" data-lang="en" data-lang-switch="en">EN</a>
+            <span class="nav__lang-sep">|</span>
+            <a href="/nl/use-cases/professional-services.html" class="nav__lang-link active" data-lang="nl" data-lang-switch="nl">NL</a>
+            <span class="nav__lang-sep">|</span>
+            <a href="/fr/" class="nav__lang-link" data-lang="fr" data-lang-switch="fr">FR</a>
+          </div>
+          <a href="/roi-calculator.html" class="btn btn-primary btn-sm">Gratis starten</a>
+        </div>
+        <button class="nav__hamburger" aria-label="Mobiel menu openen" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <nav id="mobile-nav" class="nav__mobile" aria-label="Mobiele navigatie">
+      <a href="/nl/#functies" class="nav__mobile-link">Functies</a>
+      <a href="/pricing.html" class="nav__mobile-link">Prijzen</a>
+      <a href="/nl/#toepassingen" class="nav__mobile-link">Toepassingen</a>
+      <a href="/roi-calculator.html" class="nav__mobile-link">ROI Calculator</a>
+      <a href="/demo.html" class="nav__mobile-link">Demo</a>
+      <a href="/roi-calculator.html" class="btn btn-primary btn-full nav__mobile-cta">Gratis starten</a>
+      <div class="nav__mobile-langs">
+        <a href="/use-cases/professional-services.html" data-lang-switch="en" class="nav__lang-link">EN</a>
+        <a href="/nl/use-cases/professional-services.html" data-lang-switch="nl" class="nav__lang-link active">NL</a>
+        <a href="/fr/" data-lang-switch="fr" class="nav__lang-link">FR</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero" style="background: linear-gradient(170deg, rgba(124,58,237,0.08) 0%, var(--color-bg) 60%);" aria-labelledby="ps-hero-heading">
+      <div class="container hero__inner">
+        <div class="hero__eyebrow fade-in">
+          <span class="badge badge-teal">Professionele dienstverleners</span>
+          <span class="badge badge-success">5 dagen gratis</span>
+        </div>
+
+        <h1 class="hero__title fade-in delay-1" id="ps-hero-heading">
+          Stop met het uitleggen van uw werkwijze<br>in elke <span style="color: var(--color-accent);">klantmail</span>
+        </h1>
+
+        <p class="hero__subtitle fade-in delay-2">
+          Uw AI-agent beantwoordt vragen over uw diensten, tarieven, beschikbaarheid en werkwijze — voordat leads afhaken. Beschikbaar 24/7. Klaar in 30 minuten.
+        </p>
+
+        <div class="hero__ctas fade-in delay-3">
+          <a href="/roi-calculator.html" class="btn btn-primary btn-lg">Gratis starten</a>
+          <a href="#demo-request" class="btn btn-secondary btn-lg">Bekijk een demo</a>
+        </div>
+
+        <p class="hero__note fade-in delay-4">
+          Geen creditcard &nbsp;·&nbsp; Klaar in 30 minuten &nbsp;·&nbsp; GDPR-conform
+        </p>
+
+        <!-- Chat mockup -->
+        <div class="hero__visual fade-in delay-5" aria-hidden="true">
+          <div class="chat-mockup">
+            <div class="chat-mockup__header">
+              <div class="chat-mockup__avatar">🏛️</div>
+              <div>
+                <div class="chat-mockup__name">Studio Merckx — AI Assistent</div>
+                <div class="chat-mockup__status">Online — altijd beschikbaar</div>
+              </div>
+            </div>
+            <div class="chat-messages">
+              <div class="chat-message user">Wat kost een brandingproject?</div>
+              <div class="chat-message bot">Onze brandingprojecten starten vanaf €8.500 en omvatten strategie, identiteitsontwerp en merkrichtlijnen. De gemiddelde doorlooptijd is 6 tot 8 weken. Wilt u een kennismakingsgesprek inplannen om uw specifieke situatie te bespreken?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF BAR -->
+    <section class="social-proof-bar" aria-label="Bewezen resultaten">
+      <div class="container">
+        <p class="social-proof-bar__label">Resultaten bij professionele dienstverleners die not-a-bot.ai gebruiken</p>
+        <div class="social-proof-bar__logos">
+          <span class="logo-pill">67% minder herhalingsvragen</span>
+          <span class="logo-pill">24/7 beschikbaar</span>
+          <span class="logo-pill">28 min. setup</span>
+          <span class="logo-pill">100% op basis van uw content</span>
+          <span class="logo-pill">Directe kwalificatie</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAIN POINTS -->
+    <section class="section bg-white" aria-labelledby="pain-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Herkenbaar?</span>
+          <h2 id="pain-heading">De frustraties die elke professionele dienstverlener kent</h2>
+          <p>Van architecten tot consultants tot accountants — de inbox-problemen zijn altijd dezelfde.</p>
+        </div>
+
+        <div class="pain-grid">
+          <div class="pain-card fade-in delay-1">
+            <div class="pain-emoji" aria-hidden="true">🔄</div>
+            <h4>Dezelfde vragen bij elke intake</h4>
+            <p>Wat kost het? Hoe lang duurt het? Wat is er inbegrepen? U beantwoordt dit bij elk kennismakingsgesprek en elke mail.</p>
+          </div>
+
+          <div class="pain-card fade-in delay-2">
+            <div class="pain-emoji" aria-hidden="true">⏰</div>
+            <h4>Leads haken af buiten kantooruren</h4>
+            <p>Een prospect bezoekt uw website om 21u, heeft een vraag, krijgt geen antwoord, en kiest uw concurrent voor de volgende ochtend.</p>
+          </div>
+
+          <div class="pain-card fade-in delay-3">
+            <div class="pain-emoji" aria-hidden="true">📝</div>
+            <h4>Uw werkwijze keer op keer uitleggen</h4>
+            <p>Elke nieuwe klant heeft dezelfde onboarding-uitleg nodig. Uw methodologie, uw deliverables, uw tijdlijn — allemaal manueel, allemaal repetitief.</p>
+          </div>
+
+          <div class="pain-card fade-in delay-4">
+            <div class="pain-emoji" aria-hidden="true">🌐</div>
+            <h4>Anderstalige internationale klanten</h4>
+            <p>Uw kantoor werkt grensoverschrijdend. Reageren op vragen in meerdere talen kost tijd die u niet heeft.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUTION -->
+    <section class="section bg-bg" aria-labelledby="solution-heading">
+      <div class="container">
+        <div class="solution-layout">
+          <div class="fade-in">
+            <span class="section-label">De oplossing</span>
+            <h2 id="solution-heading">Uw agent kent uw kantoor als een ervaren vennoot</h2>
+            <p class="text-lg" style="color: var(--color-text-muted); margin-bottom: var(--space-6);">Upload uw dienstenbrochure, pitchdeck en FAQ. not-a-bot.ai traint een AI-agent die precies weet wat prospects en klanten moeten weten — en het uitlegt op het moment dat ze ernaar vragen.</p>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Altijd op basis van uw documenten</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">De agent antwoordt uitsluitend op basis van uw servicebeschrijvingen, tarieven en werkwijze-documenten. Hij verzint nooit iets.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Kwalificeert leads automatisch</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">Stelt de juiste intakevragen en geeft u een samenvatting van de prospect voordat u zelfs maar met hem of haar spreekt.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Beschikbaar op het moment van beslissing</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">Prospects krijgen antwoord wanneer ze klaar zijn om te beslissen — niet wanneer u terugkomt van een klantgesprek.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Klaar in minder dan 30 minuten</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">Upload uw servicebeschrijving, activeer de agent, embed één regel code. Geen developer nodig.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-in delay-2">
+            <div class="card" style="padding: var(--space-8);">
+              <h3 style="margin-bottom: var(--space-6);">Wat uw agent automatisch afhandelt</h3>
+              <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">💰</span> Tarieven en dienstenpakketten
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">📅</span> Beschikbaarheid en het inplannen van intakegesprekken
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">📋</span> Uitleg over werkwijze en methodologie
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">🎯</span> Projectscope en overzicht van deliverables
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">🤝</span> Hoe u kunt starten / volgende stappen
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">📄</span> Offerte- en contractproces
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">❓</span> FAQ over uw kantoor en team
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: rgba(124, 58, 237, 0.06); border: 1px dashed rgba(124,58,237,0.3); border-radius: var(--radius-md); font-size: var(--text-sm); color: var(--color-accent);">
+                  <span aria-hidden="true">➕</span> En alles wat u toevoegt...
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDY -->
+    <section class="section bg-white" aria-labelledby="case-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Succesverhaal</span>
+          <h2 id="case-heading">Studio Merckx: 60% minder intake-vragen</h2>
+        </div>
+
+        <div class="use-case-example fade-in">
+          <div class="solution-layout">
+            <div>
+              <p class="text-lg" style="margin-bottom: var(--space-4);">Thomas Van Merckx is managing partner bij een architectenbureau van 4 personen in Brussel. Hij besteedde 3 uur per week aan het beantwoorden van intakevragen via e-mail — projectkosten, tijdlijnen, vragen over vergunningen. Hij uploadde hun dienstenbrochure en FAQ (2 pdf's). Agent live in 25 minuten.</p>
+              <p style="color: var(--color-text-muted); margin-bottom: var(--space-6);">Voor not-a-bot.ai leidde elke nieuwe lead tot hetzelfde heen-en-weergeschrijf: wat rekent u voor een renovatieproject? Hoe lang duurt het? Regelt u de vergunningen? Nu handelt de agent die volledige eerste laag af — en Thomas pikt het pas op wanneer de prospect al geïnformeerd en gekwalificeerd is.</p>
+
+              <div class="use-case-stats">
+                <div class="use-case-stat">
+                  <div class="use-case-stat-value">60%</div>
+                  <div class="use-case-stat-label">Minder directe vragen</div>
+                </div>
+                <div class="use-case-stat">
+                  <div class="use-case-stat-value">3u</div>
+                  <div class="use-case-stat-label">Bespaard per week</div>
+                </div>
+                <div class="use-case-stat">
+                  <div class="use-case-stat-value">2x</div>
+                  <div class="use-case-stat-label">Betere intakekwaliteit</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="testimonial-card">
+                <div class="stars" aria-label="5 van 5 sterren">★★★★★</div>
+                <p class="testimonial-quote">Onze agent handelt nu de eerste laag van elke nieuwe lead af. Tegen de tijd dat ik een prospect spreek, begrijpen ze al onze werkwijze en onze tarieven. De gesprekken zijn korter en productiever.</p>
+                <div class="testimonial-author">
+                  <div class="testimonial-avatar" aria-hidden="true">TM</div>
+                  <div>
+                    <div class="testimonial-name">Thomas V.M.</div>
+                    <div class="testimonial-company">Managing Partner, Studio Merckx (fictief voorbeeld)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section bg-bg" aria-labelledby="features-ps-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Functies</span>
+          <h2 id="features-ps-heading">Gebouwd voor professionele dienstverleners</h2>
+        </div>
+
+        <div class="grid-3">
+          <article class="feature-card fade-in delay-1">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M21.17 8H12V2.83"/><path d="M6.6 17.4 2 22"/></svg>
+            </div>
+            <h3>Gebaseerd op uw expertise</h3>
+            <p>Upload uw pitchdeck, dienstenbrochure, casestudies en FAQ. De agent antwoordt uitsluitend op basis van deze content — verzint nooit tarieven, tijdlijnen of mogelijkheden.</p>
+          </article>
+
+          <article class="feature-card fade-in delay-2">
+            <div class="feature-icon teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+            </div>
+            <h3>Leadkwalificatie ingebouwd</h3>
+            <p>Stel intakevragen in. De agent kwalificeert prospects op type dienstverlening, budgetrange en tijdlijn — voordat u ook maar één gesprek voert.</p>
+          </article>
+
+          <article class="feature-card fade-in delay-3">
+            <div class="feature-icon amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </div>
+            <h3>Koppelt aan uw boekingssysteem</h3>
+            <p>Advanced plan: verbind uw Calendly, HubSpot of agendatool. Prospects boeken rechtstreeks vanuit de chat.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section bg-white" aria-labelledby="pricing-ps-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Prijzen</span>
+          <h2 id="pricing-ps-heading">Uw agent verdient zichzelf terug in de eerste week</h2>
+          <p>Het Basic-plan van €19/maand kost minder dan 30 minuten van uw uurtarief. Voor de meeste professionele dienstverleners verdient de agent zichzelf terug vóór de eerste factuur.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card fade-in delay-1">
+            <div class="pricing-tier basic">Basic — Voor 1 agent</div>
+            <div class="pricing-price">
+              <span class="currency">€</span>
+              <span class="amount">19</span>
+              <span class="period">/agent/maand</span>
+            </div>
+            <p class="pricing-tagline">1 AI-agent voor uw kantoor. Klaar in 30 minuten. Eerste 5 dagen gratis.</p>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>100K tokens / maand</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Upload 1 dienstenbrochure</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Website-chatwidget</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Meertalig (automatisch)</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Eerste agent: 5 dagen gratis</li>
+            </ul>
+            <a href="/roi-calculator.html" class="btn btn-secondary btn-full">Gratis starten</a>
+          </div>
+
+          <div class="pricing-card popular fade-in delay-2">
+            <div class="pricing-badge">Meest gekozen</div>
+            <div class="pricing-tier advanced">Advanced — Voor groeiende kantoren</div>
+            <div class="pricing-price">
+              <span class="currency">€</span>
+              <span class="amount">49</span>
+              <span class="period">/agent/maand</span>
+            </div>
+            <p class="pricing-tagline">5 dienstendocumenten, CRM-koppeling, automatische leadkwalificatie.</p>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>500K tokens / maand</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>5 documenten</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>CRM-integratie</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Leadkwalificatie</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Volledige chatgeschiedenis</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Eerste agent: 5 dagen gratis</li>
+            </ul>
+            <a href="/roi-calculator.html" class="btn btn-primary btn-full">Gratis starten</a>
+          </div>
+
+          <div class="pricing-card fade-in delay-3">
+            <div class="pricing-tier enterprise">Enterprise — Volledig vermogen</div>
+            <div class="pricing-price">
+              <span class="currency">€</span>
+              <span class="amount">249</span>
+              <span class="period">+/agent/maand</span>
+            </div>
+            <p class="pricing-tagline">WhatsApp, aangepaste integraties, toegewijde setup.</p>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>5M tokens / maand</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Onbeperkt documenten</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>WhatsApp-integratie</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Maatwerkontwikkeling</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Toegewijde implementatieondersteuning</li>
+            </ul>
+            <a href="#demo-request" class="btn btn-secondary btn-full">Demo aanvragen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMO REQUEST -->
+    <section id="demo-request" class="section bg-bg" aria-labelledby="demo-ps-heading">
+      <div class="container" style="max-width: 640px;">
+        <div class="section-header fade-in">
+          <span class="section-label">Zie het live</span>
+          <h2 id="demo-ps-heading">Ontdek hoe het werkt voor uw kantoor</h2>
+          <p>Vraag een gratis demo aan. We tonen u live hoe uw agent eruitziet — getraind op uw eigen dienstendocumenten.</p>
+        </div>
+
+        <div class="demo-form-inline fade-in">
+          <form data-form="demo" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="ps-name">Naam <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" class="form-input" id="ps-name" name="name" placeholder="Uw naam" required autocomplete="name">
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ps-email">E-mailadres <span class="required" aria-hidden="true">*</span></label>
+              <input type="email" class="form-input" id="ps-email" name="email" placeholder="u@uwkantoor.be" required autocomplete="email">
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ps-company">Naam kantoor/bedrijf <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" class="form-input" id="ps-company" name="company" placeholder="bijv. Studio Merckx Architecten" required autocomplete="organization">
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ps-type">Type dienstverlening</label>
+              <select class="form-select" id="ps-type" name="service_type">
+                <option value="architecture">Architectuur</option>
+                <option value="consulting">Consulting</option>
+                <option value="accounting">Boekhouding</option>
+                <option value="legal">Juridisch</option>
+                <option value="other">Andere</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ps-usecase">Wat wilt u automatiseren? <span class="required" aria-hidden="true">*</span></label>
+              <textarea class="form-textarea" id="ps-usecase" name="use_case" required
+                placeholder="bijv. Klantvragen over onze tarieven, werkwijze en beschikbaarheid — vóór het kennismakingsgesprek."
+                rows="3"></textarea>
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ps-phone">Telefoonnummer (optioneel)</label>
+              <input type="tel" class="form-input" id="ps-phone" name="phone" placeholder="+32 of +31..." autocomplete="tel">
+            </div>
+
+            <input type="hidden" name="current_tools" value="professional-services">
+
+            <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top: var(--space-4);">
+              Demo aanvragen
+            </button>
+
+            <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-3); margin-bottom: 0; text-align: center;">
+              We reageren binnen 24 uur. Geen verplichtingen.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/nl/" aria-label="not-a-bot.ai homepagina"><span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span></a>
+          <p>Aangepaste AI-agents getraind op uw bedrijfsdata. Geen hallucinaties. In minuten live.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="/nl/#functies">Functies</a></li>
+            <li><a href="/pricing.html">Prijzen</a></li>
+            <li><a href="/roi-calculator.html">ROI Calculator</a></li>
+            <li><a href="/demo.html">Demo aanvragen</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Toepassingen</h4>
+          <ul>
+            <li><a href="/use-cases/vacation-rentals.html">Vakantieverhuur</a></li>
+            <li><a href="/nl/use-cases/professional-services.html">Professionele diensten</a></li>
+            <li><a href="/nl/use-cases/hr-recruitment.html">HR &amp; Recruitment</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Talen</h4>
+          <ul>
+            <li><a href="/">English</a></li>
+            <li><a href="/nl/">Nederlands</a></li>
+            <li><a href="/fr/">Français</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 not-a-bot.ai — Alle rechten voorbehouden.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/supabase-forms.js"></script>
+</body>
+</html>

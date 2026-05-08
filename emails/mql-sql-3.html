@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Your trial ends today — here's what your numbers say</title>
+  <style>
+    /* Reset */
+    body { margin: 0; padding: 0; background: #F8F9FA; font-family: 'Inter', -apple-system, Arial, sans-serif; }
+    * { box-sizing: border-box; }
+    a { color: #7C3AED; }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .email-wrapper { width: 100% !important; }
+      .stat-cell { display: block !important; width: 100% !important; padding-bottom: 14px !important; }
+      .stat-spacer { display: none !important; }
+      .body-pad { padding: 28px 20px !important; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Preheader text (hidden) -->
+  <span style="display:none;max-height:0;overflow:hidden;font-size:1px;color:#F8F9FA;">The results are in. Here's your next step.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</span>
+
+  <!-- Outer wrapper -->
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F8F9FA">
+    <tr>
+      <td align="center" style="padding: 24px 16px;">
+
+        <!-- Email card -->
+        <table class="email-wrapper" width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+
+          <!-- Header bar -->
+          <tr>
+            <td bgcolor="#1C1B2E" style="padding: 20px 32px;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td>
+                    <span style="font-size: 20px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.02em; font-family: 'Inter', -apple-system, Arial, sans-serif;">Not-a-bot<span style="color: #0EA5E9;">.ai</span></span>
+                  </td>
+                  <td align="right">
+                    <span style="display: inline-block; background: #10B981; color: #FFFFFF; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; font-family: 'Inter', -apple-system, Arial, sans-serif; letter-spacing: 0.03em;">Trial complete</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td class="body-pad" style="padding: 40px 32px; color: #1A1A2E; font-size: 16px; line-height: 1.6; font-family: 'Inter', -apple-system, Arial, sans-serif;">
+
+              <!-- H1 -->
+              <h1 style="margin: 0 0 24px; font-size: 26px; font-weight: 800; color: #1C1B2E; line-height: 1.2; letter-spacing: -0.02em;">Your trial results, {{first_name}}</h1>
+
+              <!-- 4-stat block -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 0 0 28px;">
+                <tr>
+                  <td class="stat-cell" align="center" style="padding: 14px 10px; background: #F8F9FA; border-radius: 8px; width: 24%;">
+                    <div style="font-size: 24px; font-weight: 800; color: #7C3AED; font-family: 'Inter', -apple-system, Arial, sans-serif;">{{total_questions}}</div>
+                    <div style="font-size: 10px; color: #6B7280; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-top: 4px; line-height: 1.4;">questions handled</div>
+                  </td>
+                  <td class="stat-spacer" width="6"></td>
+                  <td class="stat-cell" align="center" style="padding: 14px 10px; background: #F8F9FA; border-radius: 8px; width: 24%;">
+                    <div style="font-size: 24px; font-weight: 800; color: #10B981; font-family: 'Inter', -apple-system, Arial, sans-serif;">{{automation_rate}}%</div>
+                    <div style="font-size: 10px; color: #6B7280; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-top: 4px; line-height: 1.4;">automated</div>
+                  </td>
+                  <td class="stat-spacer" width="6"></td>
+                  <td class="stat-cell" align="center" style="padding: 14px 10px; background: #F8F9FA; border-radius: 8px; width: 24%;">
+                    <div style="font-size: 24px; font-weight: 800; color: #7C3AED; font-family: 'Inter', -apple-system, Arial, sans-serif;">{{trial_hours_saved}}</div>
+                    <div style="font-size: 10px; color: #6B7280; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-top: 4px; line-height: 1.4;">hours saved</div>
+                  </td>
+                  <td class="stat-spacer" width="6"></td>
+                  <td class="stat-cell" align="center" style="padding: 14px 10px; background: #F8F9FA; border-radius: 8px; width: 28%;">
+                    <div style="font-size: 24px; font-weight: 800; color: #10B981; font-family: 'Inter', -apple-system, Arial, sans-serif;">€{{projected_monthly_cost}}</div>
+                    <div style="font-size: 10px; color: #6B7280; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-top: 4px; line-height: 1.4;">projected/month</div>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Contextualizing the automation rate -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 0 0 24px;">
+                <tr>
+                  <td style="background: #F0EAFF; border-left: 4px solid #7C3AED; border-radius: 0 8px 8px 0; padding: 16px 20px; font-size: 15px; color: #1A1A2E; line-height: 1.7;">
+                    If your automation rate is above 50%: your agent is already performing at or above industry average for a 5-day-old deployment. That number typically climbs to <strong>65–75% within the first 30 days</strong> as your Knowledge Base grows.
+                  </td>
+                </tr>
+              </table>
+
+              <!-- What happens if you continue -->
+              <h2 style="margin: 0 0 12px; font-size: 18px; font-weight: 700; color: #1C1B2E; letter-spacing: -0.01em;">What happens if you continue?</h2>
+
+              <p style="margin: 0 0 12px; font-size: 15px; color: #1A1A2E; line-height: 1.7;">Your agent keeps running. Your team keeps getting time back. The Knowledge Base keeps improving with every interaction.</p>
+
+              <p style="margin: 0 0 28px; font-size: 15px; color: #1A1A2E; line-height: 1.7;">On the Basic plan (€19/month), your investment breaks even if your agent handles more than <strong>{{breakeven_questions}} questions per month</strong> that would otherwise take your team 5+ minutes each. Based on your trial data, you crossed that threshold on <strong>day {{breakeven_day}}</strong>.</p>
+
+              <!-- Divider -->
+              <hr style="border: none; border-top: 1px solid #E5E7EB; margin: 0 0 24px;">
+
+              <!-- PRIMARY CTA SECTION: Upgrade -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 0 0 20px; background: #F0EAFF; border-radius: 10px;">
+                <tr>
+                  <td style="padding: 24px;">
+                    <p style="margin: 0 0 6px; font-size: 18px; font-weight: 700; color: #1C1B2E;">Ready to continue?</p>
+                    <p style="margin: 0 0 16px; font-size: 14px; color: #6B7280;">Your agent stays live, no interruption.</p>
+                    <a href="https://not-a-bot.ai/pricing.html" style="display: block; background: #7C3AED; color: #FFFFFF; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-size: 16px; font-weight: 600; text-align: center; font-family: 'Inter', -apple-system, Arial, sans-serif;">Upgrade to a paid plan &#8594;</a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- SECONDARY CTA SECTION: Demo / Working session -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 0 0 28px;">
+                <tr>
+                  <td style="padding: 20px; border: 1px solid #E5E7EB; border-radius: 10px;">
+                    <p style="margin: 0 0 8px; font-size: 16px; font-weight: 600; color: #1C1B2E;">Want to talk through your results first?</p>
+                    <p style="margin: 0 0 14px; font-size: 15px; color: #6B7280; line-height: 1.6;">Book a 30-minute working session. We look at your actual data and map out what the next 90 days could look like.</p>
+                    <p style="margin: 0 0 8px; font-size: 15px;">
+                      <a href="https://not-a-bot.ai/demo.html" style="color: #7C3AED; text-decoration: underline; font-weight: 600;">Book a 30-minute working session &#8594;</a>
+                    </p>
+                    <p style="margin: 0; font-size: 13px; color: #9CA3AF; font-style: italic;">This isn't a sales call. It's a working session.</p>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin: 0 0 32px; font-size: 15px; color: #6B7280; line-height: 1.7;">If the trial didn't go the way you hoped — reply to this email. Tell me what happened. I want to know.</p>
+
+              <!-- Divider -->
+              <hr style="border: none; border-top: 1px solid #E5E7EB; margin: 0 0 24px;">
+
+              <!-- Sign-off -->
+              <p style="margin: 0 0 4px; font-size: 16px; color: #1A1A2E;">Either way, you have data you didn't have 5 days ago.</p>
+              <p style="margin: 0 0 24px; font-size: 16px; color: #1A1A2E;"><strong>Alex</strong> — not-a-bot.ai</p>
+
+              <!-- P.S. -->
+              <p style="margin: 0; font-size: 14px; color: #6B7280; line-height: 1.6; font-style: italic;">P.S. If you'd like to extend your trial by 48 hours to run a second channel, reply with "extend" and I'll activate it manually. This isn't offered publicly — it's only available if you ask.</p>
+
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td bgcolor="#F8F9FA" style="padding: 24px 32px; border-top: 1px solid #E5E7EB; font-size: 12px; color: #6B7280; text-align: center; font-family: 'Inter', -apple-system, Arial, sans-serif; line-height: 1.6;">
+              <p style="margin: 0 0 6px;">not-a-bot.ai &middot; hello@not-a-bot.ai</p>
+              <p style="margin: 0;">You received this email because you started a free trial at not-a-bot.ai.<br>
+              <a href="{{unsubscribe_link}}" style="color: #7C3AED; text-decoration: underline;">Unsubscribe</a></p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

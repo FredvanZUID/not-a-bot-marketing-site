@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Your AI Chatbot Is Giving Wrong Answers — and How to Fix It</title>
+  <meta name="description" content="AI hallucinations in customer service chatbots cost businesses trust and customers. Here's what causes them, and how not-a-bot.ai's architecture prevents them.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://not-a-bot.ai/blog/ai-chatbot-no-hallucinations.html">
+
+  <!-- hreflang — NL and FR versions planned -->
+  <link rel="alternate" hreflang="en" href="https://not-a-bot.ai/blog/ai-chatbot-no-hallucinations.html">
+  <link rel="alternate" hreflang="nl" href="https://not-a-bot.ai/nl/blog/ai-chatbot-no-hallucinations.html">
+  <link rel="alternate" hreflang="fr" href="https://not-a-bot.ai/fr/blog/ai-chatbot-no-hallucinations.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://not-a-bot.ai/blog/ai-chatbot-no-hallucinations.html">
+  <meta property="og:title" content="Why Your AI Chatbot Is Giving Wrong Answers — and How to Fix It">
+  <meta property="og:description" content="AI hallucinations in customer service chatbots cost businesses trust and customers. Here's what causes them, and how to prevent them.">
+  <meta property="og:image" content="https://not-a-bot.ai/assets/images/og-image.png">
+  <meta property="article:published_time" content="2026-05-08">
+  <meta property="article:author" content="not-a-bot.ai">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why Your AI Chatbot Is Giving Wrong Answers — and How to Fix It">
+  <meta name="twitter:description" content="AI hallucinations destroy customer trust silently, at scale. Here's the architecture that prevents them.">
+  <meta name="twitter:image" content="https://not-a-bot.ai/assets/images/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why Your AI Chatbot Is Giving Wrong Answers — and How to Fix It",
+    "description": "AI hallucinations in customer service chatbots cost businesses trust and customers. Here's what causes them, and how not-a-bot.ai's architecture prevents them.",
+    "datePublished": "2026-05-08",
+    "dateModified": "2026-05-08",
+    "author": {
+      "@type": "Organization",
+      "name": "not-a-bot.ai"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "not-a-bot.ai",
+      "url": "https://not-a-bot.ai"
+    },
+    "url": "https://not-a-bot.ai/blog/ai-chatbot-no-hallucinations.html",
+    "inLanguage": "en",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://not-a-bot.ai/"},
+        {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://not-a-bot.ai/blog/"},
+        {"@type": "ListItem", "position": 3, "name": "Why Your AI Chatbot Is Giving Wrong Answers"}
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    /* =========================================================
+       Blog Article — Page-specific styles
+    ========================================================= */
+    .article-body { max-width: 760px; margin-inline: auto; padding: var(--space-16) var(--container-pad); }
+    .article-body h2 { font-size: var(--text-3xl); margin-top: var(--space-12); margin-bottom: var(--space-4); }
+    .article-body h3 { font-size: var(--text-2xl); margin-top: var(--space-8); margin-bottom: var(--space-3); }
+    .article-body p { font-size: var(--text-lg); line-height: 1.75; margin-bottom: var(--space-6); color: var(--color-text); }
+    .article-callout { background: rgba(124,58,237,0.06); border-left: 4px solid var(--color-accent); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: var(--space-6); margin: var(--space-8) 0; }
+    .article-callout p { margin-bottom: 0; font-weight: 600; }
+    .article-callout-danger { background: rgba(239,68,68,0.06); border-left: 4px solid var(--color-error); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: var(--space-6); margin: var(--space-8) 0; }
+    .article-callout-danger p { margin-bottom: 0; }
+    .article-toc { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-12); }
+    .article-toc h4 { font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-muted); margin-bottom: var(--space-3); }
+    .article-toc ol { padding-left: var(--space-6); }
+    .article-toc li { font-size: var(--text-sm); margin-bottom: var(--space-2); }
+    .article-toc a { color: var(--color-accent); }
+    .breadcrumb { font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-4); }
+    .breadcrumb a { color: var(--color-text-muted); }
+    .breadcrumb a:hover { color: var(--color-accent); }
+    .read-time { font-size: var(--text-sm); color: var(--color-text-muted); }
+    .article-author-block { display: flex; align-items: center; gap: var(--space-4); margin-top: var(--space-12); padding-top: var(--space-8); border-top: 1px solid var(--color-border); font-size: var(--text-sm); color: var(--color-text-muted); }
+    .blog-card { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: var(--space-8); transition: box-shadow var(--transition-base), transform var(--transition-base); }
+    .blog-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .blog-card h3 { font-size: var(--text-xl); margin-bottom: var(--space-2); }
+    .blog-card p { font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-4); }
+    .related-articles { background: var(--color-bg); padding: var(--space-16) 0; }
+    .scenario-box { background: var(--color-dark); color: rgba(255,255,255,0.85); border-radius: var(--radius-lg); padding: var(--space-6); margin: var(--space-8) 0; }
+    .scenario-box p { color: rgba(255,255,255,0.85); margin-bottom: 0; font-style: italic; }
+    .scenario-box strong { color: white; font-style: normal; }
+    .rag-diagram { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-8); margin: var(--space-8) 0; }
+    .rag-step { display: flex; gap: var(--space-4); align-items: flex-start; margin-bottom: var(--space-6); }
+    .rag-step:last-child { margin-bottom: 0; }
+    .rag-step-icon { width: 40px; height: 40px; border-radius: var(--radius-md); background: rgba(124,58,237,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 800; color: var(--color-accent); font-size: var(--text-sm); }
+    .rag-step-content h4 { font-size: var(--text-base); font-weight: 600; margin-bottom: var(--space-1); }
+    .rag-step-content p { font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: 0; }
+    .mechanism-card { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-4); }
+    .mechanism-card h3 { font-size: var(--text-xl); margin-bottom: var(--space-2); color: var(--color-accent); }
+    .mechanism-card p { font-size: var(--text-base); color: var(--color-text-muted); margin-bottom: 0; }
+    .test-steps { background: var(--color-bg); border-radius: var(--radius-lg); padding: var(--space-6); margin: var(--space-6) 0; }
+    .test-steps ol { padding-left: var(--space-6); }
+    .test-steps li { font-size: var(--text-base); margin-bottom: var(--space-3); color: var(--color-text); }
+  </style>
+</head>
+<body>
+
+  <!-- ======================================================================
+       NAV — exact copy from index.html
+  ======================================================================= -->
+  <header>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav__inner">
+        <a href="/" class="nav__logo" aria-label="not-a-bot.ai home">
+          <span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span>
+        </a>
+
+        <div class="nav__links" role="list">
+          <a href="/#features" class="nav__link" role="listitem">Features</a>
+          <a href="/pricing.html" class="nav__link" role="listitem">Pricing</a>
+          <a href="/#use-cases" class="nav__link" role="listitem">Use Cases</a>
+          <a href="/roi-calculator.html" class="nav__link" role="listitem">ROI Calculator</a>
+          <a href="/demo.html" class="nav__link" role="listitem">Demo</a>
+        </div>
+
+        <div class="nav__actions">
+          <div class="nav__lang" aria-label="Language switcher">
+            <a href="/blog/ai-chatbot-no-hallucinations.html" class="nav__lang-link active" aria-label="English">EN</a>
+            <span class="nav__lang-sep" aria-hidden="true">|</span>
+            <a href="/nl/blog/ai-chatbot-no-hallucinations.html" class="nav__lang-link" aria-label="Nederlands">NL</a>
+            <span class="nav__lang-sep" aria-hidden="true">|</span>
+            <a href="/fr/blog/ai-chatbot-no-hallucinations.html" class="nav__lang-link" aria-label="Français">FR</a>
+          </div>
+          <a href="/roi-calculator.html" class="btn btn-primary btn-sm">Start free trial</a>
+        </div>
+
+        <button class="nav__hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <nav class="nav__mobile" aria-label="Mobile navigation">
+      <a href="/#features" class="nav__mobile-link">Features</a>
+      <a href="/pricing.html" class="nav__mobile-link">Pricing</a>
+      <a href="/#use-cases" class="nav__mobile-link">Use Cases</a>
+      <a href="/roi-calculator.html" class="nav__mobile-link">ROI Calculator</a>
+      <a href="/demo.html" class="nav__mobile-link">Demo</a>
+      <a href="/roi-calculator.html" class="btn btn-primary btn-full nav__mobile-cta">Start free trial</a>
+      <div class="nav__mobile-langs">
+        <a href="/blog/ai-chatbot-no-hallucinations.html" class="nav__lang-link active">EN</a>
+        <a href="/nl/blog/ai-chatbot-no-hallucinations.html" class="nav__lang-link">NL</a>
+        <a href="/fr/blog/ai-chatbot-no-hallucinations.html" class="nav__lang-link">FR</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content" style="padding-top: var(--nav-height);">
+
+    <!-- Page hero -->
+    <div class="page-hero" style="padding-bottom: var(--space-8);">
+      <div class="container">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a> / <a href="/blog/">Blog</a> / Why Your AI Chatbot Is Giving Wrong Answers
+        </nav>
+
+        <!-- Eyebrow -->
+        <div style="display: flex; justify-content: center; gap: var(--space-3); margin-bottom: var(--space-4);">
+          <span class="badge badge-accent">Explainer</span>
+          <span class="read-time">8 min read</span>
+        </div>
+
+        <h1 style="max-width: 820px; margin-inline: auto; margin-bottom: var(--space-4);">
+          Why Your AI Chatbot Is Giving Wrong Answers — and How to Fix It
+        </h1>
+        <p style="color: var(--color-text-muted); font-size: var(--text-lg); margin-bottom: var(--space-2);">
+          Published May 8, 2026 &nbsp;·&nbsp; Written by the not-a-bot.ai team
+        </p>
+      </div>
+    </div>
+
+    <!-- Article -->
+    <div class="article-body">
+      <article>
+
+        <!-- Table of contents -->
+        <nav class="article-toc" aria-label="Table of contents">
+          <h4>In this explainer</h4>
+          <ol>
+            <li><a href="#trust-problem">The trust problem: what happens when your agent guesses</a></li>
+            <li><a href="#what-hallucinations-are">What AI hallucinations actually are</a></li>
+            <li><a href="#why-chatbots-hallucinate">Why most AI chatbots hallucinate about your business</a></li>
+            <li><a href="#rag-explained">The RAG architecture explained (simply)</a></li>
+            <li><a href="#how-we-prevent">How not-a-bot.ai prevents hallucinations</a></li>
+            <li><a href="#business-case">The business case for accuracy</a></li>
+            <li><a href="#test-your-chatbot">How to test if your current chatbot hallucinates</a></li>
+          </ol>
+        </nav>
+
+        <!-- Section 1 — Trust problem -->
+        <section id="trust-problem">
+          <h2>The trust problem: what happens when your agent guesses</h2>
+
+          <p>
+            Imagine this scenario. A potential customer visits your website at 9pm on a Thursday. They're comparing options. They have one specific question about your return policy — they need to know if they can return within 30 days.
+          </p>
+
+          <div class="scenario-box" role="region" aria-label="Hallucination scenario">
+            <p>
+              <strong>Customer:</strong> "What is your return policy? Can I return within 30 days?"<br><br>
+              <strong>Your AI chatbot:</strong> "Yes, we offer a 30-day return policy on all orders. Simply contact our support team and we'll arrange a return at no cost to you."<br><br>
+              <strong>Reality:</strong> Your return policy is 14 days, and returns carry a €6.50 handling fee.
+            </p>
+          </div>
+
+          <p>
+            The customer buys, confident they have 30 days. On day 25, they want to return. They contact support and learn that the window closed 11 days ago and there's a handling fee. They're angry — not just disappointed. They were explicitly told otherwise by your business.
+          </p>
+
+          <p>
+            They leave a 1-star review. They dispute the charge. They tell friends. And the chatbot is still live, giving the same wrong answer to the next hundred customers.
+          </p>
+
+          <p>
+            This is the hallucination problem. It's not a minor inconvenience — it's a trust-destroying event that happens silently, at scale, every time your agent makes something up.
+          </p>
+        </section>
+
+        <!-- Section 2 — What hallucinations are -->
+        <section id="what-hallucinations-are">
+          <h2>What AI hallucinations actually are</h2>
+
+          <p>
+            "Hallucination" is the technical term for when an AI language model generates text that is confident, fluent, and factually wrong. Understanding why this happens requires understanding how these models work at a basic level.
+          </p>
+
+          <p>
+            Large language models are trained to predict the most plausible next word given everything that came before it. They're extraordinarily good at this — they produce coherent, well-structured, grammatically correct text that reads as authoritative. But "plausible" is not the same as "true."
+          </p>
+
+          <aside class="article-callout" aria-label="Key insight">
+            <p>Language models don't "know" facts the way a database does. They predict statistically likely responses. When asked about your specific business — data that wasn't in their training set — they fill the gap with what sounds plausible. That's the hallucination.</p>
+          </aside>
+
+          <p>
+            The core issue: these models cannot distinguish between what they know and what they're inferring. There's no internal signal that says "I'm uncertain here." Without an external mechanism to ground the model's outputs in verified information, it will confidently produce wrong answers that look exactly like correct ones.
+          </p>
+
+          <p>
+            For general knowledge questions — historical facts, scientific explanations, language translation — hallucinations are less common because the training data is extensive. For questions specific to your business — your pricing, your terms, your process — the model has no real information and fills the void with inference.
+          </p>
+        </section>
+
+        <!-- Section 3 — Why chatbots hallucinate -->
+        <section id="why-chatbots-hallucinate">
+          <h2>Why most AI chatbots hallucinate about your business</h2>
+
+          <p>
+            The hallucination problem is worse for business chatbots than for general AI assistants, for four structural reasons.
+          </p>
+
+          <h3>They're built on general-purpose LLMs not grounded in your data</h3>
+          <p>
+            Most chatbot platforms take a foundation model — GPT, Claude, Gemini, or similar — and allow you to add some system instructions ("You are a helpful assistant for [Business Name]"). But system instructions don't replace training data. The model still answers from its general knowledge, supplemented by whatever context fits in the prompt window.
+          </p>
+
+          <h3>No retrieval mechanism limits answers to your content</h3>
+          <p>
+            Without a retrieval step, the model has no mechanism to say "let me check the relevant document before answering." It generates directly from statistical pattern matching. The more specific and unusual the question, the more likely the answer is invented.
+          </p>
+
+          <h3>No confidence threshold triggers escalation</h3>
+          <p>
+            Even when a model is uncertain, standard chatbot deployments have no mechanism to detect that uncertainty and act on it. The model doesn't say "I'm not sure about this" — it says whatever answer has the highest statistical likelihood, with full syntactic confidence.
+          </p>
+
+          <h3>No way to distinguish "I know this" from "I'm guessing this"</h3>
+          <p>
+            This is the fundamental architectural problem. Without Retrieval-Augmented Generation (RAG) and a confidence scoring layer, there is no internal signal the system can use to differentiate between a well-grounded answer and an invented one. They look identical in the output.
+          </p>
+
+          <aside class="article-callout-danger" aria-label="Risk warning">
+            <p><strong>The silent risk:</strong> Your chatbot doesn't tell you when it hallucinates. The customer moves on. The wrong answer sits in your chat history, invisible. You only find out when a customer complains — which most don't. They just leave.</p>
+          </aside>
+        </section>
+
+        <!-- Section 4 — RAG explained -->
+        <section id="rag-explained">
+          <h2>The RAG architecture explained (simply)</h2>
+
+          <p>
+            Retrieval-Augmented Generation (RAG) is the architectural solution to the hallucination problem. Here's how it works in plain terms.
+          </p>
+
+          <div class="rag-diagram" role="region" aria-label="RAG architecture diagram">
+            <div class="rag-step">
+              <div class="rag-step-icon">1</div>
+              <div class="rag-step-content">
+                <h4>Customer sends a question</h4>
+                <p>The question is received by the system. Before the AI generates a single word, a retrieval step runs first.</p>
+              </div>
+            </div>
+            <div class="rag-step">
+              <div class="rag-step-icon">2</div>
+              <div class="rag-step-content">
+                <h4>The system searches YOUR documents</h4>
+                <p>A semantic search runs against your uploaded knowledge base — your FAQ, pricing document, terms, product descriptions. It retrieves the most relevant content passages.</p>
+              </div>
+            </div>
+            <div class="rag-step">
+              <div class="rag-step-icon">3</div>
+              <div class="rag-step-content">
+                <h4>Confidence score is calculated</h4>
+                <p>How well do the retrieved passages actually match the question? If the match is strong, proceed. If the match is weak — below the threshold you've set — the system escalates instead of generating an answer.</p>
+              </div>
+            </div>
+            <div class="rag-step">
+              <div class="rag-step-icon">4</div>
+              <div class="rag-step-content">
+                <h4>AI generates an answer from retrieved content only</h4>
+                <p>The language model receives the retrieved passages and the question, and generates an answer based exclusively on that content. It cannot draw on general training data for this response.</p>
+              </div>
+            </div>
+            <div class="rag-step">
+              <div class="rag-step-icon">5</div>
+              <div class="rag-step-content">
+                <h4>Answer is returned with source attribution</h4>
+                <p>The answer cites which document section it drew from. You can audit any answer at any time.</p>
+              </div>
+            </div>
+          </div>
+
+          <p>
+            The critical point: if your documents don't contain the answer to a question, the system doesn't invent one. It says "I don't have that information" and escalates to a human. No guessing. No confident wrong answers. No trust-destroying moments.
+          </p>
+        </section>
+
+        <!-- Section 5 — How we prevent it -->
+        <section id="how-we-prevent">
+          <h2>How not-a-bot.ai prevents hallucinations</h2>
+
+          <p>
+            We built three specific mechanisms into the not-a-bot.ai architecture to make hallucination prevention systematic rather than aspirational.
+          </p>
+
+          <div class="mechanism-card" role="region" aria-label="Mechanism 1: Document-grounded answers">
+            <h3>1. Document-grounded answers</h3>
+            <p>Every answer your agent generates is derived from content you have explicitly uploaded. The language model operates within the scope of your knowledge base. It cannot draw on general training data when formulating a response to a customer question. The boundary is architectural, not instructional.</p>
+          </div>
+
+          <div class="mechanism-card" role="region" aria-label="Mechanism 2: Confidence threshold with mandatory escalation">
+            <h3>2. Confidence threshold with mandatory escalation</h3>
+            <p>You set the confidence threshold in your dashboard. When the retrieval step returns a low-confidence match — meaning the customer's question doesn't closely align with content in your documents — the agent escalates immediately. It does not attempt to answer. The escalation message arrives with full conversation context, so your team can respond meaningfully. Higher threshold settings mean more escalations but zero hallucination risk. Lower settings mean more automation but slightly higher edge-case risk. You control this balance.</p>
+          </div>
+
+          <div class="mechanism-card" role="region" aria-label="Mechanism 3: Source attribution">
+            <h3>3. Source attribution on every answer</h3>
+            <p>Every response generated by your agent references the specific document section from which it was derived. In your analytics dashboard, you can open any conversation and see exactly what content the agent used to construct each answer. This makes auditing straightforward and makes incorrect answers — when they occur — immediately traceable to a source document error rather than a model inference error.</p>
+          </div>
+        </section>
+
+        <!-- Section 6 — Business case -->
+        <section id="business-case">
+          <h2>The business case for accuracy</h2>
+
+          <p>
+            Trust is the currency of customer service. Every interaction your agent has is an opportunity to build trust or to destroy it. At scale, the difference between a trustworthy agent and a hallucinating one is significant.
+          </p>
+
+          <aside class="article-callout" aria-label="Risk quantification">
+            <p>At 100 conversations per day, a 2% hallucination rate produces 2 wrong answers daily — 60 per month. At an average customer value of €50, and assuming only 25% of affected customers take action (refund, dispute, churn, or review), that's 15 adverse events per month at €50 each = €750/month in direct risk. Plus the reputational exposure of public negative reviews.</p>
+          </aside>
+
+          <p>
+            The real cost of hallucinations isn't just the individual wrong answer. It's the compound effect on trust. A customer who receives a wrong answer from your chatbot doesn't conclude "the chatbot was wrong." They conclude "this business gave me wrong information." The attribution is to your brand.
+          </p>
+
+          <p>
+            Conversely, a chatbot that consistently says "I don't have that specific information — let me connect you to our team" builds trust rather than eroding it. Customers understand that honest admissions of knowledge limits are more reliable than confident wrong answers. The escalation itself becomes a trust signal.
+          </p>
+        </section>
+
+        <!-- Section 7 — How to test -->
+        <section id="test-your-chatbot">
+          <h2>How to test if your current chatbot hallucinates</h2>
+
+          <p>
+            If you have an existing chatbot deployed, here's a practical diagnostic you can run in 10 minutes.
+          </p>
+
+          <div class="test-steps" role="region" aria-label="Hallucination test instructions">
+            <ol>
+              <li>Make a list of 10 questions that are NOT covered by your FAQ or documentation — edge cases, very specific policy details, questions about products or services you don't offer.</li>
+              <li>Ask each question to your chatbot in a fresh conversation session.</li>
+              <li>For each answer, rate it: <strong>Correct</strong> / <strong>Escalated (said it didn't know)</strong> / <strong>Wrong but confident</strong>.</li>
+              <li>Count how many fell into the "Wrong but confident" category.</li>
+              <li>Any number above zero is a hallucination exposure.</li>
+            </ol>
+          </div>
+
+          <p>
+            A trustworthy agent says "I don't have that information" more than you'd expect during this test. That's not a failure — that's the system working correctly. The failure mode is confident wrong answers, not honest admissions of uncertainty.
+          </p>
+
+          <p>
+            If your current chatbot fails this test, the fix is architectural: you need RAG grounding, a confidence threshold, and mandatory escalation. System prompt instructions like "never make things up" do not solve the problem at the model level — they're instructions the model follows imperfectly. Only architectural grounding solves it reliably.
+          </p>
+        </section>
+
+        <!-- CTA -->
+        <section style="text-align: center; padding: var(--space-12) 0; border-top: 1px solid var(--color-border); margin-top: var(--space-12);">
+          <h2 style="margin-bottom: var(--space-4);">Deploy an AI agent that only answers from your content</h2>
+          <p style="color: var(--color-text-muted); margin-bottom: var(--space-8);">
+            No hallucinations. No invented answers. Grounded in your documents, escalates when uncertain. Start your 5-day free trial — no credit card required.
+          </p>
+          <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+            <a href="/roi-calculator.html" class="btn btn-primary btn-lg">Calculate your ROI →</a>
+            <a href="/demo.html" class="btn btn-secondary btn-lg">See a live demo</a>
+          </div>
+        </section>
+
+        <!-- Author block -->
+        <footer class="article-author-block" aria-label="Article author">
+          <div class="testimonial-avatar" aria-hidden="true">NA</div>
+          <div>
+            <strong style="font-size: var(--text-base); color: var(--color-text);">Written by the not-a-bot.ai team</strong><br>
+            May 2026 &nbsp;·&nbsp; not-a-bot.ai — AI agents for European SMBs
+          </div>
+        </footer>
+
+      </article>
+    </div>
+
+    <!-- Related articles -->
+    <section class="related-articles" aria-labelledby="related-heading">
+      <div class="container">
+        <h2 id="related-heading" style="text-align: center; margin-bottom: var(--space-8);">Related articles</h2>
+        <div class="grid-2" style="max-width: 860px; margin-inline: auto;">
+
+          <a href="/blog/ai-chatbot-small-business.html" class="blog-card" style="text-decoration: none; display: block;">
+            <span class="badge badge-accent" style="margin-bottom: var(--space-4);">Guide</span>
+            <h3>The Complete Guide to AI Chatbots for Small Business in 2026</h3>
+            <p>Real costs, hidden fees, and what actually works for businesses under 50 people.</p>
+            <span style="color: var(--color-accent); font-weight: 600; font-size: var(--text-sm);">Read article →</span>
+          </a>
+
+          <a href="/blog/stop-answering-same-questions.html" class="blog-card" style="text-decoration: none; display: block;">
+            <span class="badge badge-teal" style="margin-bottom: var(--space-4);">Tutorial</span>
+            <h3>Stop Answering the Same Customer Questions</h3>
+            <p>How to automate your FAQ in 30 minutes and reclaim 69 hours per year.</p>
+            <span style="color: var(--color-accent); font-weight: 600; font-size: var(--text-sm);">Read article →</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       FOOTER — exact copy from index.html
+  ======================================================================= -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" aria-label="not-a-bot.ai home">
+            <span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span>
+          </a>
+          <p>Custom AI agents trained on your business data. No hallucinations. Live in minutes.</p>
+        </div>
+
+        <div class="footer__col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/pricing.html">Pricing</a></li>
+            <li><a href="/roi-calculator.html">ROI Calculator</a></li>
+            <li><a href="/demo.html">Book a demo</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Use cases</h4>
+          <ul>
+            <li><a href="/use-cases/vacation-rentals.html">Vacation rentals</a></li>
+            <li><a href="/#use-cases">Customer service</a></li>
+            <li><a href="/#use-cases">Professional services</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Languages</h4>
+          <ul>
+            <li><a href="/">English</a></li>
+            <li><a href="/nl/">Nederlands</a></li>
+            <li><a href="/fr/">Français</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 not-a-bot.ai — All rights reserved.</p>
+        <div class="footer__social" aria-label="Social media links">
+          <a href="https://linkedin.com" aria-label="LinkedIn" rel="noopener noreferrer" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://twitter.com" aria-label="Twitter / X" rel="noopener noreferrer" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

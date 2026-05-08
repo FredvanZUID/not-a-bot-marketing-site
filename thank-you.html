@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank you — not-a-bot.ai</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://not-a-bot.ai/thank-you.html">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <style>
+    /* =========================================================
+       THANK-YOU PAGE — page-scoped styles
+       ========================================================= */
+
+    /* Offset for fixed nav */
+    .thankyou-main {
+      padding-top: 80px; /* matches nav height */
+    }
+
+    /* Hero section */
+    .thankyou-hero {
+      padding: var(--space-20, 5rem) 0 var(--space-12, 3rem);
+      background: var(--color-bg, #f8f9fa);
+      text-align: center;
+    }
+
+    .thankyou-hero__inner {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 var(--space-6, 1.5rem);
+    }
+
+    /* Success icon */
+    .success-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: var(--space-6, 1.5rem);
+    }
+
+    .success-icon--green {
+      background-color: #dcfce7;
+      color: #16a34a;
+    }
+
+    .success-icon--purple {
+      background-color: #f3e8ff;
+      color: #7c3aed;
+    }
+
+    .success-icon--default {
+      background-color: #dbeafe;
+      color: #2563eb;
+    }
+
+    .success-icon svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Headings */
+    .thankyou-hero__title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--color-text, #111827);
+      margin-bottom: var(--space-4, 1rem);
+    }
+
+    .thankyou-hero__subtitle {
+      font-size: 1.125rem;
+      color: var(--color-muted, #6b7280);
+      line-height: 1.6;
+      margin-bottom: var(--space-10, 2.5rem);
+    }
+
+    /* Next-steps list */
+    .next-steps {
+      text-align: left;
+      margin: 0 auto var(--space-10, 2.5rem);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4, 1rem);
+    }
+
+    .next-step {
+      display: flex;
+      gap: var(--space-4, 1rem);
+      align-items: flex-start;
+    }
+
+    .next-step__number {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--color-accent, #6366f1);
+      color: #fff;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .next-step__number--green {
+      background: #16a34a;
+    }
+
+    .next-step__number--purple {
+      background: #7c3aed;
+    }
+
+    .next-step__body {
+      flex: 1;
+    }
+
+    .next-step__label {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--color-text, #111827);
+      margin-bottom: 0.25rem;
+    }
+
+    .next-step__desc {
+      font-size: 0.9375rem;
+      color: var(--color-muted, #6b7280);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* CTA area */
+    .thankyou-ctas {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3, 0.75rem);
+    }
+
+    .thankyou-link {
+      font-size: 0.9375rem;
+      color: var(--color-accent, #6366f1);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .thankyou-link:hover {
+      text-decoration: underline;
+    }
+
+    .thankyou-email-note {
+      font-size: 0.9375rem;
+      color: var(--color-muted, #6b7280);
+    }
+
+    .thankyou-email-note a {
+      color: var(--color-accent, #6366f1);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .thankyou-email-note a:hover {
+      text-decoration: underline;
+    }
+
+    /* Divider */
+    .thankyou-divider {
+      border: none;
+      border-top: 1px solid var(--color-border, #e5e7eb);
+      margin: var(--space-12, 3rem) auto 0;
+      max-width: 640px;
+    }
+
+    /* Resources section */
+    .resources-section {
+      padding: var(--space-16, 4rem) 0 var(--space-20, 5rem);
+      background: #fff;
+    }
+
+    .resources-section__inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 var(--space-6, 1.5rem);
+      text-align: center;
+    }
+
+    .resources-section__title {
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: var(--color-text, #111827);
+      margin-bottom: var(--space-8, 2rem);
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6, 1.5rem);
+      text-align: left;
+    }
+
+    @media (max-width: 767px) {
+      .resources-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .resource-card {
+      background: var(--color-bg, #f8f9fa);
+      border: 1px solid var(--color-border, #e5e7eb);
+      border-radius: var(--radius-lg, 12px);
+      padding: var(--space-6, 1.5rem);
+      text-decoration: none;
+      display: block;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .resource-card:hover {
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      border-color: var(--color-accent, #6366f1);
+    }
+
+    .resource-card__title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-text, #111827);
+      margin-bottom: var(--space-2, 0.5rem);
+    }
+
+    .resource-card__desc {
+      font-size: 0.9375rem;
+      color: var(--color-muted, #6b7280);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .resource-card__arrow {
+      display: inline-block;
+      margin-top: var(--space-3, 0.75rem);
+      font-size: 0.875rem;
+      color: var(--color-accent, #6366f1);
+      font-weight: 600;
+    }
+
+    /* Hide all variants by default — JS will reveal the correct one.
+       Without JS, variant-default remains visible via the noscript fallback class. */
+    #variant-roi,
+    #variant-demo,
+    #variant-default {
+      display: none;
+    }
+
+    /* Shown state applied by JS */
+    .variant--active {
+      display: block !important;
+    }
+
+    /* No-JS fallback: show default variant if JS hasn't run */
+    .no-js #variant-default {
+      display: block !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======================================================================
+       NAV — exact copy from index.html
+  ======================================================================= -->
+  <header>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav__inner">
+        <a href="/" class="nav__logo" aria-label="not-a-bot.ai home">
+          <span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span>
+        </a>
+
+        <div class="nav__links" role="list">
+          <a href="/#features" class="nav__link" role="listitem">Features</a>
+          <a href="/pricing.html" class="nav__link" role="listitem">Pricing</a>
+          <a href="/#use-cases" class="nav__link" role="listitem">Use Cases</a>
+          <a href="/roi-calculator.html" class="nav__link" role="listitem">ROI Calculator</a>
+          <a href="/demo.html" class="nav__link" role="listitem">Demo</a>
+        </div>
+
+        <div class="nav__actions">
+          <div class="nav__lang" aria-label="Language switcher">
+            <a href="/" class="nav__lang-link active" data-lang="en" data-lang-switch="en" aria-label="English">EN</a>
+            <span class="nav__lang-sep" aria-hidden="true">|</span>
+            <a href="/nl/" class="nav__lang-link" data-lang="nl" data-lang-switch="nl" aria-label="Nederlands">NL</a>
+            <span class="nav__lang-sep" aria-hidden="true">|</span>
+            <a href="/fr/" class="nav__lang-link" data-lang="fr" data-lang-switch="fr" aria-label="Français">FR</a>
+          </div>
+          <a href="/roi-calculator.html" class="btn btn-primary btn-sm">Start free trial</a>
+        </div>
+
+        <button class="nav__hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <nav class="nav__mobile" aria-label="Mobile navigation">
+      <a href="/#features" class="nav__mobile-link">Features</a>
+      <a href="/pricing.html" class="nav__mobile-link">Pricing</a>
+      <a href="/#use-cases" class="nav__mobile-link">Use Cases</a>
+      <a href="/roi-calculator.html" class="nav__mobile-link">ROI Calculator</a>
+      <a href="/demo.html" class="nav__mobile-link">Demo</a>
+      <a href="/roi-calculator.html" class="btn btn-primary btn-full nav__mobile-cta">Start free trial</a>
+      <div class="nav__mobile-langs">
+        <a href="/" data-lang-switch="en" class="nav__lang-link active">EN</a>
+        <a href="/nl/" data-lang-switch="nl" class="nav__lang-link">NL</a>
+        <a href="/fr/" data-lang-switch="fr" class="nav__lang-link">FR</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content" class="thankyou-main">
+
+    <!-- ==================================================================
+         VARIANT CONTAINER — JS sets .variant--active on the correct one
+    =================================================================== -->
+    <section class="thankyou-hero" aria-labelledby="thankyou-heading">
+      <div class="thankyou-hero__inner">
+
+        <!-- ----------------------------------------------------------------
+             VARIANT 1: ROI Calculator submit (?type=roi)
+        ----------------------------------------------------------------- -->
+        <div id="variant-roi" role="region" aria-label="ROI Calculator confirmation">
+          <!-- Success icon: green checkmark -->
+          <div class="success-icon success-icon--green" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+
+          <h1 class="thankyou-hero__title" id="thankyou-heading">Your ROI estimate is on its way</h1>
+          <p class="thankyou-hero__subtitle">
+            We've sent your calculation to your inbox. Check your email — it should arrive within 5 minutes.
+          </p>
+
+          <!-- What happens next -->
+          <div class="next-steps" role="list" aria-label="What happens next">
+            <div class="next-step" role="listitem">
+              <div class="next-step__number next-step__number--green" aria-hidden="true">1</div>
+              <div class="next-step__body">
+                <div class="next-step__label">Check your inbox</div>
+                <p class="next-step__desc">You'll receive your personalized ROI summary with hours saved, cost recovered, and recommended plan.</p>
+              </div>
+            </div>
+            <div class="next-step" role="listitem">
+              <div class="next-step__number next-step__number--green" aria-hidden="true">2</div>
+              <div class="next-step__body">
+                <div class="next-step__label">In 2 days: A real-world example</div>
+                <p class="next-step__desc">A real-world example from a business similar to yours — so you can see the results in context.</p>
+              </div>
+            </div>
+            <div class="next-step" role="listitem">
+              <div class="next-step__number next-step__number--green" aria-hidden="true">3</div>
+              <div class="next-step__body">
+                <div class="next-step__label">In 7 days: Your free trial invitation</div>
+                <p class="next-step__desc">No credit card, 5 days, full access. Your agent trained on your own documents — ready to test.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="thankyou-ctas">
+            <a href="/roi-calculator.html" class="btn btn-secondary">Start your free trial now — don't wait for the email</a>
+            <a href="/demo.html" class="thankyou-link">Want to see a live demo instead? &rarr;</a>
+          </div>
+        </div>
+
+        <!-- ----------------------------------------------------------------
+             VARIANT 2: Demo request submit (?type=demo)
+        ----------------------------------------------------------------- -->
+        <div id="variant-demo" role="region" aria-label="Demo request confirmation">
+          <!-- Success icon: purple checkmark -->
+          <div class="success-icon success-icon--purple" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+
+          <h1 class="thankyou-hero__title" id="thankyou-heading-demo">Demo request received</h1>
+          <p class="thankyou-hero__subtitle">
+            We'll be in touch within 24 hours to schedule your personalized demo.
+          </p>
+
+          <!-- What happens next -->
+          <div class="next-steps" role="list" aria-label="What happens next">
+            <div class="next-step" role="listitem">
+              <div class="next-step__number next-step__number--purple" aria-hidden="true">1</div>
+              <div class="next-step__body">
+                <div class="next-step__label">Within 24 hours</div>
+                <p class="next-step__desc">Our team will reach out to confirm your demo appointment and share a calendar link.</p>
+              </div>
+            </div>
+            <div class="next-step" role="listitem">
+              <div class="next-step__number next-step__number--purple" aria-hidden="true">2</div>
+              <div class="next-step__body">
+                <div class="next-step__label">Your demo: 20–30 minutes</div>
+                <p class="next-step__desc">We'll show you a live agent trained on your own documents — no generic demo, your actual use case.</p>
+              </div>
+            </div>
+            <div class="next-step" role="listitem">
+              <div class="next-step__number next-step__number--purple" aria-hidden="true">3</div>
+              <div class="next-step__body">
+                <div class="next-step__label">After the demo</div>
+                <p class="next-step__desc">You'll receive a recording plus a free 5-day trial activation link — no credit card required.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="thankyou-ctas">
+            <a href="/roi-calculator.html" class="btn btn-secondary">Can't wait? Start your free trial now &rarr;</a>
+            <p class="thankyou-email-note">Have questions before then? Email us at <a href="mailto:hello@not-a-bot.ai">hello@not-a-bot.ai</a></p>
+          </div>
+        </div>
+
+        <!-- ----------------------------------------------------------------
+             VARIANT 3: Default — no ?type= param or unknown value
+        ----------------------------------------------------------------- -->
+        <div id="variant-default" role="region" aria-label="Thank you confirmation">
+          <!-- Success icon: blue checkmark -->
+          <div class="success-icon success-icon--default" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+
+          <h1 class="thankyou-hero__title" id="thankyou-heading-default">Thank you!</h1>
+          <p class="thankyou-hero__subtitle">
+            We've received your request and will be in touch shortly.
+          </p>
+
+          <div class="thankyou-ctas">
+            <a href="/" class="btn btn-secondary">Back to homepage &rarr;</a>
+          </div>
+        </div>
+
+      </div><!-- /.thankyou-hero__inner -->
+    </section>
+
+    <!-- ==================================================================
+         RESOURCES — "While you wait, explore these"
+    =================================================================== -->
+    <section class="resources-section" aria-labelledby="resources-heading">
+      <div class="resources-section__inner">
+        <h2 class="resources-section__title" id="resources-heading">While you wait, explore these resources</h2>
+
+        <div class="resources-grid">
+
+          <a href="/roi-calculator.html" class="resource-card" aria-label="ROI Calculator">
+            <div class="resource-card__title">ROI Calculator</div>
+            <p class="resource-card__desc">Run the numbers for different scenarios. Adjust volume, handling time, and team cost to see your exact savings.</p>
+            <span class="resource-card__arrow" aria-hidden="true">Try the calculator &rarr;</span>
+          </a>
+
+          <a href="/use-cases/vacation-rentals.html" class="resource-card" aria-label="Use Case: Vacation Rentals">
+            <div class="resource-card__title">Use Case: Vacation Rentals</div>
+            <p class="resource-card__desc">See how vacation rental operators use not-a-bot.ai to automate guest Q&amp;A — 24/7, in any language.</p>
+            <span class="resource-card__arrow" aria-hidden="true">Read the use case &rarr;</span>
+          </a>
+
+          <a href="/pricing.html" class="resource-card" aria-label="Pricing">
+            <div class="resource-card__title">Pricing</div>
+            <p class="resource-card__desc">Compare Basic, Advanced and Enterprise plans. Start at &euro;19/agent/month. First agent always free for 5 days.</p>
+            <span class="resource-card__arrow" aria-hidden="true">See pricing &rarr;</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       FOOTER — exact copy from index.html
+  ======================================================================= -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" aria-label="not-a-bot.ai home">
+            <span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span>
+          </a>
+          <p>Custom AI agents trained on your business data. No hallucinations. Live in minutes.</p>
+        </div>
+
+        <div class="footer__col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/pricing.html">Pricing</a></li>
+            <li><a href="/roi-calculator.html">ROI Calculator</a></li>
+            <li><a href="/demo.html">Book a demo</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Use cases</h4>
+          <ul>
+            <li><a href="/use-cases/vacation-rentals.html">Vacation rentals</a></li>
+            <li><a href="/#use-cases">Customer service</a></li>
+            <li><a href="/#use-cases">Professional services</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Languages</h4>
+          <ul>
+            <li><a href="/">English</a></li>
+            <li><a href="/nl/">Nederlands</a></li>
+            <li><a href="/fr/">Français</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 not-a-bot.ai &mdash; All rights reserved.</p>
+        <div class="footer__social" aria-label="Social media links">
+          <!-- LinkedIn -->
+          <a href="https://linkedin.com" aria-label="LinkedIn" rel="noopener noreferrer" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <!-- Twitter/X -->
+          <a href="https://twitter.com" aria-label="Twitter / X" rel="noopener noreferrer" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Supabase JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <!-- Main JS -->
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/supabase-forms.js"></script>
+
+  <!-- ======================================================================
+       THANK-YOU VARIANT SWITCHER
+       Reads ?type= from the URL and shows the matching variant div.
+       All three variant divs start as display:none — only the matched
+       one receives .variant--active (display:block).
+       Falls back to #variant-default for unknown or missing ?type= values.
+  ======================================================================= -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* Map of known ?type= values to their variant element IDs */
+      var VARIANT_MAP = {
+        roi:   'variant-roi',
+        demo:  'variant-demo'
+      };
+
+      /* Read ?type= query param */
+      var params = new URLSearchParams(window.location.search);
+      var type   = (params.get('type') || '').toLowerCase().trim();
+
+      /* Determine which variant to show */
+      var targetId = VARIANT_MAP[type] || 'variant-default';
+      var targetEl = document.getElementById(targetId);
+
+      /* Activate the correct variant */
+      if (targetEl) {
+        targetEl.classList.add('variant--active');
+      }
+
+      /* Update the page <title> to match the variant for browser history clarity */
+      var titles = {
+        roi:  'Your ROI estimate is on its way — not-a-bot.ai',
+        demo: 'Demo request received — not-a-bot.ai'
+      };
+      if (titles[type]) {
+        document.title = titles[type];
+      }
+    })();
+  </script>
+
+</body>
+</html>

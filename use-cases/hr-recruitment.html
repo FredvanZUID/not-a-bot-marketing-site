@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI agent for HR &amp; Recruitment — not-a-bot.ai</title>
+  <meta name="description" content="Automate candidate Q&A and reduce recruiter workload by 60%. Your AI agent answers questions about job openings, processes and company culture — 24/7.">
+  <link rel="canonical" href="https://not-a-bot.ai/use-cases/hr-recruitment.html">
+  <meta property="og:title" content="AI agent for HR &amp; Recruitment — not-a-bot.ai">
+  <meta property="og:description" content="Automate candidate Q&A and reduce recruiter workload by 60%. Your AI agent answers questions about job openings, processes and company culture — 24/7.">
+  <meta property="og:url" content="https://not-a-bot.ai/use-cases/hr-recruitment.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Schema.org for use case page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI agent for HR and Recruitment",
+    "description": "not-a-bot.ai for HR and Recruitment: automate candidate Q&A, reduce recruiter workload and improve candidate experience",
+    "url": "https://not-a-bot.ai/use-cases/hr-recruitment.html",
+    "isPartOf": { "@type": "WebSite", "url": "https://not-a-bot.ai" }
+  }
+  </script>
+
+  <style>
+    /* HR & Recruitment specific styles */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 768px) {
+      .pain-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .pain-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      border-top: 3px solid var(--color-error);
+    }
+    .pain-card .pain-emoji {
+      font-size: 2rem;
+      margin-bottom: var(--space-3);
+    }
+    .pain-card h4 {
+      font-size: var(--text-base);
+      margin-bottom: var(--space-2);
+    }
+    .pain-card p {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: 0;
+    }
+
+    .solution-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+    @media (min-width: 1024px) {
+      .solution-layout { grid-template-columns: 1fr 1fr; }
+    }
+
+    .use-case-example {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.06), rgba(14, 165, 233, 0.06));
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+    }
+
+    .use-case-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+    }
+
+    .use-case-stat {
+      text-align: center;
+      padding: var(--space-4);
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+    }
+
+    .use-case-stat-value {
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      color: var(--color-success);
+    }
+
+    .use-case-stat-label {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+    }
+
+    .demo-form-inline {
+      background: var(--color-white);
+      border: 2px solid var(--color-accent);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.08);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav__inner">
+        <a href="/" class="nav__logo" aria-label="not-a-bot.ai homepage">
+          <span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span>
+        </a>
+        <div class="nav__links">
+          <a href="/#features" class="nav__link">Features</a>
+          <a href="/pricing.html" class="nav__link">Pricing</a>
+          <a href="/#use-cases" class="nav__link">Use Cases</a>
+          <a href="/roi-calculator.html" class="nav__link">ROI Calculator</a>
+          <a href="/demo.html" class="nav__link">Demo</a>
+        </div>
+        <div class="nav__actions">
+          <div class="nav__lang">
+            <a href="/" class="nav__lang-link active" data-lang="en">EN</a>
+            <span class="nav__lang-sep">|</span>
+            <a href="/nl/" class="nav__lang-link" data-lang="nl">NL</a>
+            <span class="nav__lang-sep">|</span>
+            <a href="/fr/" class="nav__lang-link" data-lang="fr">FR</a>
+          </div>
+          <a href="/roi-calculator.html" class="btn btn-primary btn-sm">Start free trial</a>
+        </div>
+        <button class="nav__hamburger" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <nav id="mobile-nav" class="nav__mobile" aria-label="Mobile navigation">
+      <a href="/#features" class="nav__mobile-link">Features</a>
+      <a href="/pricing.html" class="nav__mobile-link">Pricing</a>
+      <a href="/#use-cases" class="nav__mobile-link">Use Cases</a>
+      <a href="/roi-calculator.html" class="nav__mobile-link">ROI Calculator</a>
+      <a href="/demo.html" class="nav__mobile-link">Demo</a>
+      <a href="/roi-calculator.html" class="btn btn-primary btn-full nav__mobile-cta">Start free trial</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero" style="background: linear-gradient(170deg, rgba(16,185,129,0.08) 0%, var(--color-bg) 60%);" aria-labelledby="hr-hero-heading">
+      <div class="container hero__inner">
+        <div class="hero__eyebrow fade-in">
+          <span class="badge badge-accent">HR &amp; Recruitment</span>
+          <span class="badge badge-success">5-day free trial</span>
+        </div>
+
+        <h1 class="hero__title fade-in delay-1" id="hr-hero-heading">
+          Let candidates get answers —<br>without <span style="color: var(--color-success);">overloading your recruiters</span>
+        </h1>
+
+        <p class="hero__subtitle fade-in delay-2">
+          Your AI agent handles candidate Q&amp;A about open roles, the application process, and company culture — 24/7. Your recruiters focus on the conversations that matter.
+        </p>
+
+        <div class="hero__ctas fade-in delay-3">
+          <a href="/roi-calculator.html" class="btn btn-primary btn-lg">Start free trial</a>
+          <a href="#demo-request" class="btn btn-secondary btn-lg">See a demo</a>
+        </div>
+
+        <p class="hero__note fade-in delay-4">
+          No credit card &nbsp;·&nbsp; Live in 30 minutes &nbsp;·&nbsp; GDPR compliant
+        </p>
+
+        <!-- Chat mockup -->
+        <div class="hero__visual fade-in delay-5" aria-hidden="true">
+          <div class="chat-mockup">
+            <div class="chat-mockup__header">
+              <div class="chat-mockup__avatar">👥</div>
+              <div>
+                <div class="chat-mockup__name">Talent One — Recruitment Assistant</div>
+                <div class="chat-mockup__status">Online — always available</div>
+              </div>
+            </div>
+            <div class="chat-messages">
+              <div class="chat-message user">Is there remote work possible for the developer role?</div>
+              <div class="chat-message bot">Yes — the Developer role at Accenture Belgium supports 60% remote work, with 2 days per week on-site in Brussels. Would you like more information about the role or the application process?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF BAR -->
+    <section class="social-proof-bar" aria-label="Proven results">
+      <div class="container">
+        <p class="social-proof-bar__label">Results from HR teams using not-a-bot.ai</p>
+        <div class="social-proof-bar__logos">
+          <span class="logo-pill">60% fewer candidate emails</span>
+          <span class="logo-pill">24/7 candidate support</span>
+          <span class="logo-pill">28-min setup</span>
+          <span class="logo-pill">GDPR compliant</span>
+          <span class="logo-pill">Multi-language</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAIN POINTS -->
+    <section class="section bg-white" aria-labelledby="hr-pain-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Does this sound familiar?</span>
+          <h2 id="hr-pain-heading">The recruiter's daily frustration</h2>
+          <p>High-volume hiring means high-volume repetitive questions. Your best recruiters spend their days in the inbox instead of sourcing talent.</p>
+        </div>
+
+        <div class="pain-grid">
+          <div class="pain-card fade-in delay-1">
+            <div class="pain-emoji" aria-hidden="true">📨</div>
+            <h4>100+ candidate emails per day</h4>
+            <p>Same questions, different inboxes: "Is the role still open?", "Can I work remotely?", "What's the salary?", "When will I hear back?"</p>
+          </div>
+
+          <div class="pain-card fade-in delay-2">
+            <div class="pain-emoji" aria-hidden="true">🌙</div>
+            <h4>Candidates apply outside office hours</h4>
+            <p>Your best candidates browse LinkedIn at 9pm. They have questions. You're not there. They apply somewhere else.</p>
+          </div>
+
+          <div class="pain-card fade-in delay-3">
+            <div class="pain-emoji" aria-hidden="true">🔁</div>
+            <h4>Repeating the same process explanation</h4>
+            <p>Every applicant needs the same explanation: how many rounds, what the timeline is, who they'll meet.</p>
+          </div>
+
+          <div class="pain-card fade-in delay-4">
+            <div class="pain-emoji" aria-hidden="true">📋</div>
+            <h4>Screening pre-qualified candidates manually</h4>
+            <p>Most applications don't meet basic requirements. Your agent can filter these before they reach your ATS.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUTION -->
+    <section class="section bg-bg" aria-labelledby="hr-solution-heading">
+      <div class="container">
+        <div class="solution-layout">
+          <div class="fade-in">
+            <span class="section-label">The solution</span>
+            <h2 id="hr-solution-heading">Your agent handles the entire candidate FAQ layer</h2>
+            <p class="text-lg" style="color: var(--color-text-muted); margin-bottom: var(--space-6);">Upload your job descriptions, culture deck, and FAQ. not-a-bot.ai trains an AI agent that knows every open role in detail — and handles the first touchpoint with every candidate.</p>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Trained on your open roles and company culture</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">Upload your job descriptions, culture deck, and FAQ. The agent knows your firm.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Answers in 8+ languages</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">Candidates from across Europe get answers in their language.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Pre-qualifies candidates</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">Set required criteria. The agent screens for experience, location, availability before the conversation reaches your team.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>GDPR compliant from day one</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">Data processed within EU. Consent-first design. Audit trail available.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-in delay-2">
+            <div class="card" style="padding: var(--space-8);">
+              <h3 style="margin-bottom: var(--space-6);">What your agent answers automatically</h3>
+              <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">💼</span> Open positions and requirements
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">📍</span> Location, remote, hybrid policy
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">💰</span> Salary ranges and benefits
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">📅</span> Application timeline and rounds
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">🏢</span> Company culture and values
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">✅</span> Application status updates
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">📄</span> Required documents and next steps
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: rgba(124, 58, 237, 0.06); border: 1px dashed rgba(124,58,237,0.3); border-radius: var(--radius-md); font-size: var(--text-sm); color: var(--color-accent);">
+                  <span aria-hidden="true">➕</span> And everything you add...
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDY -->
+    <section class="section bg-white" aria-labelledby="hr-case-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Success story</span>
+          <h2 id="hr-case-heading">Talent One: 60% fewer candidate emails</h2>
+        </div>
+
+        <div class="use-case-example fade-in">
+          <div class="solution-layout">
+            <div>
+              <p class="text-lg" style="margin-bottom: var(--space-4);">Sarah Konings is Head of Talent at a 200-person scale-up in Ghent. Her team of 3 recruiters was handling 80–120 candidate emails per week — same questions, different people. She deployed a not-a-bot agent trained on 12 active job descriptions and their company FAQ. Live in under 30 minutes.</p>
+              <p style="color: var(--color-text-muted); margin-bottom: var(--space-6);">Before not-a-bot.ai, candidates would email Monday morning and wait until Tuesday afternoon. Now they get an answer in seconds — whether it's Friday night or Sunday morning. The quality of applications improved because candidates came in better informed.</p>
+
+              <div class="use-case-stats">
+                <div class="use-case-stat">
+                  <div class="use-case-stat-value">60%</div>
+                  <div class="use-case-stat-label">Fewer direct candidate emails</div>
+                </div>
+                <div class="use-case-stat">
+                  <div class="use-case-stat-value">3</div>
+                  <div class="use-case-stat-label">Recruiters freed from first-line Q&amp;A</div>
+                </div>
+                <div class="use-case-stat">
+                  <div class="use-case-stat-value">4.8★</div>
+                  <div class="use-case-stat-label">Candidate experience score</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="testimonial-card">
+                <div class="stars" aria-label="5 stars">★★★★★</div>
+                <p class="testimonial-quote">Candidates now get instant answers about our open roles, even on Sunday morning. Our recruiters spend their time on actual talent assessment — not inbox management.</p>
+                <div class="testimonial-author">
+                  <div class="testimonial-avatar" aria-hidden="true">SK</div>
+                  <div>
+                    <div class="testimonial-name">Sarah K.</div>
+                    <div class="testimonial-company">Head of Talent, Talent One (fictional example)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section bg-bg" aria-labelledby="features-hr-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Features</span>
+          <h2 id="features-hr-heading">Built for HR &amp; Recruitment</h2>
+        </div>
+
+        <div class="grid-3">
+          <article class="feature-card fade-in delay-1">
+            <div class="feature-icon teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Multi-role management</h3>
+            <p>Managing 20+ open positions? Each role gets its own context. The agent knows exactly which requirements apply to which job.</p>
+          </article>
+
+          <article class="feature-card fade-in delay-2">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <h3>Candidate pre-screening</h3>
+            <p>Configure screening criteria per role. The agent asks qualifying questions and flags candidates who meet minimum requirements.</p>
+          </article>
+
+          <article class="feature-card fade-in delay-3">
+            <div class="feature-icon amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </div>
+            <h3>ATS Integration (Enterprise)</h3>
+            <p>Connect your Workday, Greenhouse, or Lever via API. Qualified candidates flow directly into your pipeline.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section bg-white" aria-labelledby="pricing-hr-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Pricing</span>
+          <h2 id="pricing-hr-heading">Less than the cost of one missed hire</h2>
+          <p>The Basic plan at €19/month costs less than an hour of recruiter time. For most HR teams, the agent pays for itself in the first week of reduced inbox volume.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card fade-in delay-1">
+            <div class="pricing-tier basic">Basic — For 1 agent</div>
+            <div class="pricing-price">
+              <span class="currency">€</span>
+              <span class="amount">19</span>
+              <span class="period">/agent/month</span>
+            </div>
+            <p class="pricing-tagline">1 AI agent for your recruitment process. Live in 30 minutes.</p>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>100K tokens / month</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Upload 5 job descriptions</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Website chat widget</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Multi-language (automatic)</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>First agent: 5 days free</li>
+            </ul>
+            <a href="/roi-calculator.html" class="btn btn-secondary btn-full">Start free trial</a>
+          </div>
+
+          <div class="pricing-card popular fade-in delay-2">
+            <div class="pricing-badge">Most popular</div>
+            <div class="pricing-tier advanced">Advanced — For active hiring</div>
+            <div class="pricing-price">
+              <span class="currency">€</span>
+              <span class="amount">49</span>
+              <span class="period">/agent/month</span>
+            </div>
+            <p class="pricing-tagline">20 job descriptions, CRM/ATS connection, screening automation.</p>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>500K tokens / month</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>20 job descriptions</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>CRM/ATS integration</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Candidate pre-screening</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Full chat history</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>First agent: 5 days free</li>
+            </ul>
+            <a href="/roi-calculator.html" class="btn btn-primary btn-full">Start free trial</a>
+          </div>
+
+          <div class="pricing-card fade-in delay-3">
+            <div class="pricing-tier enterprise">Enterprise — At scale</div>
+            <div class="pricing-price">
+              <span class="currency">€</span>
+              <span class="amount">249</span>
+              <span class="period">+/agent/month</span>
+            </div>
+            <p class="pricing-tagline">WhatsApp for candidate outreach, ATS integration, dedicated setup.</p>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>5M tokens / month</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Unlimited job descriptions</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>WhatsApp integration</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Custom development</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Dedicated implementation support</li>
+            </ul>
+            <a href="#demo-request" class="btn btn-secondary btn-full">Request a demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMO REQUEST -->
+    <section id="demo-request" class="section bg-bg" aria-labelledby="demo-hr-heading">
+      <div class="container" style="max-width: 640px;">
+        <div class="section-header fade-in">
+          <span class="section-label">See it live</span>
+          <h2 id="demo-hr-heading">See how it works for your team</h2>
+          <p>Request a free demo. We'll show you live what your agent would look like — trained on your own job descriptions and company FAQ.</p>
+        </div>
+
+        <div class="demo-form-inline fade-in">
+          <form data-form="demo" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="hr-name">Name <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" class="form-input" id="hr-name" name="name" placeholder="Your name" required autocomplete="name">
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="hr-email">Email address <span class="required" aria-hidden="true">*</span></label>
+              <input type="email" class="form-input" id="hr-email" name="email" placeholder="you@yourcompany.com" required autocomplete="email">
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="hr-company">Organization <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" class="form-input" id="hr-company" name="company" placeholder="e.g. Talent One" required autocomplete="organization">
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="hr-teamsize">Team size</label>
+              <select class="form-select" id="hr-teamsize" name="company_size">
+                <option value="1-10">1–10 employees</option>
+                <option value="11-50">11–50 employees</option>
+                <option value="51-200">51–200 employees</option>
+                <option value="200+">200+ employees</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="hr-usecase">What do you want to automate? <span class="required" aria-hidden="true">*</span></label>
+              <textarea class="form-textarea" id="hr-usecase" name="use_case" required
+                placeholder="e.g. Candidate questions about our open roles, remote policy, and application process — across 12 active vacancies."
+                rows="3"></textarea>
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="hr-phone">Phone (optional)</label>
+              <input type="tel" class="form-input" id="hr-phone" name="phone" placeholder="+32 or +31..." autocomplete="tel">
+            </div>
+
+            <input type="hidden" name="current_tools" value="hr-recruitment">
+
+            <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top: var(--space-4);">
+              Request demo
+            </button>
+
+            <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-3); margin-bottom: 0; text-align: center;">
+              We respond within 24 hours. No obligations.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/"><span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span></a>
+          <p>Custom AI agents trained on your business data. No hallucinations. Live in minutes.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/pricing.html">Pricing</a></li>
+            <li><a href="/roi-calculator.html">ROI Calculator</a></li>
+            <li><a href="/demo.html">Request a demo</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Use Cases</h4>
+          <ul>
+            <li><a href="/use-cases/vacation-rentals.html">Vacation Rentals</a></li>
+            <li><a href="/use-cases/professional-services.html">Professional Services</a></li>
+            <li><a href="/use-cases/hr-recruitment.html">HR &amp; Recruitment</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Languages</h4>
+          <ul>
+            <li><a href="/">English</a></li>
+            <li><a href="/nl/">Nederlands</a></li>
+            <li><a href="/fr/">Français</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 not-a-bot.ai — All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/supabase-forms.js"></script>
+</body>
+</html>

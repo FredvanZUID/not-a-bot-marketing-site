@@ -1,0 +1,66 @@
+# =============================================================================
+# netlify.toml — not-a-bot.ai
+# =============================================================================
+
+[build]
+  publish = "."
+
+# =============================================================================
+# REDIRECTS
+# =============================================================================
+
+# Trailing-slash redirects for language roots (301 permanent)
+[[redirects]]
+  from = "/nl"
+  to = "/nl/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fr"
+  to = "/fr/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog"
+  to = "/blog/"
+  status = 301
+  force = true
+
+# Legacy internal redirect for NL homepage (200 rewrite — keeps URL clean)
+[[redirects]]
+  from = "/nl/"
+  to = "/nl/index.html"
+  status = 200
+
+# Legacy internal redirect for FR homepage (200 rewrite — keeps URL clean)
+[[redirects]]
+  from = "/fr/"
+  to = "/fr/index.html"
+  status = 200
+
+# =============================================================================
+# HEADERS
+# =============================================================================
+
+# Security headers — all pages
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Cache: static assets — 1 year immutable (content-hashed filenames assumed)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache: HTML pages — always revalidate
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

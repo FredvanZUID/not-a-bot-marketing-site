@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent for Architects & Consultants — not-a-bot.ai</title>
+  <meta name="description" content="Stop explaining your process. Start billing for it. An AI agent trained on your service docs handles client FAQ 24/7. Setup: 28 minutes. From €19/month.">
+  <!-- Paid landing page — do not index -->
+  <meta name="robots" content="noindex">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Base styles -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <style>
+    /* ---- Landing page: no full nav, minimal chrome ---- */
+
+    .lp-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-height);
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+    }
+    .lp-nav__inner {
+      max-width: var(--container-max);
+      width: 100%;
+      margin-inline: auto;
+      padding-inline: var(--container-pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Hero */
+    .lp-hero {
+      padding-top: calc(var(--nav-height) + var(--space-16));
+      padding-bottom: var(--space-16);
+      background: linear-gradient(170deg, #F0EAFF 0%, var(--color-bg) 65%);
+      text-align: center;
+    }
+    .lp-hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: rgba(124, 58, 237, 0.1);
+      color: var(--color-accent);
+      border-radius: var(--radius-full);
+      padding: 6px 16px;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      margin-bottom: var(--space-6);
+      letter-spacing: 0.03em;
+    }
+    .lp-hero h1 {
+      font-size: clamp(1.75rem, 5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.12;
+      color: var(--color-text);
+      max-width: 760px;
+      margin-inline: auto;
+      margin-bottom: var(--space-6);
+    }
+    .lp-hero h1 .accent { color: var(--color-accent); }
+    .lp-hero__sub {
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      max-width: 580px;
+      margin-inline: auto;
+      margin-bottom: var(--space-6);
+      line-height: 1.65;
+    }
+    .lp-hero__urgency {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+    .lp-hero__urgency strong { color: var(--color-accent); }
+
+    /* Extra-large CTA button */
+    .btn-xl {
+      padding: 20px 48px;
+      font-size: var(--text-xl);
+      border-radius: var(--radius-lg);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    /* Trust strip */
+    .trust-strip {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-top: var(--space-4);
+    }
+    .trust-strip .stars { color: var(--color-amber); }
+
+    /* Problem / Solution */
+    .ps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 640px) {
+      .ps-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .ps-col {
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+    }
+    .ps-col.problem {
+      background: rgba(239, 68, 68, 0.05);
+      border: 1px solid rgba(239, 68, 68, 0.15);
+    }
+    .ps-col.solution {
+      background: rgba(16, 185, 129, 0.05);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+    .ps-col h3 { font-size: var(--text-lg); margin-bottom: var(--space-4); }
+    .ps-col.problem h3 { color: #DC2626; }
+    .ps-col.solution h3 { color: #059669; }
+    .ps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .ps-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--color-text);
+    }
+    .ps-col.problem .ps-list li::before { content: '✗'; color: #DC2626; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .ps-col.solution .ps-list li::before { content: '✓'; color: #059669; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+    /* Stats strip */
+    .stat-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-8);
+      padding: var(--space-8) 0;
+    }
+    .stat-strip__item { text-align: center; }
+    .stat-strip__value {
+      font-size: var(--text-3xl);
+      font-weight: 800;
+      color: var(--color-accent);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-strip__label {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+    }
+
+    /* How it works steps */
+    .lp-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 640px) {
+      .lp-steps { grid-template-columns: repeat(3, 1fr); }
+    }
+    .lp-step {
+      text-align: center;
+      padding: var(--space-6);
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+    }
+    .lp-step__num {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
+      color: white;
+      font-size: var(--text-xl);
+      font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin-inline: auto;
+      margin-bottom: var(--space-3);
+    }
+    .lp-step__time {
+      display: inline-block;
+      font-size: var(--text-xs);
+      color: var(--color-accent);
+      font-weight: 700;
+      background: rgba(124, 58, 237, 0.08);
+      padding: 2px 10px;
+      border-radius: var(--radius-full);
+      margin-top: var(--space-2);
+    }
+
+    /* Risk reversal strip */
+    .risk-strip {
+      text-align: center;
+      padding: var(--space-4);
+      background: rgba(16, 185, 129, 0.05);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: var(--radius-lg);
+      font-size: var(--text-sm);
+      color: #065F46;
+      font-weight: 500;
+    }
+
+    /* Mid-page CTA */
+    .mid-cta {
+      background: linear-gradient(135deg, var(--color-dark) 0%, #2D1B69 100%);
+      padding: var(--space-16) 0;
+      text-align: center;
+    }
+    .mid-cta h2 { color: white; margin-bottom: var(--space-4); }
+    .mid-cta p { color: rgba(255,255,255,0.7); font-size: var(--text-lg); max-width: 500px; margin-inline: auto; margin-bottom: var(--space-8); }
+  </style>
+</head>
+<body>
+
+  <!-- ======================================================================
+       LOGO-ONLY NAV (no links — conversion focus)
+  ======================================================================= -->
+  <header>
+    <nav class="lp-nav" role="navigation" aria-label="Site navigation">
+      <div class="lp-nav__inner">
+        <a href="/" class="nav__logo" aria-label="not-a-bot.ai home">
+          <span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span>
+        </a>
+        <a href="/roi-calculator.html" class="btn btn-primary btn-sm">
+          Calculate your ROI →
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ====================================================================
+         HERO
+    ===================================================================== -->
+    <section class="lp-hero" aria-labelledby="lp-ps-heading">
+      <div class="container">
+
+        <div class="lp-hero__badge" aria-label="Audience and offer">
+          Architects &amp; Consultants &nbsp;·&nbsp; 5-day free trial
+        </div>
+
+        <h1 id="lp-ps-heading">
+          Stop explaining your process.<br>
+          <span class="accent">Start billing for it.</span>
+        </h1>
+
+        <p class="lp-hero__sub">
+          An AI agent trained on your service docs handles client FAQ 24/7. Setup: 28 minutes. Cost: €19/month.
+        </p>
+
+        <p class="lp-hero__urgency" aria-label="Key benefits">
+          <strong>⚡ Live in 28 minutes</strong>
+          &nbsp;·&nbsp; No credit card
+          &nbsp;·&nbsp; GDPR compliant
+          &nbsp;·&nbsp; No developer needed
+        </p>
+
+        <a href="/roi-calculator.html" class="btn btn-primary btn-xl" aria-label="Calculate your ROI and start free trial">
+          Calculate your ROI &nbsp;→
+        </a>
+
+        <p class="trust-strip">
+          <span class="stars" aria-label="5 star rating">★★★★★</span>
+          &nbsp;4.9/5 &nbsp;·&nbsp; 500+ businesses &nbsp;·&nbsp; BE / NL / FR
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         PROBLEM / SOLUTION
+    ===================================================================== -->
+    <section class="section bg-white" aria-labelledby="ps-ps-heading">
+      <div class="container" style="max-width: 800px;">
+        <h2 id="ps-ps-heading" class="text-center" style="margin-bottom: var(--space-8);">Sound familiar?</h2>
+
+        <div class="ps-grid">
+          <div class="ps-col problem" role="region" aria-label="Current situation">
+            <h3>Today: explaining, again</h3>
+            <ul class="ps-list">
+              <li>Same intake questions from every new prospect</li>
+              <li>3 hours a week writing the same email</li>
+              <li>Prospects arrive uninformed — meetings run long</li>
+              <li>First contact = education, not assessment</li>
+            </ul>
+          </div>
+
+          <div class="ps-col solution" role="region" aria-label="With not-a-bot.ai">
+            <h3>With not-a-bot.ai</h3>
+            <ul class="ps-list">
+              <li>Agent handles all process, pricing and timeline questions</li>
+              <li>3+ hours freed per week, every week</li>
+              <li>Prospects arrive pre-informed, meetings are productive</li>
+              <li>Your first contact = qualified, substantive conversation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         STATS STRIP
+    ===================================================================== -->
+    <section class="bg-bg" aria-label="Results in numbers">
+      <div class="container">
+        <div class="stat-strip">
+          <div class="stat-strip__item">
+            <div class="stat-strip__value">60%</div>
+            <div class="stat-strip__label">Fewer intake questions</div>
+          </div>
+          <div class="stat-strip__item">
+            <div class="stat-strip__value">3 hrs</div>
+            <div class="stat-strip__label">Saved per week</div>
+          </div>
+          <div class="stat-strip__item">
+            <div class="stat-strip__value">2x</div>
+            <div class="stat-strip__label">More productive meetings</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         HOW IT WORKS
+    ===================================================================== -->
+    <section class="section bg-white" aria-labelledby="how-ps-heading">
+      <div class="container" style="max-width: 900px;">
+        <h2 id="how-ps-heading" class="text-center" style="margin-bottom: var(--space-2);">How it works</h2>
+        <p class="text-center text-muted" style="margin-bottom: var(--space-10);">From zero to a live agent — in less time than your next client call.</p>
+
+        <div class="lp-steps">
+          <div class="lp-step">
+            <div class="lp-step__num" aria-hidden="true">1</div>
+            <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Upload your service docs</h3>
+            <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 0;">Service brochure, FAQ document, timeline guide, pricing overview. PDF or Word — the agent learns everything.</p>
+            <span class="lp-step__time">10 minutes</span>
+          </div>
+
+          <div class="lp-step">
+            <div class="lp-step__num" aria-hidden="true">2</div>
+            <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Train and test</h3>
+            <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 0;">Ask it your typical prospect questions. Refine the tone. No code, no technical knowledge required.</p>
+            <span class="lp-step__time">10 minutes</span>
+          </div>
+
+          <div class="lp-step">
+            <div class="lp-step__num" aria-hidden="true">3</div>
+            <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Embed and go live</h3>
+            <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 0;">One line of code on your contact page. Prospects get answers 24/7. You get better meetings.</p>
+            <span class="lp-step__time">8 minutes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TESTIMONIAL
+    ===================================================================== -->
+    <section class="section bg-bg" aria-labelledby="testimonial-ps-heading">
+      <div class="container" style="max-width: 720px;">
+        <h2 id="testimonial-ps-heading" class="sr-only">Customer story</h2>
+
+        <article class="testimonial-card" aria-label="Testimonial from Thomas V.M.">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="testimonial-quote">
+            "By the time I speak to a prospect, they already understand our process and our prices. The meetings are shorter. The conversions are higher. I used to spend Tuesday mornings writing the same email. Now I don't."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">TM</div>
+            <div>
+              <div class="testimonial-name">Thomas V.M.</div>
+              <div class="testimonial-company">Managing Partner, Studio Merckx, Brussels <em style="font-weight: 400;">(composite example)</em></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         MID-PAGE CTA
+    ===================================================================== -->
+    <section class="mid-cta" aria-labelledby="mid-cta-ps-heading">
+      <div class="container">
+        <h2 id="mid-cta-ps-heading">See exactly what you save</h2>
+        <p>Enter your monthly question volume and handling time. Get your exact ROI — hours, euros, payback days.</p>
+        <a href="/roi-calculator.html" class="btn btn-white btn-xl" aria-label="Calculate your ROI">
+          Calculate your ROI &nbsp;→
+        </a>
+        <p style="color: rgba(255,255,255,0.5); font-size: var(--text-sm); margin-top: var(--space-4); margin-bottom: 0;">
+          Average setup time: 28 minutes. Average monthly saving: 12 hours.
+        </p>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         WHAT THE AGENT DOES (specifics for this audience)
+    ===================================================================== -->
+    <section class="section bg-white" aria-labelledby="agent-does-heading">
+      <div class="container" style="max-width: 860px;">
+        <div class="section-header">
+          <span class="section-label">The agent in practice</span>
+          <h2 id="agent-does-heading">What it handles for professional services</h2>
+        </div>
+
+        <div class="grid-2">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 0 2-2h2a2 2 0 0 0 2 2"/></svg>
+            </div>
+            <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Process &amp; pricing FAQ</h3>
+            <p style="margin: 0;">Explains your service methodology, typical timelines, fee structures, and what clients can expect at each stage — in your voice.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+            </div>
+            <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">First-layer qualification</h3>
+            <p style="margin: 0;">Asks the right questions to qualify inbound prospects before they reach you — project type, budget range, timeline. Your inbox quality improves immediately.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Discovery call booking</h3>
+            <p style="margin: 0;">Books calls directly in your calendar for qualified prospects. Unqualified leads self-select out before they reach your diary.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Honest when it doesn't know</h3>
+            <p style="margin: 0;">When a question is outside its knowledge base, it says so and offers to connect to you directly. No hallucinations. Your professional reputation stays intact.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         BOTTOM CTA + RISK REVERSAL
+    ===================================================================== -->
+    <section class="section bg-bg" aria-labelledby="bottom-cta-ps-heading">
+      <div class="container" style="max-width: 640px; text-align: center;">
+        <h2 id="bottom-cta-ps-heading" style="margin-bottom: var(--space-4);">Your time is too valuable to spend explaining your process.</h2>
+        <p style="color: var(--color-text-muted); margin-bottom: var(--space-8);">
+          Try not-a-bot.ai free for 5 days. Go live in 28 minutes. No credit card required.
+        </p>
+
+        <a href="/roi-calculator.html" class="btn btn-primary btn-xl" style="margin-bottom: var(--space-6);" aria-label="Calculate ROI and start free trial">
+          Calculate your ROI &nbsp;→
+        </a>
+
+        <div class="risk-strip" aria-label="Guarantees">
+          No credit card &nbsp;·&nbsp; No commitment &nbsp;·&nbsp; Cancel anytime
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- NO FOOTER on landing page -->
+
+  <script src="/assets/js/main.js"></script>
+
+</body>
+</html>

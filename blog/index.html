@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — AI Agent Insights for SMBs — not-a-bot.ai</title>
+  <meta name="description" content="Practical guides and insights on AI chatbots for small and medium businesses. No hype, just what works.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://not-a-bot.ai/blog/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://not-a-bot.ai/blog/">
+  <meta property="og:title" content="Blog — AI Agent Insights for SMBs — not-a-bot.ai">
+  <meta property="og:description" content="Practical guides and insights on AI chatbots for small and medium businesses. No hype, just what works.">
+  <meta property="og:image" content="https://not-a-bot.ai/assets/images/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog — AI Agent Insights for SMBs — not-a-bot.ai">
+  <meta name="twitter:description" content="Practical guides on AI chatbots for small and medium businesses. No hype, just what works.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Schema.org JSON-LD — Blog listing -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "not-a-bot.ai — AI Agent Insights for SMBs",
+    "description": "Practical guides and insights on AI chatbots for small and medium businesses.",
+    "url": "https://not-a-bot.ai/blog/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "not-a-bot.ai",
+      "url": "https://not-a-bot.ai"
+    },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "The Complete Guide to AI Chatbots for Small Business in 2026",
+        "url": "https://not-a-bot.ai/blog/ai-chatbot-small-business.html",
+        "datePublished": "2026-05-08",
+        "author": {"@type": "Organization", "name": "not-a-bot.ai"}
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Stop Answering the Same Customer Questions — How to Automate Your FAQ in 30 Minutes",
+        "url": "https://not-a-bot.ai/blog/stop-answering-same-questions.html",
+        "datePublished": "2026-05-08",
+        "author": {"@type": "Organization", "name": "not-a-bot.ai"}
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Why Your AI Chatbot Is Giving Wrong Answers — and How to Fix It",
+        "url": "https://not-a-bot.ai/blog/ai-chatbot-no-hallucinations.html",
+        "datePublished": "2026-05-08",
+        "author": {"@type": "Organization", "name": "not-a-bot.ai"}
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* =========================================================
+       Blog Index — Page-specific styles
+    ========================================================= */
+    .blog-hero {
+      padding-top: calc(var(--nav-height) + var(--space-12));
+      padding-bottom: var(--space-12);
+      background: linear-gradient(170deg, #F0EAFF 0%, var(--color-bg) 70%);
+      text-align: center;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    .blog-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: box-shadow var(--transition-base), transform var(--transition-base);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+
+    .blog-card__image {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      position: relative;
+    }
+
+    .blog-card__image.purple { background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(139, 92, 246, 0.2)); }
+    .blog-card__image.teal   { background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(14, 165, 233, 0.2)); }
+    .blog-card__image.green  { background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.2)); }
+
+    .blog-card__body {
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .blog-card__meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .blog-card__read-time {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+
+    .blog-card__title {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: var(--space-3);
+      line-height: 1.3;
+    }
+
+    .blog-card__excerpt {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      margin-bottom: var(--space-6);
+      flex: 1;
+    }
+
+    .blog-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .blog-card__author {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+
+    .blog-card__cta {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap var(--transition-base);
+    }
+
+    .blog-card__cta:hover {
+      gap: var(--space-2);
+    }
+
+    .blog-card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .breadcrumb {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+      text-align: center;
+    }
+
+    .breadcrumb a {
+      color: var(--color-text-muted);
+    }
+
+    .breadcrumb a:hover {
+      color: var(--color-accent);
+    }
+
+    @media (min-width: 768px) {
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .blog-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======================================================================
+       NAV — exact copy from index.html
+  ======================================================================= -->
+  <header>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav__inner">
+        <a href="/" class="nav__logo" aria-label="not-a-bot.ai home">
+          <span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span>
+        </a>
+
+        <div class="nav__links" role="list">
+          <a href="/#features" class="nav__link" role="listitem">Features</a>
+          <a href="/pricing.html" class="nav__link" role="listitem">Pricing</a>
+          <a href="/#use-cases" class="nav__link" role="listitem">Use Cases</a>
+          <a href="/roi-calculator.html" class="nav__link" role="listitem">ROI Calculator</a>
+          <a href="/demo.html" class="nav__link" role="listitem">Demo</a>
+        </div>
+
+        <div class="nav__actions">
+          <div class="nav__lang" aria-label="Language switcher">
+            <a href="/blog/" class="nav__lang-link active" data-lang="en" aria-label="English">EN</a>
+            <span class="nav__lang-sep" aria-hidden="true">|</span>
+            <a href="/nl/blog/" class="nav__lang-link" data-lang="nl" aria-label="Nederlands">NL</a>
+            <span class="nav__lang-sep" aria-hidden="true">|</span>
+            <a href="/fr/blog/" class="nav__lang-link" data-lang="fr" aria-label="Français">FR</a>
+          </div>
+          <a href="/roi-calculator.html" class="btn btn-primary btn-sm">Start free trial</a>
+        </div>
+
+        <button class="nav__hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <nav class="nav__mobile" aria-label="Mobile navigation">
+      <a href="/#features" class="nav__mobile-link">Features</a>
+      <a href="/pricing.html" class="nav__mobile-link">Pricing</a>
+      <a href="/#use-cases" class="nav__mobile-link">Use Cases</a>
+      <a href="/roi-calculator.html" class="nav__mobile-link">ROI Calculator</a>
+      <a href="/demo.html" class="nav__mobile-link">Demo</a>
+      <a href="/roi-calculator.html" class="btn btn-primary btn-full nav__mobile-cta">Start free trial</a>
+      <div class="nav__mobile-langs">
+        <a href="/blog/" class="nav__lang-link active">EN</a>
+        <a href="/nl/blog/" class="nav__lang-link">NL</a>
+        <a href="/fr/blog/" class="nav__lang-link">FR</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Blog hero -->
+    <section class="blog-hero" aria-labelledby="blog-heading">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a> / Blog
+        </nav>
+        <span class="section-label">Blog</span>
+        <h1 id="blog-heading" style="margin-bottom: var(--space-4);">AI Agents for Business — Practical Guides</h1>
+        <p style="font-size: var(--text-lg); color: var(--color-text-muted); max-width: 560px; margin-inline: auto; margin-bottom: 0;">
+          No hype. No jargon. Just what actually works for businesses like yours.
+        </p>
+      </div>
+    </section>
+
+    <!-- Articles grid -->
+    <section class="section bg-bg" aria-labelledby="articles-heading">
+      <div class="container">
+        <h2 id="articles-heading" class="sr-only">All articles</h2>
+
+        <div class="blog-grid">
+
+          <!-- Article 1 — AI chatbot for small business -->
+          <article aria-labelledby="art1-title">
+            <a href="/blog/ai-chatbot-small-business.html" class="blog-card-link">
+              <div class="blog-card fade-in delay-1">
+                <div class="blog-card__image purple" aria-hidden="true">💼</div>
+                <div class="blog-card__body">
+                  <div class="blog-card__meta">
+                    <span class="badge badge-accent">Guide</span>
+                    <span class="blog-card__read-time">8 min read</span>
+                  </div>
+                  <h2 id="art1-title" class="blog-card__title">
+                    The Complete Guide to AI Chatbots for Small Business in 2026
+                  </h2>
+                  <p class="blog-card__excerpt">
+                    Real costs, hidden fees, the 5 biggest buying mistakes — and a practical checklist to evaluate any platform before you commit.
+                  </p>
+                  <div class="blog-card__footer">
+                    <span class="blog-card__author">not-a-bot.ai team &nbsp;·&nbsp; May 8, 2026</span>
+                    <span class="blog-card__cta">Read article <span aria-hidden="true">→</span></span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Article 2 — Stop answering same questions -->
+          <article aria-labelledby="art2-title">
+            <a href="/blog/stop-answering-same-questions.html" class="blog-card-link">
+              <div class="blog-card fade-in delay-2">
+                <div class="blog-card__image teal" aria-hidden="true">⏱</div>
+                <div class="blog-card__body">
+                  <div class="blog-card__meta">
+                    <span class="badge badge-teal">Tutorial</span>
+                    <span class="blog-card__read-time">7 min read</span>
+                  </div>
+                  <h2 id="art2-title" class="blog-card__title">
+                    Stop Answering the Same Customer Questions — Automate Your FAQ in 30 Minutes
+                  </h2>
+                  <p class="blog-card__excerpt">
+                    The average SMB spends 69 hours per year answering the same 20 questions. Here's the step-by-step to automate 70% of it — today.
+                  </p>
+                  <div class="blog-card__footer">
+                    <span class="blog-card__author">not-a-bot.ai team &nbsp;·&nbsp; May 8, 2026</span>
+                    <span class="blog-card__cta">Read article <span aria-hidden="true">→</span></span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Article 3 — No hallucinations -->
+          <article aria-labelledby="art3-title">
+            <a href="/blog/ai-chatbot-no-hallucinations.html" class="blog-card-link">
+              <div class="blog-card fade-in delay-3">
+                <div class="blog-card__image green" aria-hidden="true">🛡</div>
+                <div class="blog-card__body">
+                  <div class="blog-card__meta">
+                    <span class="badge badge-accent">Explainer</span>
+                    <span class="blog-card__read-time">8 min read</span>
+                  </div>
+                  <h2 id="art3-title" class="blog-card__title">
+                    Why Your AI Chatbot Is Giving Wrong Answers — and How to Fix It
+                  </h2>
+                  <p class="blog-card__excerpt">
+                    AI hallucinations destroy customer trust silently, at scale. Here's what causes them, what they cost, and the architecture that prevents them.
+                  </p>
+                  <div class="blog-card__footer">
+                    <span class="blog-card__author">not-a-bot.ai team &nbsp;·&nbsp; May 8, 2026</span>
+                    <span class="blog-card__cta">Read article <span aria-hidden="true">→</span></span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" aria-labelledby="blog-cta-heading">
+      <div class="container cta-section__inner">
+        <span class="section-label" style="color: rgba(255,255,255,0.6);">Ready to try it?</span>
+        <h2 id="blog-cta-heading">See the numbers for your business</h2>
+        <p>Use the ROI Calculator to see exactly how many hours per month an AI agent saves you — and what that's worth in euros.</p>
+        <div class="cta-section__buttons">
+          <a href="/roi-calculator.html" class="btn btn-white btn-lg">Calculate your ROI</a>
+          <a href="/demo.html" class="btn btn-outline-white btn-lg">Book a demo</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       FOOTER — exact copy from index.html
+  ======================================================================= -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" aria-label="not-a-bot.ai home">
+            <span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span>
+          </a>
+          <p>Custom AI agents trained on your business data. No hallucinations. Live in minutes.</p>
+        </div>
+
+        <div class="footer__col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/pricing.html">Pricing</a></li>
+            <li><a href="/roi-calculator.html">ROI Calculator</a></li>
+            <li><a href="/demo.html">Book a demo</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Use cases</h4>
+          <ul>
+            <li><a href="/use-cases/vacation-rentals.html">Vacation rentals</a></li>
+            <li><a href="/#use-cases">Customer service</a></li>
+            <li><a href="/#use-cases">Professional services</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Languages</h4>
+          <ul>
+            <li><a href="/">English</a></li>
+            <li><a href="/nl/">Nederlands</a></li>
+            <li><a href="/fr/">Français</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 not-a-bot.ai — All rights reserved.</p>
+        <div class="footer__social" aria-label="Social media links">
+          <a href="https://linkedin.com" aria-label="LinkedIn" rel="noopener noreferrer" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://twitter.com" aria-label="Twitter / X" rel="noopener noreferrer" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

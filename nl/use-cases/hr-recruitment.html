@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-agent voor HR &amp; Recruitment — not-a-bot.ai</title>
+  <meta name="description" content="Automatiseer kandidaatvragen en verlaag de werkdruk van uw recruiters met 60%. Uw AI-agent beantwoordt vragen over openstaande functies, het sollicitatieproces en de bedrijfscultuur — 24/7.">
+  <link rel="canonical" href="https://not-a-bot.ai/nl/use-cases/hr-recruitment.html">
+  <link rel="alternate" hreflang="en" href="https://not-a-bot.ai/use-cases/hr-recruitment.html">
+  <link rel="alternate" hreflang="nl" href="https://not-a-bot.ai/nl/use-cases/hr-recruitment.html">
+  <link rel="alternate" hreflang="x-default" href="https://not-a-bot.ai/use-cases/hr-recruitment.html">
+  <meta property="og:title" content="AI-agent voor HR &amp; Recruitment — not-a-bot.ai">
+  <meta property="og:description" content="Automatiseer kandidaatvragen en verlaag de werkdruk van uw recruiters met 60%. Uw AI-agent beantwoordt vragen over openstaande functies, het sollicitatieproces en de bedrijfscultuur — 24/7.">
+  <meta property="og:url" content="https://not-a-bot.ai/nl/use-cases/hr-recruitment.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Schema.org for use case page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI-agent voor HR en Recruitment",
+    "description": "not-a-bot.ai voor HR en Recruitment: kandidaatvragen automatiseren, werkdruk recruiters verlagen en kandidaatervaring verbeteren",
+    "url": "https://not-a-bot.ai/nl/use-cases/hr-recruitment.html",
+    "isPartOf": { "@type": "WebSite", "url": "https://not-a-bot.ai" }
+  }
+  </script>
+
+  <style>
+    /* HR & Recruitment specific styles */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 768px) {
+      .pain-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .pain-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      border-top: 3px solid var(--color-error);
+    }
+    .pain-card .pain-emoji {
+      font-size: 2rem;
+      margin-bottom: var(--space-3);
+    }
+    .pain-card h4 {
+      font-size: var(--text-base);
+      margin-bottom: var(--space-2);
+    }
+    .pain-card p {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: 0;
+    }
+
+    .solution-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+    @media (min-width: 1024px) {
+      .solution-layout { grid-template-columns: 1fr 1fr; }
+    }
+
+    .use-case-example {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.06), rgba(14, 165, 233, 0.06));
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+    }
+
+    .use-case-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+    }
+
+    .use-case-stat {
+      text-align: center;
+      padding: var(--space-4);
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+    }
+
+    .use-case-stat-value {
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      color: var(--color-success);
+    }
+
+    .use-case-stat-label {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+    }
+
+    .demo-form-inline {
+      background: var(--color-white);
+      border: 2px solid var(--color-accent);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.08);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <nav class="nav" role="navigation" aria-label="Hoofdnavigatie">
+      <div class="nav__inner">
+        <a href="/nl/" class="nav__logo" aria-label="not-a-bot.ai homepagina">
+          <span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span>
+        </a>
+        <div class="nav__links">
+          <a href="/nl/#functies" class="nav__link">Functies</a>
+          <a href="/pricing.html" class="nav__link">Prijzen</a>
+          <a href="/nl/#toepassingen" class="nav__link">Toepassingen</a>
+          <a href="/roi-calculator.html" class="nav__link">ROI Calculator</a>
+          <a href="/demo.html" class="nav__link">Demo</a>
+        </div>
+        <div class="nav__actions">
+          <div class="nav__lang">
+            <a href="/use-cases/hr-recruitment.html" class="nav__lang-link" data-lang="en" data-lang-switch="en">EN</a>
+            <span class="nav__lang-sep">|</span>
+            <a href="/nl/use-cases/hr-recruitment.html" class="nav__lang-link active" data-lang="nl" data-lang-switch="nl">NL</a>
+            <span class="nav__lang-sep">|</span>
+            <a href="/fr/" class="nav__lang-link" data-lang="fr" data-lang-switch="fr">FR</a>
+          </div>
+          <a href="/roi-calculator.html" class="btn btn-primary btn-sm">Gratis starten</a>
+        </div>
+        <button class="nav__hamburger" aria-label="Mobiel menu openen" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <nav id="mobile-nav" class="nav__mobile" aria-label="Mobiele navigatie">
+      <a href="/nl/#functies" class="nav__mobile-link">Functies</a>
+      <a href="/pricing.html" class="nav__mobile-link">Prijzen</a>
+      <a href="/nl/#toepassingen" class="nav__mobile-link">Toepassingen</a>
+      <a href="/roi-calculator.html" class="nav__mobile-link">ROI Calculator</a>
+      <a href="/demo.html" class="nav__mobile-link">Demo</a>
+      <a href="/roi-calculator.html" class="btn btn-primary btn-full nav__mobile-cta">Gratis starten</a>
+      <div class="nav__mobile-langs">
+        <a href="/use-cases/hr-recruitment.html" data-lang-switch="en" class="nav__lang-link">EN</a>
+        <a href="/nl/use-cases/hr-recruitment.html" data-lang-switch="nl" class="nav__lang-link active">NL</a>
+        <a href="/fr/" data-lang-switch="fr" class="nav__lang-link">FR</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero" style="background: linear-gradient(170deg, rgba(16,185,129,0.08) 0%, var(--color-bg) 60%);" aria-labelledby="hr-hero-heading">
+      <div class="container hero__inner">
+        <div class="hero__eyebrow fade-in">
+          <span class="badge badge-accent">HR &amp; Recruitment</span>
+          <span class="badge badge-success">5 dagen gratis</span>
+        </div>
+
+        <h1 class="hero__title fade-in delay-1" id="hr-hero-heading">
+          Laat kandidaten direct antwoord krijgen —<br>zonder <span style="color: var(--color-success);">uw recruiters te belasten</span>
+        </h1>
+
+        <p class="hero__subtitle fade-in delay-2">
+          Uw AI-agent beantwoordt kandidaatvragen over openstaande functies, het sollicitatieproces en de bedrijfscultuur — 24/7. Uw recruiters focussen op de gesprekken die er echt toe doen.
+        </p>
+
+        <div class="hero__ctas fade-in delay-3">
+          <a href="/roi-calculator.html" class="btn btn-primary btn-lg">Gratis starten</a>
+          <a href="#demo-request" class="btn btn-secondary btn-lg">Bekijk een demo</a>
+        </div>
+
+        <p class="hero__note fade-in delay-4">
+          Geen creditcard &nbsp;·&nbsp; Klaar in 30 minuten &nbsp;·&nbsp; GDPR-conform
+        </p>
+
+        <!-- Chat mockup -->
+        <div class="hero__visual fade-in delay-5" aria-hidden="true">
+          <div class="chat-mockup">
+            <div class="chat-mockup__header">
+              <div class="chat-mockup__avatar">👥</div>
+              <div>
+                <div class="chat-mockup__name">Talent One — Recruitment Assistent</div>
+                <div class="chat-mockup__status">Online — altijd beschikbaar</div>
+              </div>
+            </div>
+            <div class="chat-messages">
+              <div class="chat-message user">Is thuiswerken mogelijk voor de developer-functie?</div>
+              <div class="chat-message bot">Ja — de Developer-functie bij Accenture Belgium biedt 60% thuiswerk, met 2 dagen per week op kantoor in Brussel. Wilt u meer informatie over de functie of het sollicitatieproces?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF BAR -->
+    <section class="social-proof-bar" aria-label="Bewezen resultaten">
+      <div class="container">
+        <p class="social-proof-bar__label">Resultaten bij HR-teams die not-a-bot.ai gebruiken</p>
+        <div class="social-proof-bar__logos">
+          <span class="logo-pill">60% minder kandidaatmails</span>
+          <span class="logo-pill">24/7 kandidaatondersteuning</span>
+          <span class="logo-pill">28 min. setup</span>
+          <span class="logo-pill">GDPR-conform</span>
+          <span class="logo-pill">Meertalig</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAIN POINTS -->
+    <section class="section bg-white" aria-labelledby="hr-pain-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Herkenbaar?</span>
+          <h2 id="hr-pain-heading">De dagelijkse frustratie van de recruiter</h2>
+          <p>Grootschalig werven betekent grootschalige herhaling. Uw beste recruiters brengen hun dag door in de inbox in plaats van talent te sourcen.</p>
+        </div>
+
+        <div class="pain-grid">
+          <div class="pain-card fade-in delay-1">
+            <div class="pain-emoji" aria-hidden="true">📨</div>
+            <h4>100+ kandidaatmails per dag</h4>
+            <p>Dezelfde vragen, verschillende inboxen: "Is de functie nog open?", "Kan ik thuiswerken?", "Wat is het salaris?", "Wanneer hoor ik iets?"</p>
+          </div>
+
+          <div class="pain-card fade-in delay-2">
+            <div class="pain-emoji" aria-hidden="true">🌙</div>
+            <h4>Kandidaten solliciteren buiten kantooruren</h4>
+            <p>Uw beste kandidaten scrollen LinkedIn om 21u. Ze hebben vragen. U bent er niet. Ze solliciteren ergens anders.</p>
+          </div>
+
+          <div class="pain-card fade-in delay-3">
+            <div class="pain-emoji" aria-hidden="true">🔁</div>
+            <h4>De werkwijze keer op keer uitleggen</h4>
+            <p>Elke sollicitant heeft dezelfde uitleg nodig: hoeveel gespreksrondes, wat de tijdlijn is, wie ze zullen ontmoeten.</p>
+          </div>
+
+          <div class="pain-card fade-in delay-4">
+            <div class="pain-emoji" aria-hidden="true">📋</div>
+            <h4>Handmatig kandidaten pre-screenen</h4>
+            <p>De meeste sollicitaties voldoen niet aan de basisvereisten. Uw agent kan deze filteren vóór ze uw ATS bereiken.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUTION -->
+    <section class="section bg-bg" aria-labelledby="hr-solution-heading">
+      <div class="container">
+        <div class="solution-layout">
+          <div class="fade-in">
+            <span class="section-label">De oplossing</span>
+            <h2 id="hr-solution-heading">Uw agent handelt de volledige FAQ-laag voor kandidaten af</h2>
+            <p class="text-lg" style="color: var(--color-text-muted); margin-bottom: var(--space-6);">Upload uw vacatureteksten, cultuurpresentatie en FAQ. not-a-bot.ai traint een AI-agent die elke openstaande functie in detail kent — en het eerste contactmoment met elke kandidaat afhandelt.</p>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Getraind op uw openstaande functies en bedrijfscultuur</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">Upload uw vacatureteksten, cultuurpresentatie en FAQ. De agent kent uw organisatie.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Antwoorden in 8+ talen</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">Kandidaten uit heel Europa krijgen antwoord in hun eigen taal.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Pre-screening van kandidaten</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">Stel vereiste criteria in. De agent screent op ervaring, locatie en beschikbaarheid vóór het gesprek uw team bereikt.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>GDPR-conform vanaf dag één</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">Dataverwerking binnen de EU. Toestemming-first ontwerp. Audittrail beschikbaar.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-in delay-2">
+            <div class="card" style="padding: var(--space-8);">
+              <h3 style="margin-bottom: var(--space-6);">Wat uw agent automatisch beantwoordt</h3>
+              <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">💼</span> Openstaande functies en vereisten
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">📍</span> Locatie, thuiswerk- en hybride beleid
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">💰</span> Salarisbereiken en voordelen
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">📅</span> Sollicitatietijdlijn en gespreksrondes
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">🏢</span> Bedrijfscultuur en waarden
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">✅</span> Statusupdates van de sollicitatie
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">📄</span> Vereiste documenten en volgende stappen
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: rgba(124, 58, 237, 0.06); border: 1px dashed rgba(124,58,237,0.3); border-radius: var(--radius-md); font-size: var(--text-sm); color: var(--color-accent);">
+                  <span aria-hidden="true">➕</span> En alles wat u toevoegt...
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDY -->
+    <section class="section bg-white" aria-labelledby="hr-case-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Succesverhaal</span>
+          <h2 id="hr-case-heading">Talent One: 60% minder kandidaatmails</h2>
+        </div>
+
+        <div class="use-case-example fade-in">
+          <div class="solution-layout">
+            <div>
+              <p class="text-lg" style="margin-bottom: var(--space-4);">Sarah Konings is Head of Talent bij een scale-up van 200 medewerkers in Gent. Haar team van 3 recruiters verwerkte 80 tot 120 kandidaatmails per week — dezelfde vragen, van andere mensen. Ze zette een not-a-bot-agent in, getraind op 12 actieve vacatureteksten en hun bedrijfs-FAQ. Live in minder dan 30 minuten.</p>
+              <p style="color: var(--color-text-muted); margin-bottom: var(--space-6);">Vóór not-a-bot.ai stuurden kandidaten maandagochtend een mail en wachtten tot dinsdagmiddag. Nu krijgen ze binnen seconden een antwoord — of het nu vrijdagavond of zondagochtend is. De kwaliteit van sollicitaties verbeterde omdat kandidaten beter geïnformeerd aankwamen.</p>
+
+              <div class="use-case-stats">
+                <div class="use-case-stat">
+                  <div class="use-case-stat-value">60%</div>
+                  <div class="use-case-stat-label">Minder directe kandidaatmails</div>
+                </div>
+                <div class="use-case-stat">
+                  <div class="use-case-stat-value">3</div>
+                  <div class="use-case-stat-label">Recruiters vrij van first-line Q&amp;A</div>
+                </div>
+                <div class="use-case-stat">
+                  <div class="use-case-stat-value">4,8★</div>
+                  <div class="use-case-stat-label">Score kandidaatervaring</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="testimonial-card">
+                <div class="stars" aria-label="5 van 5 sterren">★★★★★</div>
+                <p class="testimonial-quote">Kandidaten krijgen nu direct antwoord over onze openstaande functies, zelfs op zondagochtend. Onze recruiters besteden hun tijd aan echte talentbeoordeling — niet aan inboxbeheer.</p>
+                <div class="testimonial-author">
+                  <div class="testimonial-avatar" aria-hidden="true">SK</div>
+                  <div>
+                    <div class="testimonial-name">Sarah K.</div>
+                    <div class="testimonial-company">Head of Talent, Talent One (fictief voorbeeld)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section bg-bg" aria-labelledby="features-hr-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Functies</span>
+          <h2 id="features-hr-heading">Gebouwd voor HR &amp; Recruitment</h2>
+        </div>
+
+        <div class="grid-3">
+          <article class="feature-card fade-in delay-1">
+            <div class="feature-icon teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Beheer van meerdere functies</h3>
+            <p>Beheert u 20+ openstaande posities? Elke functie krijgt zijn eigen context. De agent weet precies welke vereisten bij welke job horen.</p>
+          </article>
+
+          <article class="feature-card fade-in delay-2">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <h3>Pre-screening van kandidaten</h3>
+            <p>Stel screeningcriteria in per functie. De agent stelt kwalificatievragen en markeert kandidaten die aan de minimumvereisten voldoen.</p>
+          </article>
+
+          <article class="feature-card fade-in delay-3">
+            <div class="feature-icon amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </div>
+            <h3>ATS-integratie (Enterprise)</h3>
+            <p>Verbind uw Workday, Greenhouse of Lever via API. Gekwalificeerde kandidaten stromen rechtstreeks in uw pipeline.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section bg-white" aria-labelledby="pricing-hr-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Prijzen</span>
+          <h2 id="pricing-hr-heading">Minder dan de kost van één gemiste aanwerving</h2>
+          <p>Het Basic-plan van €19/maand kost minder dan een uur recruiter-tijd. Voor de meeste HR-teams verdient de agent zichzelf terug in de eerste week door verminderd inboxvolume.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card fade-in delay-1">
+            <div class="pricing-tier basic">Basic — Voor 1 agent</div>
+            <div class="pricing-price">
+              <span class="currency">€</span>
+              <span class="amount">19</span>
+              <span class="period">/agent/maand</span>
+            </div>
+            <p class="pricing-tagline">1 AI-agent voor uw recruitmentproces. Klaar in 30 minuten.</p>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>100K tokens / maand</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Upload 5 vacatureteksten</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Website-chatwidget</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Meertalig (automatisch)</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Eerste agent: 5 dagen gratis</li>
+            </ul>
+            <a href="/roi-calculator.html" class="btn btn-secondary btn-full">Gratis starten</a>
+          </div>
+
+          <div class="pricing-card popular fade-in delay-2">
+            <div class="pricing-badge">Meest gekozen</div>
+            <div class="pricing-tier advanced">Advanced — Voor actief werven</div>
+            <div class="pricing-price">
+              <span class="currency">€</span>
+              <span class="amount">49</span>
+              <span class="period">/agent/maand</span>
+            </div>
+            <p class="pricing-tagline">20 vacatureteksten, CRM/ATS-koppeling, automatische screening.</p>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>500K tokens / maand</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>20 vacatureteksten</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>CRM/ATS-integratie</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Pre-screening van kandidaten</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Volledige chatgeschiedenis</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Eerste agent: 5 dagen gratis</li>
+            </ul>
+            <a href="/roi-calculator.html" class="btn btn-primary btn-full">Gratis starten</a>
+          </div>
+
+          <div class="pricing-card fade-in delay-3">
+            <div class="pricing-tier enterprise">Enterprise — Op schaal</div>
+            <div class="pricing-price">
+              <span class="currency">€</span>
+              <span class="amount">249</span>
+              <span class="period">+/agent/maand</span>
+            </div>
+            <p class="pricing-tagline">WhatsApp voor kandidaatcommunicatie, ATS-integratie, toegewijde setup.</p>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>5M tokens / maand</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Onbeperkt vacatureteksten</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>WhatsApp-integratie</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Maatwerkontwikkeling</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Toegewijde implementatieondersteuning</li>
+            </ul>
+            <a href="#demo-request" class="btn btn-secondary btn-full">Demo aanvragen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMO REQUEST -->
+    <section id="demo-request" class="section bg-bg" aria-labelledby="demo-hr-heading">
+      <div class="container" style="max-width: 640px;">
+        <div class="section-header fade-in">
+          <span class="section-label">Zie het live</span>
+          <h2 id="demo-hr-heading">Ontdek hoe het werkt voor uw team</h2>
+          <p>Vraag een gratis demo aan. We tonen u live hoe uw agent eruitziet — getraind op uw eigen vacatureteksten en bedrijfs-FAQ.</p>
+        </div>
+
+        <div class="demo-form-inline fade-in">
+          <form data-form="demo" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="hr-name">Naam <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" class="form-input" id="hr-name" name="name" placeholder="Uw naam" required autocomplete="name">
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="hr-email">E-mailadres <span class="required" aria-hidden="true">*</span></label>
+              <input type="email" class="form-input" id="hr-email" name="email" placeholder="u@uwbedrijf.be" required autocomplete="email">
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="hr-company">Organisatie <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" class="form-input" id="hr-company" name="company" placeholder="bijv. Talent One" required autocomplete="organization">
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="hr-teamsize">Teamgrootte</label>
+              <select class="form-select" id="hr-teamsize" name="company_size">
+                <option value="1-10">1-10 medewerkers</option>
+                <option value="11-50">11-50 medewerkers</option>
+                <option value="51-200">51-200 medewerkers</option>
+                <option value="200+">200+ medewerkers</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="hr-usecase">Wat wilt u automatiseren? <span class="required" aria-hidden="true">*</span></label>
+              <textarea class="form-textarea" id="hr-usecase" name="use_case" required
+                placeholder="bijv. Kandidaatvragen over onze openstaande functies, thuiswerkbeleid en sollicitatieproces — voor 12 actieve vacatures."
+                rows="3"></textarea>
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="hr-phone">Telefoonnummer (optioneel)</label>
+              <input type="tel" class="form-input" id="hr-phone" name="phone" placeholder="+32 of +31..." autocomplete="tel">
+            </div>
+
+            <input type="hidden" name="current_tools" value="hr-recruitment">
+
+            <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top: var(--space-4);">
+              Demo aanvragen
+            </button>
+
+            <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-3); margin-bottom: 0; text-align: center;">
+              We reageren binnen 24 uur. Geen verplichtingen.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/nl/" aria-label="not-a-bot.ai homepagina"><span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span></a>
+          <p>Aangepaste AI-agents getraind op uw bedrijfsdata. Geen hallucinaties. In minuten live.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="/nl/#functies">Functies</a></li>
+            <li><a href="/pricing.html">Prijzen</a></li>
+            <li><a href="/roi-calculator.html">ROI Calculator</a></li>
+            <li><a href="/demo.html">Demo aanvragen</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Toepassingen</h4>
+          <ul>
+            <li><a href="/use-cases/vacation-rentals.html">Vakantieverhuur</a></li>
+            <li><a href="/nl/use-cases/professional-services.html">Professionele diensten</a></li>
+            <li><a href="/nl/use-cases/hr-recruitment.html">HR &amp; Recruitment</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Talen</h4>
+          <ul>
+            <li><a href="/">English</a></li>
+            <li><a href="/nl/">Nederlands</a></li>
+            <li><a href="/fr/">Français</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 not-a-bot.ai — Alle rechten voorbehouden.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/supabase-forms.js"></script>
+</body>
+</html>

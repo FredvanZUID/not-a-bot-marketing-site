@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent for HR & Recruitment Teams — not-a-bot.ai</title>
+  <meta name="description" content="60% fewer candidate emails. Recruiters focused on talent. One AI agent handles all candidate FAQ about your open roles, process and remote policy — 24/7. Setup: 28 minutes.">
+  <!-- Paid landing page — do not index -->
+  <meta name="robots" content="noindex">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Base styles -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <style>
+    /* ---- Landing page: no full nav, minimal chrome ---- */
+
+    .lp-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-height);
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+    }
+    .lp-nav__inner {
+      max-width: var(--container-max);
+      width: 100%;
+      margin-inline: auto;
+      padding-inline: var(--container-pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Hero */
+    .lp-hero {
+      padding-top: calc(var(--nav-height) + var(--space-16));
+      padding-bottom: var(--space-16);
+      background: linear-gradient(170deg, #ECFDF5 0%, var(--color-bg) 65%);
+      text-align: center;
+    }
+    .lp-hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: rgba(16, 185, 129, 0.1);
+      color: #065F46;
+      border-radius: var(--radius-full);
+      padding: 6px 16px;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      margin-bottom: var(--space-6);
+      letter-spacing: 0.03em;
+    }
+    .lp-hero h1 {
+      font-size: clamp(1.75rem, 5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.12;
+      color: var(--color-text);
+      max-width: 820px;
+      margin-inline: auto;
+      margin-bottom: var(--space-6);
+    }
+    .lp-hero h1 .accent-green { color: #059669; }
+    .lp-hero__sub {
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin-inline: auto;
+      margin-bottom: var(--space-6);
+      line-height: 1.65;
+    }
+    .lp-hero__urgency {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+    .lp-hero__urgency strong { color: var(--color-accent); }
+
+    /* Extra-large CTA button */
+    .btn-xl {
+      padding: 20px 48px;
+      font-size: var(--text-xl);
+      border-radius: var(--radius-lg);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    /* Trust strip */
+    .trust-strip {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-top: var(--space-4);
+    }
+    .trust-strip .stars { color: var(--color-amber); }
+
+    /* Problem / Solution */
+    .ps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 640px) {
+      .ps-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .ps-col {
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+    }
+    .ps-col.problem {
+      background: rgba(239, 68, 68, 0.05);
+      border: 1px solid rgba(239, 68, 68, 0.15);
+    }
+    .ps-col.solution {
+      background: rgba(16, 185, 129, 0.05);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+    .ps-col h3 { font-size: var(--text-lg); margin-bottom: var(--space-4); }
+    .ps-col.problem h3 { color: #DC2626; }
+    .ps-col.solution h3 { color: #059669; }
+    .ps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .ps-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--color-text);
+    }
+    .ps-col.problem .ps-list li::before { content: '✗'; color: #DC2626; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .ps-col.solution .ps-list li::before { content: '✓'; color: #059669; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+    /* Stats strip */
+    .stat-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-8);
+      padding: var(--space-8) 0;
+    }
+    .stat-strip__item { text-align: center; }
+    .stat-strip__value {
+      font-size: var(--text-3xl);
+      font-weight: 800;
+      color: var(--color-accent);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-strip__label {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+    }
+
+    /* How it works steps */
+    .lp-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 640px) {
+      .lp-steps { grid-template-columns: repeat(3, 1fr); }
+    }
+    .lp-step {
+      text-align: center;
+      padding: var(--space-6);
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+    }
+    .lp-step__num {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10B981, #059669);
+      color: white;
+      font-size: var(--text-xl);
+      font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin-inline: auto;
+      margin-bottom: var(--space-3);
+    }
+    .lp-step__time {
+      display: inline-block;
+      font-size: var(--text-xs);
+      color: #059669;
+      font-weight: 700;
+      background: rgba(16, 185, 129, 0.1);
+      padding: 2px 10px;
+      border-radius: var(--radius-full);
+      margin-top: var(--space-2);
+    }
+
+    /* Risk reversal strip */
+    .risk-strip {
+      text-align: center;
+      padding: var(--space-4);
+      background: rgba(16, 185, 129, 0.05);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: var(--radius-lg);
+      font-size: var(--text-sm);
+      color: #065F46;
+      font-weight: 500;
+    }
+
+    /* Mid-page CTA */
+    .mid-cta {
+      background: linear-gradient(135deg, var(--color-dark) 0%, #052e16 100%);
+      padding: var(--space-16) 0;
+      text-align: center;
+    }
+    .mid-cta h2 { color: white; margin-bottom: var(--space-4); }
+    .mid-cta p { color: rgba(255,255,255,0.7); font-size: var(--text-lg); max-width: 500px; margin-inline: auto; margin-bottom: var(--space-8); }
+
+    /* Use case examples */
+    .example-q {
+      background: var(--color-accent);
+      color: white;
+      border-radius: var(--radius-lg) var(--radius-lg) var(--radius-sm) var(--radius-lg);
+      padding: var(--space-3) var(--space-4);
+      font-size: var(--text-sm);
+      align-self: flex-end;
+      max-width: 85%;
+    }
+    .example-a {
+      background: var(--color-bg);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) var(--radius-sm);
+      padding: var(--space-3) var(--space-4);
+      font-size: var(--text-sm);
+      align-self: flex-start;
+      max-width: 85%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======================================================================
+       LOGO-ONLY NAV (no links — conversion focus)
+  ======================================================================= -->
+  <header>
+    <nav class="lp-nav" role="navigation" aria-label="Site navigation">
+      <div class="lp-nav__inner">
+        <a href="/" class="nav__logo" aria-label="not-a-bot.ai home">
+          <span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span>
+        </a>
+        <a href="/roi-calculator.html" class="btn btn-primary btn-sm">
+          Start free trial →
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ====================================================================
+         HERO
+    ===================================================================== -->
+    <section class="lp-hero" aria-labelledby="lp-hr-heading">
+      <div class="container">
+
+        <div class="lp-hero__badge" aria-label="Audience and offer">
+          HR &amp; Recruitment &nbsp;·&nbsp; 5-day free trial
+        </div>
+
+        <h1 id="lp-hr-heading">
+          60% fewer candidate emails.<br>
+          <span class="accent-green">Recruiters focused on talent.</span>
+        </h1>
+
+        <p class="lp-hero__sub">
+          One AI agent handles all candidate FAQ about your open roles, process, and remote policy — 24/7. Setup: 28 minutes.
+        </p>
+
+        <p class="lp-hero__urgency" aria-label="Key benefits">
+          <strong>⚡ Live in 28 minutes</strong>
+          &nbsp;·&nbsp; No credit card
+          &nbsp;·&nbsp; GDPR compliant
+          &nbsp;·&nbsp; No developer needed
+        </p>
+
+        <a href="/roi-calculator.html" class="btn btn-primary btn-xl" aria-label="Start free trial, no credit card required">
+          Start free trial — 5 days, no card &nbsp;→
+        </a>
+
+        <p class="trust-strip">
+          <span class="stars" aria-label="5 star rating">★★★★★</span>
+          &nbsp;4.8/5 candidate experience &nbsp;·&nbsp; 500+ businesses &nbsp;·&nbsp; GDPR compliant
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         PROBLEM / SOLUTION
+    ===================================================================== -->
+    <section class="section bg-white" aria-labelledby="ps-hr-heading">
+      <div class="container" style="max-width: 800px;">
+        <h2 id="ps-hr-heading" class="text-center" style="margin-bottom: var(--space-8);">Your recruiters are answering emails. Not assessing talent.</h2>
+
+        <div class="ps-grid">
+          <div class="ps-col problem" role="region" aria-label="Current situation">
+            <h3>Today: inbox, not impact</h3>
+            <ul class="ps-list">
+              <li>40% of recruiter time on first-line candidate Q&amp;A</li>
+              <li>Same questions about remote policy, salary, process</li>
+              <li>Candidates waiting until Monday morning for answers</li>
+              <li>Volume scales — recruiter capacity doesn't</li>
+            </ul>
+          </div>
+
+          <div class="ps-col solution" role="region" aria-label="With not-a-bot.ai">
+            <h3>With not-a-bot.ai</h3>
+            <ul class="ps-list">
+              <li>60% of candidate questions handled automatically</li>
+              <li>Consistent, accurate answers to every query</li>
+              <li>Candidates get answers on Sunday — your team works Monday</li>
+              <li>Recruiters spend time on actual talent assessment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         STATS STRIP
+    ===================================================================== -->
+    <section class="bg-bg" aria-label="Results in numbers">
+      <div class="container">
+        <div class="stat-strip">
+          <div class="stat-strip__item">
+            <div class="stat-strip__value">60%</div>
+            <div class="stat-strip__label">Automated after 30 days</div>
+          </div>
+          <div class="stat-strip__item">
+            <div class="stat-strip__value">28 min</div>
+            <div class="stat-strip__label">Average setup time</div>
+          </div>
+          <div class="stat-strip__item">
+            <div class="stat-strip__value">GDPR</div>
+            <div class="stat-strip__label">Compliant · EU infrastructure</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         WHAT THE AGENT HANDLES
+    ===================================================================== -->
+    <section class="section bg-white" aria-labelledby="agent-hr-heading">
+      <div class="container" style="max-width: 900px;">
+        <div class="section-header">
+          <span class="section-label">In practice</span>
+          <h2 id="agent-hr-heading">What your candidates ask. What the agent answers.</h2>
+          <p>Train the agent on your job listing format, your process documentation, and your FAQ. It handles the rest.</p>
+        </div>
+
+        <!-- Simulated candidate conversation -->
+        <div style="background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: var(--space-8); max-width: 560px; margin-inline: auto;" role="region" aria-label="Example conversation with the candidate agent">
+          <!-- Header -->
+          <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-6); padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-border);">
+            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #10B981, #059669); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px;" aria-hidden="true">🤖</div>
+            <div>
+              <div style="font-weight: 600; font-size: var(--text-sm);">Talent One — Candidate Support</div>
+              <div style="font-size: var(--text-xs); color: var(--color-success); display: flex; align-items: center; gap: 4px;">
+                <span style="width: 6px; height: 6px; background: var(--color-success); border-radius: 50%; display: inline-block;" aria-hidden="true"></span>
+                Available 24/7
+              </div>
+            </div>
+          </div>
+
+          <!-- Messages -->
+          <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+            <div class="example-q">Is the Senior Marketing Manager role remote-friendly?</div>
+            <div class="example-a">Yes — this role is hybrid, with 2 days in our Ghent office and 3 days remote. Full-remote applications are not accepted for this position. Would you like more details about the office setup?</div>
+            <div class="example-q">What's the salary range?</div>
+            <div class="example-a">For this level, the range is €52,000–€68,000 gross/year depending on experience, plus benefits (meal vouchers, group insurance, 32 days leave). Exact package discussed at offer stage. Ready to apply?</div>
+            <div class="example-q">How long does the process take?</div>
+            <div class="example-a">Typically 3–4 weeks: CV screening (3 days) → first call with recruiter (20 min) → case presentation → final interview with hiring manager. You'll receive updates at each stage.</div>
+          </div>
+        </div>
+
+        <p class="text-center text-muted" style="margin-top: var(--space-6); font-size: var(--text-sm);">
+          Fictional example — trained on your actual job listings and process documentation.
+        </p>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         HOW IT WORKS
+    ===================================================================== -->
+    <section class="section bg-bg" aria-labelledby="how-hr-heading">
+      <div class="container" style="max-width: 900px;">
+        <h2 id="how-hr-heading" class="text-center" style="margin-bottom: var(--space-2);">How it works</h2>
+        <p class="text-center text-muted" style="margin-bottom: var(--space-10);">From setup to first automated candidate response — in under 30 minutes.</p>
+
+        <div class="lp-steps">
+          <div class="lp-step">
+            <div class="lp-step__num" aria-hidden="true">1</div>
+            <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Upload your process docs</h3>
+            <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 0;">Hiring process guide, FAQ per role cluster, remote/benefits policy. The agent learns your complete candidate experience.</p>
+            <span class="lp-step__time">10 minutes</span>
+          </div>
+
+          <div class="lp-step">
+            <div class="lp-step__num" aria-hidden="true">2</div>
+            <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Test as a candidate</h3>
+            <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 0;">Ask the 10 questions you get most often. Refine until it sounds like your team. No code required.</p>
+            <span class="lp-step__time">10 minutes</span>
+          </div>
+
+          <div class="lp-step">
+            <div class="lp-step__num" aria-hidden="true">3</div>
+            <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Embed on your careers page</h3>
+            <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 0;">One line of code. Works on any careers page or job listing platform. Candidates get 24/7 support.</p>
+            <span class="lp-step__time">8 minutes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TESTIMONIAL
+    ===================================================================== -->
+    <section class="section bg-white" aria-labelledby="testimonial-hr-heading">
+      <div class="container" style="max-width: 720px;">
+        <h2 id="testimonial-hr-heading" class="sr-only">Customer story</h2>
+
+        <article class="testimonial-card" aria-label="Testimonial from Sarah K.">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="testimonial-quote">
+            "Candidates now get answers on Sunday morning. Our recruiters work Monday to Friday, on real talent assessment. The volume of first-line emails dropped by 60% in the first month. The quality of candidates who do reach out is noticeably higher — they've already done their homework."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">SK</div>
+            <div>
+              <div class="testimonial-name">Sarah K.</div>
+              <div class="testimonial-company">Head of Talent, Talent One, Ghent <em style="font-weight: 400;">(composite example)</em></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         MID-PAGE CTA
+    ===================================================================== -->
+    <section class="mid-cta" aria-labelledby="mid-cta-hr-heading">
+      <div class="container">
+        <h2 id="mid-cta-hr-heading">Your recruiters should be assessing talent.</h2>
+        <p>Not answering the same questions about remote policy and salary ranges.</p>
+        <a href="/roi-calculator.html" class="btn btn-white btn-xl" aria-label="Start free 5-day trial">
+          Start free trial — 5 days, no card &nbsp;→
+        </a>
+        <p style="color: rgba(255,255,255,0.5); font-size: var(--text-sm); margin-top: var(--space-4); margin-bottom: 0;">
+          Average setup time: 28 minutes. No developer needed.
+        </p>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         GDPR / COMPLIANCE (important for HR audience)
+    ===================================================================== -->
+    <section class="section bg-bg" aria-labelledby="compliance-hr-heading">
+      <div class="container" style="max-width: 800px;">
+        <div class="section-header">
+          <span class="section-label">Compliance</span>
+          <h2 id="compliance-hr-heading">Built for European data requirements</h2>
+          <p>HR teams handle personal data. We built for that responsibility from the ground up.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="feature-card">
+            <div class="feature-icon green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">GDPR compliant by design</h3>
+            <p style="margin: 0;">EU infrastructure, data isolation per account, no candidate data used to train general models. Designed for Belgian, Dutch and French legal requirements.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">No hallucinations, ever</h3>
+            <p style="margin: 0;">The agent only answers from content you've provided. Wrong answers about salary ranges or remote policy damage candidate experience. We prevent that by design.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Graceful escalation</h3>
+            <p style="margin: 0;">When a candidate asks something outside the agent's knowledge, it escalates cleanly to your team. No dead ends, no frustrated candidates.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+            </div>
+            <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Analytics dashboard</h3>
+            <p style="margin: 0;">See which questions candidates ask most. Identify gaps in your job listings and process documentation. Turn candidate data into hiring intelligence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         BOTTOM CTA + RISK REVERSAL
+    ===================================================================== -->
+    <section class="section bg-white" aria-labelledby="bottom-cta-hr-heading">
+      <div class="container" style="max-width: 640px; text-align: center;">
+        <h2 id="bottom-cta-hr-heading" style="margin-bottom: var(--space-4);">Your best recruiter doesn't answer inbox questions at 10pm.</h2>
+        <p style="color: var(--color-text-muted); margin-bottom: var(--space-8);">
+          Try not-a-bot.ai free for 5 days. Setup takes 28 minutes. No credit card required.
+        </p>
+
+        <a href="/roi-calculator.html" class="btn btn-primary btn-xl" style="margin-bottom: var(--space-6);" aria-label="Start free trial, no credit card required">
+          Start free trial — 5 days, no card &nbsp;→
+        </a>
+
+        <div class="risk-strip" aria-label="Guarantees">
+          No credit card &nbsp;·&nbsp; No commitment &nbsp;·&nbsp; GDPR compliant &nbsp;·&nbsp; EU infrastructure
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- NO FOOTER on landing page -->
+
+  <script src="/assets/js/main.js"></script>
+
+</body>
+</html>

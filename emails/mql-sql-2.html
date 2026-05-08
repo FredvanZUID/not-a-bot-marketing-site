@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Subject A (2a): Day 3: your agent is running — here's how to get more out of it -->
+  <!-- Subject A (2b): You haven't set up your agent yet — can I help? -->
+  <title>Day 3 of your trial — your next step</title>
+  <style>
+    /* Reset */
+    body { margin: 0; padding: 0; background: #F8F9FA; font-family: 'Inter', -apple-system, Arial, sans-serif; }
+    * { box-sizing: border-box; }
+    a { color: #7C3AED; }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .email-wrapper { width: 100% !important; }
+      .body-pad { padding: 28px 20px !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!--
+  ============================================================
+  HUBSPOT VARIANT INSTRUCTIONS
+  ============================================================
+  This file contains TWO email variants for Day 3 of the trial.
+
+  Variant 2a: Agent is configured and running (active user)
+    - Trigger: contact property "agent_live = true"
+    - Subject A: Day 3: your agent is running — here's how to get more out of it
+    - Preheader: You've done the hard part. Here's what's next.
+
+  Variant 2b: Agent not yet set up (inactive user)
+    - Trigger: contact property "agent_live = false" (or no activity logged)
+    - Subject A: You haven't set up your agent yet — can I help?
+    - Preheader: It takes 28 minutes. Let's make sure you have them.
+
+  In HubSpot: use Smart Content or workflow branching to send the
+  correct variant. Both are fully self-contained below.
+  ============================================================
+  -->
+
+  <!-- ============================================================ -->
+  <!-- VARIANT 2a — ACTIVE USER (agent configured and running)      -->
+  <!-- ============================================================ -->
+  <div class="email-variant" id="variant-2a">
+
+    <!-- Preheader for 2a (hidden) -->
+    <span style="display:none;max-height:0;overflow:hidden;font-size:1px;color:#F8F9FA;">You've done the hard part. Here's what's next.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</span>
+
+    <!-- Outer wrapper -->
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F8F9FA">
+      <tr>
+        <td align="center" style="padding: 24px 16px;">
+
+          <!-- Email card -->
+          <table class="email-wrapper" width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+
+            <!-- Header bar -->
+            <tr>
+              <td bgcolor="#1C1B2E" style="padding: 20px 32px;">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td>
+                      <span style="font-size: 20px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.02em; font-family: 'Inter', -apple-system, Arial, sans-serif;">Not-a-bot<span style="color: #0EA5E9;">.ai</span></span>
+                    </td>
+                    <td align="right">
+                      <span style="display: inline-block; background: #7C3AED; color: #FFFFFF; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; font-family: 'Inter', -apple-system, Arial, sans-serif; letter-spacing: 0.03em;">Day 3 of 5</span>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Body -->
+            <tr>
+              <td class="body-pad" style="padding: 40px 32px; color: #1A1A2E; font-size: 16px; line-height: 1.6; font-family: 'Inter', -apple-system, Arial, sans-serif;">
+
+                <!-- H1 -->
+                <h1 style="margin: 0 0 24px; font-size: 26px; font-weight: 800; color: #1C1B2E; line-height: 1.2; letter-spacing: -0.02em;">Your agent is working, {{first_name}} — here's how to push it further</h1>
+
+                <p style="margin: 0 0 24px; font-size: 16px; color: #1A1A2E; line-height: 1.7;">Three days in. Your agent has handled <strong>{{automated_count}} questions</strong> so far. That's {{automated_count}} questions your team didn't have to answer manually.</p>
+
+                <!-- 3 tips -->
+                <p style="margin: 0 0 16px; font-size: 15px; font-weight: 700; color: #1C1B2E;">Three ways to get more out of it today:</p>
+
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 0 0 28px;">
+                  <tr>
+                    <td style="padding: 14px 0; border-bottom: 1px solid #F0F0F0; vertical-align: top;">
+                      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td width="32" valign="top" style="padding-top: 1px;">
+                            <span style="display: inline-block; width: 26px; height: 26px; background: #7C3AED; color: #FFFFFF; font-size: 13px; font-weight: 700; text-align: center; line-height: 26px; border-radius: 50%; font-family: 'Inter', -apple-system, Arial, sans-serif;">1</span>
+                          </td>
+                          <td style="font-size: 15px; color: #1A1A2E; line-height: 1.6; padding-left: 6px;">
+                            <strong>Review the flagged questions</strong> — Go to &rarr; Inbox &rarr; Flagged. These are questions your agent wasn't confident about. Add them to your Knowledge Base. Agent learns immediately.
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 14px 0; border-bottom: 1px solid #F0F0F0; vertical-align: top;">
+                      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td width="32" valign="top" style="padding-top: 1px;">
+                            <span style="display: inline-block; width: 26px; height: 26px; background: #7C3AED; color: #FFFFFF; font-size: 13px; font-weight: 700; text-align: center; line-height: 26px; border-radius: 50%; font-family: 'Inter', -apple-system, Arial, sans-serif;">2</span>
+                          </td>
+                          <td style="font-size: 15px; color: #1A1A2E; line-height: 1.6; padding-left: 6px;">
+                            <strong>Add a second channel</strong> — If you started with email, add chat — or vice versa. Most businesses see a 30–40% increase in automated volume.
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 14px 0; vertical-align: top;">
+                      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td width="32" valign="top" style="padding-top: 1px;">
+                            <span style="display: inline-block; width: 26px; height: 26px; background: #7C3AED; color: #FFFFFF; font-size: 13px; font-weight: 700; text-align: center; line-height: 26px; border-radius: 50%; font-family: 'Inter', -apple-system, Arial, sans-serif;">3</span>
+                          </td>
+                          <td style="font-size: 15px; color: #1A1A2E; line-height: 1.6; padding-left: 6px;">
+                            <strong>Set your escalation threshold</strong> — Go to &rarr; Settings &rarr; Confidence Threshold. Start conservative (80%) and lower as your Knowledge Base grows.
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Stat callout -->
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 0 0 28px;">
+                  <tr>
+                    <td style="background: #F0F9FF; border-left: 4px solid #0EA5E9; border-radius: 0 8px 8px 0; padding: 16px 20px; font-size: 15px; color: #1A1A2E; line-height: 1.7;">
+                      One stat worth knowing: businesses with 20+ answers automate <strong>73% on average</strong>. Businesses with fewer than 10 automate 41%.
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- CTA -->
+                <a href="https://not-a-bot.ai/dashboard" style="display: block; background: #7C3AED; color: #FFFFFF; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-size: 16px; font-weight: 600; text-align: center; margin: 0 0 20px; font-family: 'Inter', -apple-system, Arial, sans-serif;">Open your dashboard &#8594;</a>
+
+                <p style="margin: 0 0 32px; text-align: center; font-size: 14px; color: #6B7280;">At the end of your trial — day 5 — I'll send a summary of your results.</p>
+
+                <!-- Divider -->
+                <hr style="border: none; border-top: 1px solid #E5E7EB; margin: 0 0 24px;">
+
+                <p style="margin: 0 0 8px; font-size: 16px; color: #1A1A2E;">Talk soon,</p>
+                <p style="margin: 0; font-size: 16px; color: #1A1A2E;"><strong>Alex</strong> — not-a-bot.ai</p>
+
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td bgcolor="#F8F9FA" style="padding: 24px 32px; border-top: 1px solid #E5E7EB; font-size: 12px; color: #6B7280; text-align: center; font-family: 'Inter', -apple-system, Arial, sans-serif; line-height: 1.6;">
+                <p style="margin: 0 0 6px;">not-a-bot.ai &middot; hello@not-a-bot.ai</p>
+                <p style="margin: 0;">You received this email because you started a free trial at not-a-bot.ai.<br>
+                <a href="{{unsubscribe_link}}" style="color: #7C3AED; text-decoration: underline;">Unsubscribe</a></p>
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+
+  </div><!-- end variant-2a -->
+
+
+  <!-- ============================================================ -->
+  <!-- VARIANT 2b — NOT-STARTED USER (agent not yet configured)     -->
+  <!-- ============================================================ -->
+  <div class="email-variant" id="variant-2b">
+
+    <!-- Preheader for 2b (hidden) -->
+    <span style="display:none;max-height:0;overflow:hidden;font-size:1px;color:#F8F9FA;">It takes 28 minutes. Let's make sure you have them.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</span>
+
+    <!-- Outer wrapper -->
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F8F9FA">
+      <tr>
+        <td align="center" style="padding: 24px 16px;">
+
+          <!-- Email card -->
+          <table class="email-wrapper" width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+
+            <!-- Header bar -->
+            <tr>
+              <td bgcolor="#1C1B2E" style="padding: 20px 32px;">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td>
+                      <span style="font-size: 20px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.02em; font-family: 'Inter', -apple-system, Arial, sans-serif;">Not-a-bot<span style="color: #0EA5E9;">.ai</span></span>
+                    </td>
+                    <td align="right">
+                      <!-- Urgency badge: 2 days left -->
+                      <span style="display: inline-block; background: #F59E0B; color: #FFFFFF; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; font-family: 'Inter', -apple-system, Arial, sans-serif; letter-spacing: 0.03em;">2 days left</span>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Body -->
+            <tr>
+              <td class="body-pad" style="padding: 40px 32px; color: #1A1A2E; font-size: 16px; line-height: 1.6; font-family: 'Inter', -apple-system, Arial, sans-serif;">
+
+                <!-- H1 -->
+                <h1 style="margin: 0 0 24px; font-size: 26px; font-weight: 800; color: #1C1B2E; line-height: 1.2; letter-spacing: -0.02em;">Day 3 of 5 — let's get your agent live, {{first_name}}</h1>
+
+                <p style="margin: 0 0 20px; font-size: 16px; color: #1A1A2E; line-height: 1.7;">Your trial started 3 days ago. Your agent isn't live yet. I'm not going to assume why.</p>
+
+                <!-- Urgency framing box -->
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 0 0 24px;">
+                  <tr>
+                    <td style="background: #FFF7ED; border-left: 4px solid #F59E0B; border-radius: 0 8px 8px 0; padding: 18px 20px; font-size: 15px; color: #1A1A2E; line-height: 1.7;">
+                      You have 2 days left. The setup takes 28 minutes. If you start today, you'll still have a full day of real data before the trial ends. <strong>Real data is the whole point.</strong>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Fastest path to live -->
+                <p style="margin: 0 0 14px; font-size: 15px; font-weight: 700; color: #1C1B2E;">Here's the fastest path to live:</p>
+
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 0 0 28px;">
+                  <tr>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #F0F0F0; vertical-align: top;">
+                      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td width="32" valign="top" style="padding-top: 1px;">
+                            <span style="display: inline-block; width: 26px; height: 26px; background: #7C3AED; color: #FFFFFF; font-size: 13px; font-weight: 700; text-align: center; line-height: 26px; border-radius: 50%; font-family: 'Inter', -apple-system, Arial, sans-serif;">1</span>
+                          </td>
+                          <td style="font-size: 15px; color: #1A1A2E; line-height: 1.6; padding-left: 6px;">
+                            <strong>Dashboard &rarr; Channels &rarr; Add Channel.</strong> Pick one — the one your team uses most.
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #F0F0F0; vertical-align: top;">
+                      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td width="32" valign="top" style="padding-top: 1px;">
+                            <span style="display: inline-block; width: 26px; height: 26px; background: #7C3AED; color: #FFFFFF; font-size: 13px; font-weight: 700; text-align: center; line-height: 26px; border-radius: 50%; font-family: 'Inter', -apple-system, Arial, sans-serif;">2</span>
+                          </td>
+                          <td style="font-size: 15px; color: #1A1A2E; line-height: 1.6; padding-left: 6px;">
+                            <strong>Knowledge Base &rarr; Add 10 questions.</strong> Copy from your email history or paste directly from memory.
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 0; vertical-align: top;">
+                      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td width="32" valign="top" style="padding-top: 1px;">
+                            <span style="display: inline-block; width: 26px; height: 26px; background: #10B981; color: #FFFFFF; font-size: 13px; font-weight: 700; text-align: center; line-height: 26px; border-radius: 50%; font-family: 'Inter', -apple-system, Arial, sans-serif;">3</span>
+                          </td>
+                          <td style="font-size: 15px; color: #1A1A2E; line-height: 1.6; padding-left: 6px;">
+                            <strong>Hit "Go Live."</strong> That's it. You have an active agent.
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- CTA -->
+                <a href="https://not-a-bot.ai/dashboard" style="display: block; background: #7C3AED; color: #FFFFFF; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-size: 16px; font-weight: 600; text-align: center; margin: 0 0 20px; font-family: 'Inter', -apple-system, Arial, sans-serif;">Complete your setup in 28 minutes &#8594;</a>
+
+                <p style="margin: 0 0 32px; text-align: center; font-size: 15px; color: #6B7280;">If something blocked you — technical issue, unclear step, wrong channel — reply here. I'll help you sort it today.</p>
+
+                <!-- Divider -->
+                <hr style="border: none; border-top: 1px solid #E5E7EB; margin: 0 0 24px;">
+
+                <p style="margin: 0 0 8px; font-size: 16px; color: #1A1A2E;">Talk soon,</p>
+                <p style="margin: 0; font-size: 16px; color: #1A1A2E;"><strong>Alex</strong> — not-a-bot.ai</p>
+
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td bgcolor="#F8F9FA" style="padding: 24px 32px; border-top: 1px solid #E5E7EB; font-size: 12px; color: #6B7280; text-align: center; font-family: 'Inter', -apple-system, Arial, sans-serif; line-height: 1.6;">
+                <p style="margin: 0 0 6px;">not-a-bot.ai &middot; hello@not-a-bot.ai</p>
+                <p style="margin: 0;">You received this email because you started a free trial at not-a-bot.ai.<br>
+                <a href="{{unsubscribe_link}}" style="color: #7C3AED; text-decoration: underline;">Unsubscribe</a></p>
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+
+  </div><!-- end variant-2b -->
+
+</body>
+</html>

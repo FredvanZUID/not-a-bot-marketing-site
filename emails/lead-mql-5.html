@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>This is the last email I'll send about this</title>
+  <style>
+    /* Reset */
+    body { margin: 0; padding: 0; background: #F8F9FA; font-family: 'Inter', -apple-system, Arial, sans-serif; }
+    * { box-sizing: border-box; }
+    a { color: #7C3AED; }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .email-wrapper { width: 100% !important; }
+      .body-pad { padding: 28px 20px !important; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Preheader text (hidden) -->
+  <span style="display:none;max-height:0;overflow:hidden;font-size:1px;color:#F8F9FA;">One last thing before I leave you alone.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</span>
+
+  <!-- Outer wrapper -->
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F8F9FA">
+    <tr>
+      <td align="center" style="padding: 24px 16px;">
+
+        <!-- Email card -->
+        <table class="email-wrapper" width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+
+          <!-- Header bar -->
+          <tr>
+            <td bgcolor="#1C1B2E" style="padding: 20px 32px;">
+              <span style="font-size: 20px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.02em; font-family: 'Inter', -apple-system, Arial, sans-serif;">Not-a-bot<span style="color: #0EA5E9;">.ai</span></span>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td class="body-pad" style="padding: 40px 32px; color: #1A1A2E; font-size: 16px; line-height: 1.6; font-family: 'Inter', -apple-system, Arial, sans-serif;">
+
+              <!-- H1 -->
+              <h1 style="margin: 0 0 24px; font-size: 26px; font-weight: 800; color: #1C1B2E; line-height: 1.2; letter-spacing: -0.02em;">One last thing, {{first_name}}</h1>
+
+              <!-- Brief copy -->
+              <p style="margin: 0 0 24px; font-size: 16px; color: #1A1A2E; line-height: 1.7;">I'll keep this short. Two weeks ago you calculated that your business could save <strong>{{hours_saved}} hours</strong> and <strong>€{{cost_saved}} per month</strong> with an AI agent. You haven't started a trial. I don't know why — and I won't guess.</p>
+
+              <!-- Impact statement box -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 0 0 24px;">
+                <tr>
+                  <td style="background: #FFF7ED; border-left: 4px solid #F59E0B; border-radius: 0 8px 8px 0; padding: 18px 20px; font-size: 15px; color: #1A1A2E; line-height: 1.7;">
+                    In two weeks, that's roughly <strong>{{hours_2weeks}} hours</strong> your team has handled manually. At your volume, that's a real cost — not a hypothetical one.
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin: 0 0 28px; font-size: 16px; color: #1A1A2E; line-height: 1.7;">If the timing wasn't right, that's completely fair. I'll stop sending you these emails after today.</p>
+
+              <!-- Primary CTA -->
+              <a href="https://not-a-bot.ai/roi-calculator.html" style="display: block; background: #7C3AED; color: #FFFFFF; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-size: 16px; font-weight: 600; text-align: center; margin: 0 0 16px; font-family: 'Inter', -apple-system, Arial, sans-serif;">Start the free trial now — 5 days, no card &#8594;</a>
+
+              <p style="margin: 0 0 12px; text-align: center; font-size: 14px; color: #6B7280;">Takes 28 minutes to set up. You'll know within 48 hours if it's worth continuing.</p>
+
+              <p style="margin: 0 0 32px; text-align: center; font-size: 15px; color: #6B7280;">If you'd rather talk to a human first — just reply to this email and I'll set up a call.</p>
+
+              <!-- Divider -->
+              <hr style="border: none; border-top: 1px solid #E5E7EB; margin: 0 0 24px;">
+
+              <!-- Sign-off -->
+              <p style="margin: 0 0 4px; font-size: 16px; color: #1A1A2E;">Either way, no pressure from here.</p>
+              <p style="margin: 0 0 24px; font-size: 16px; color: #1A1A2E;"><strong>Alex</strong> — not-a-bot.ai</p>
+
+              <!-- P.S. -->
+              <p style="margin: 0; font-size: 14px; color: #6B7280; line-height: 1.6; font-style: italic;">P.S. If this product genuinely isn't relevant to your business right now, you can unsubscribe below. We'll remove you immediately and won't contact you again unless you reach out first.</p>
+
+            </td>
+          </tr>
+
+          <!-- Footer with TWO links -->
+          <tr>
+            <td bgcolor="#F8F9FA" style="padding: 24px 32px; border-top: 1px solid #E5E7EB; font-size: 12px; color: #6B7280; text-align: center; font-family: 'Inter', -apple-system, Arial, sans-serif; line-height: 1.6;">
+              <p style="margin: 0 0 6px;">not-a-bot.ai &middot; hello@not-a-bot.ai</p>
+              <p style="margin: 0;">You received this email because you used the ROI Calculator at not-a-bot.ai.<br>
+              <a href="{{unsubscribe_link}}" style="color: #7C3AED; text-decoration: underline;">Unsubscribe</a> &nbsp;&middot;&nbsp; <a href="{{remind_3months_link}}" style="color: #7C3AED; text-decoration: underline;">Remind me in 3 months</a></p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

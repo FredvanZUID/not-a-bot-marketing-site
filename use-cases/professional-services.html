@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI agent for professional services firms — not-a-bot.ai</title>
+  <meta name="description" content="Stop explaining your process in every email. Your AI agent answers client questions about your services, availability and process — 24/7. Start free for 5 days.">
+  <link rel="canonical" href="https://not-a-bot.ai/use-cases/professional-services.html">
+  <meta property="og:title" content="AI agent for professional services firms — not-a-bot.ai">
+  <meta property="og:description" content="Stop explaining your process in every email. Your AI agent answers client questions about your services, availability and process — 24/7.">
+  <meta property="og:url" content="https://not-a-bot.ai/use-cases/professional-services.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Schema.org for use case page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI agent for professional services firms",
+    "description": "not-a-bot.ai for professional services: automatically answer client questions about your services, pricing and process",
+    "url": "https://not-a-bot.ai/use-cases/professional-services.html",
+    "isPartOf": { "@type": "WebSite", "url": "https://not-a-bot.ai" }
+  }
+  </script>
+
+  <style>
+    /* Professional Services specific styles */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 768px) {
+      .pain-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .pain-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      border-top: 3px solid var(--color-error);
+    }
+    .pain-card .pain-emoji {
+      font-size: 2rem;
+      margin-bottom: var(--space-3);
+    }
+    .pain-card h4 {
+      font-size: var(--text-base);
+      margin-bottom: var(--space-2);
+    }
+    .pain-card p {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: 0;
+    }
+
+    .solution-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+    @media (min-width: 1024px) {
+      .solution-layout { grid-template-columns: 1fr 1fr; }
+    }
+
+    .use-case-example {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.06), rgba(14, 165, 233, 0.06));
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+    }
+
+    .use-case-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+    }
+
+    .use-case-stat {
+      text-align: center;
+      padding: var(--space-4);
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+    }
+
+    .use-case-stat-value {
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      color: var(--color-accent);
+    }
+
+    .use-case-stat-label {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+    }
+
+    .demo-form-inline {
+      background: var(--color-white);
+      border: 2px solid var(--color-accent);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.08);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav__inner">
+        <a href="/" class="nav__logo" aria-label="not-a-bot.ai homepage">
+          <span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span>
+        </a>
+        <div class="nav__links">
+          <a href="/#features" class="nav__link">Features</a>
+          <a href="/pricing.html" class="nav__link">Pricing</a>
+          <a href="/#use-cases" class="nav__link">Use Cases</a>
+          <a href="/roi-calculator.html" class="nav__link">ROI Calculator</a>
+          <a href="/demo.html" class="nav__link">Demo</a>
+        </div>
+        <div class="nav__actions">
+          <div class="nav__lang">
+            <a href="/" class="nav__lang-link active" data-lang="en">EN</a>
+            <span class="nav__lang-sep">|</span>
+            <a href="/nl/" class="nav__lang-link" data-lang="nl">NL</a>
+            <span class="nav__lang-sep">|</span>
+            <a href="/fr/" class="nav__lang-link" data-lang="fr">FR</a>
+          </div>
+          <a href="/roi-calculator.html" class="btn btn-primary btn-sm">Start free trial</a>
+        </div>
+        <button class="nav__hamburger" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <nav id="mobile-nav" class="nav__mobile" aria-label="Mobile navigation">
+      <a href="/#features" class="nav__mobile-link">Features</a>
+      <a href="/pricing.html" class="nav__mobile-link">Pricing</a>
+      <a href="/#use-cases" class="nav__mobile-link">Use Cases</a>
+      <a href="/roi-calculator.html" class="nav__mobile-link">ROI Calculator</a>
+      <a href="/demo.html" class="nav__mobile-link">Demo</a>
+      <a href="/roi-calculator.html" class="btn btn-primary btn-full nav__mobile-cta">Start free trial</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero" style="background: linear-gradient(170deg, rgba(124,58,237,0.08) 0%, var(--color-bg) 60%);" aria-labelledby="ps-hero-heading">
+      <div class="container hero__inner">
+        <div class="hero__eyebrow fade-in">
+          <span class="badge badge-teal">Professional Services</span>
+          <span class="badge badge-success">5-day free trial</span>
+        </div>
+
+        <h1 class="hero__title fade-in delay-1" id="ps-hero-heading">
+          Stop explaining your process<br>in every <span style="color: var(--color-accent);">client email</span>
+        </h1>
+
+        <p class="hero__subtitle fade-in delay-2">
+          Your AI agent answers questions about your services, pricing, availability and process — before leads drop off. Available 24/7. Live in 30 minutes.
+        </p>
+
+        <div class="hero__ctas fade-in delay-3">
+          <a href="/roi-calculator.html" class="btn btn-primary btn-lg">Start free trial</a>
+          <a href="#demo-request" class="btn btn-secondary btn-lg">See a demo</a>
+        </div>
+
+        <p class="hero__note fade-in delay-4">
+          No credit card &nbsp;·&nbsp; Live in 30 minutes &nbsp;·&nbsp; GDPR compliant
+        </p>
+
+        <!-- Chat mockup -->
+        <div class="hero__visual fade-in delay-5" aria-hidden="true">
+          <div class="chat-mockup">
+            <div class="chat-mockup__header">
+              <div class="chat-mockup__avatar">🏛️</div>
+              <div>
+                <div class="chat-mockup__name">Studio Merckx — AI Assistant</div>
+                <div class="chat-mockup__status">Online — always available</div>
+              </div>
+            </div>
+            <div class="chat-messages">
+              <div class="chat-message user">What does a branding project cost?</div>
+              <div class="chat-message bot">Our branding projects start from €8,500 and include strategy, identity design, and brand guidelines. The typical timeline is 6–8 weeks. Would you like to schedule a discovery call to discuss your specific situation?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF BAR -->
+    <section class="social-proof-bar" aria-label="Proven results">
+      <div class="container">
+        <p class="social-proof-bar__label">Results from professional services firms using not-a-bot.ai</p>
+        <div class="social-proof-bar__logos">
+          <span class="logo-pill">67% fewer repeat questions</span>
+          <span class="logo-pill">24/7 available</span>
+          <span class="logo-pill">28-min setup</span>
+          <span class="logo-pill">100% based on your content</span>
+          <span class="logo-pill">Immediate qualification</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAIN POINTS -->
+    <section class="section bg-white" aria-labelledby="pain-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Does this sound familiar?</span>
+          <h2 id="pain-heading">The frustrations every professional services firm knows</h2>
+          <p>From architects to consultants to accountants — the inbox problems are always the same.</p>
+        </div>
+
+        <div class="pain-grid">
+          <div class="pain-card fade-in delay-1">
+            <div class="pain-emoji" aria-hidden="true">🔄</div>
+            <h4>Same questions, every intake</h4>
+            <p>What does it cost? How long does it take? What's included? You answer these in every discovery call and every email.</p>
+          </div>
+
+          <div class="pain-card fade-in delay-2">
+            <div class="pain-emoji" aria-hidden="true">⏰</div>
+            <h4>Leads drop off after hours</h4>
+            <p>A prospect visits your website at 9pm, has a question, gets no answer, and chooses your competitor by morning.</p>
+          </div>
+
+          <div class="pain-card fade-in delay-3">
+            <div class="pain-emoji" aria-hidden="true">📝</div>
+            <h4>Explaining your process repeatedly</h4>
+            <p>Every new client needs the same onboarding explanation. Your methodology, your deliverables, your timeline — all manual, all repetitive.</p>
+          </div>
+
+          <div class="pain-card fade-in delay-4">
+            <div class="pain-emoji" aria-hidden="true">🌐</div>
+            <h4>English-speaking international clients</h4>
+            <p>Your firm works across borders. Responding to queries in multiple languages takes time you don't have.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUTION -->
+    <section class="section bg-bg" aria-labelledby="solution-heading">
+      <div class="container">
+        <div class="solution-layout">
+          <div class="fade-in">
+            <span class="section-label">The solution</span>
+            <h2 id="solution-heading">Your agent knows your firm like a senior partner</h2>
+            <p class="text-lg" style="color: var(--color-text-muted); margin-bottom: var(--space-6);">Upload your service brochure, pitch deck and FAQ. not-a-bot.ai trains an AI agent that knows exactly what prospects and clients need to know — and explains it at the moment they ask.</p>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Always based on your documents</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">The agent only answers based on your service descriptions, pricing, and process docs. Never invents.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Qualifies leads automatically</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">Asks the right intake questions and summarizes the prospect before you even speak to them.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Available at the moment of intent</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">Prospects get answers when they're ready to decide, not when you're back from a client meeting.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 28px; height: 28px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Live in under 30 minutes</strong>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 4px 0 0;">Upload your service description, activate the agent, embed one line of code. No developer needed.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-in delay-2">
+            <div class="card" style="padding: var(--space-8);">
+              <h3 style="margin-bottom: var(--space-6);">What your agent handles automatically</h3>
+              <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">💰</span> Service pricing and packages
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">📅</span> Availability and intake scheduling
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">📋</span> Process explanation and methodology
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">🎯</span> Project scope and deliverables overview
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">🤝</span> How to get started / next steps
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">📄</span> Proposal and contract process
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--color-bg); border-radius: var(--radius-md); font-size: var(--text-sm);">
+                  <span aria-hidden="true">❓</span> FAQ about your firm and team
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: rgba(124, 58, 237, 0.06); border: 1px dashed rgba(124,58,237,0.3); border-radius: var(--radius-md); font-size: var(--text-sm); color: var(--color-accent);">
+                  <span aria-hidden="true">➕</span> And everything you add...
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDY -->
+    <section class="section bg-white" aria-labelledby="case-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Success story</span>
+          <h2 id="case-heading">Studio Merckx: 60% fewer intake questions</h2>
+        </div>
+
+        <div class="use-case-example fade-in">
+          <div class="solution-layout">
+            <div>
+              <p class="text-lg" style="margin-bottom: var(--space-4);">Thomas Van Merckx is managing partner at a 4-person architecture firm in Brussels. He was spending 3 hours per week answering intake questions via email — project costs, timelines, permit questions. He uploaded their service brochure and FAQ (2 PDFs). Agent live in 25 minutes.</p>
+              <p style="color: var(--color-text-muted); margin-bottom: var(--space-6);">Before not-a-bot.ai, every new lead triggered the same back-and-forth: what do you charge for a renovation project? How long does it take? Do you handle permits? Now the agent handles that entire first layer — and Thomas only picks up when the prospect is already informed and qualified.</p>
+
+              <div class="use-case-stats">
+                <div class="use-case-stat">
+                  <div class="use-case-stat-value">60%</div>
+                  <div class="use-case-stat-label">Fewer direct questions</div>
+                </div>
+                <div class="use-case-stat">
+                  <div class="use-case-stat-value">3h</div>
+                  <div class="use-case-stat-label">Saved per week</div>
+                </div>
+                <div class="use-case-stat">
+                  <div class="use-case-stat-value">2x</div>
+                  <div class="use-case-stat-label">More intake quality</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="testimonial-card">
+                <div class="stars" aria-label="5 stars">★★★★★</div>
+                <p class="testimonial-quote">Our agent now handles the first layer of every new lead. By the time I speak to a prospect, they already understand our process and our prices. The meetings are shorter and more productive.</p>
+                <div class="testimonial-author">
+                  <div class="testimonial-avatar" aria-hidden="true">TM</div>
+                  <div>
+                    <div class="testimonial-name">Thomas V.M.</div>
+                    <div class="testimonial-company">Managing Partner, Studio Merckx (fictional example)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section bg-bg" aria-labelledby="features-ps-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Features</span>
+          <h2 id="features-ps-heading">Built for professional services</h2>
+        </div>
+
+        <div class="grid-3">
+          <article class="feature-card fade-in delay-1">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M21.17 8H12V2.83"/><path d="M6.6 17.4 2 22"/></svg>
+            </div>
+            <h3>Based on your expertise</h3>
+            <p>Upload your pitch deck, service brochure, case studies and FAQ. The agent answers only from this content — never invents prices, timelines or capabilities.</p>
+          </article>
+
+          <article class="feature-card fade-in delay-2">
+            <div class="feature-icon teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+            </div>
+            <h3>Lead qualification built in</h3>
+            <p>Configure intake questions. The agent qualifies prospects by service type, budget range, and timeline before you ever speak to them.</p>
+          </article>
+
+          <article class="feature-card fade-in delay-3">
+            <div class="feature-icon amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </div>
+            <h3>Connects to your booking system</h3>
+            <p>Advanced plan: connect your Calendly, HubSpot, or calendar tool. Prospects book directly from the chat.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section bg-white" aria-labelledby="pricing-ps-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Pricing</span>
+          <h2 id="pricing-ps-heading">Your agent pays for itself in the first week</h2>
+          <p>The Basic plan at €19/month costs less than 30 minutes of your hourly rate. For most professional services firms, the agent pays for itself before the first invoice.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card fade-in delay-1">
+            <div class="pricing-tier basic">Basic — For 1 agent</div>
+            <div class="pricing-price">
+              <span class="currency">€</span>
+              <span class="amount">19</span>
+              <span class="period">/agent/month</span>
+            </div>
+            <p class="pricing-tagline">1 AI agent for your firm. Live in 30 minutes. First 5 days free.</p>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>100K tokens / month</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Upload 1 service brochure</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Website chat widget</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Multi-language (automatic)</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>First agent: 5 days free</li>
+            </ul>
+            <a href="/roi-calculator.html" class="btn btn-secondary btn-full">Start free trial</a>
+          </div>
+
+          <div class="pricing-card popular fade-in delay-2">
+            <div class="pricing-badge">Most popular</div>
+            <div class="pricing-tier advanced">Advanced — For growing firms</div>
+            <div class="pricing-price">
+              <span class="currency">€</span>
+              <span class="amount">49</span>
+              <span class="period">/agent/month</span>
+            </div>
+            <p class="pricing-tagline">5 service docs, CRM connection, lead qualification automation.</p>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>500K tokens / month</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>5 documents</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>CRM integration</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Lead qualification</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Full chat history</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>First agent: 5 days free</li>
+            </ul>
+            <a href="/roi-calculator.html" class="btn btn-primary btn-full">Start free trial</a>
+          </div>
+
+          <div class="pricing-card fade-in delay-3">
+            <div class="pricing-tier enterprise">Enterprise — Full power</div>
+            <div class="pricing-price">
+              <span class="currency">€</span>
+              <span class="amount">249</span>
+              <span class="period">+/agent/month</span>
+            </div>
+            <p class="pricing-tagline">WhatsApp, custom integrations, dedicated setup.</p>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>5M tokens / month</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Unlimited documents</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>WhatsApp integration</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Custom development</li>
+              <li class="pricing-feature"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Dedicated implementation support</li>
+            </ul>
+            <a href="#demo-request" class="btn btn-secondary btn-full">Request a demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMO REQUEST -->
+    <section id="demo-request" class="section bg-bg" aria-labelledby="demo-ps-heading">
+      <div class="container" style="max-width: 640px;">
+        <div class="section-header fade-in">
+          <span class="section-label">See it live</span>
+          <h2 id="demo-ps-heading">See how it works for your firm</h2>
+          <p>Request a free demo. We'll show you live what your agent would look like — trained on your own service documents.</p>
+        </div>
+
+        <div class="demo-form-inline fade-in">
+          <form data-form="demo" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="ps-name">Name <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" class="form-input" id="ps-name" name="name" placeholder="Your name" required autocomplete="name">
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ps-email">Email address <span class="required" aria-hidden="true">*</span></label>
+              <input type="email" class="form-input" id="ps-email" name="email" placeholder="you@yourfirm.com" required autocomplete="email">
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ps-company">Firm name <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" class="form-input" id="ps-company" name="company" placeholder="e.g. Studio Merckx Architects" required autocomplete="organization">
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ps-type">Service type</label>
+              <select class="form-select" id="ps-type" name="service_type">
+                <option value="architecture">Architecture</option>
+                <option value="consulting">Consulting</option>
+                <option value="accounting">Accounting</option>
+                <option value="legal">Legal</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ps-usecase">What do you want to automate? <span class="required" aria-hidden="true">*</span></label>
+              <textarea class="form-textarea" id="ps-usecase" name="use_case" required
+                placeholder="e.g. Client questions about our pricing, process and availability — before the discovery call."
+                rows="3"></textarea>
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ps-phone">Phone (optional)</label>
+              <input type="tel" class="form-input" id="ps-phone" name="phone" placeholder="+32 or +31..." autocomplete="tel">
+            </div>
+
+            <input type="hidden" name="current_tools" value="professional-services">
+
+            <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top: var(--space-4);">
+              Request demo
+            </button>
+
+            <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-3); margin-bottom: 0; text-align: center;">
+              We respond within 24 hours. No obligations.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/"><span class="logo-text">Not-a-bot<span class="logo-accent">.ai</span></span></a>
+          <p>Custom AI agents trained on your business data. No hallucinations. Live in minutes.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/pricing.html">Pricing</a></li>
+            <li><a href="/roi-calculator.html">ROI Calculator</a></li>
+            <li><a href="/demo.html">Request a demo</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Use Cases</h4>
+          <ul>
+            <li><a href="/use-cases/vacation-rentals.html">Vacation Rentals</a></li>
+            <li><a href="/use-cases/professional-services.html">Professional Services</a></li>
+            <li><a href="/use-cases/hr-recruitment.html">HR &amp; Recruitment</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Languages</h4>
+          <ul>
+            <li><a href="/">English</a></li>
+            <li><a href="/nl/">Nederlands</a></li>
+            <li><a href="/fr/">Français</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 not-a-bot.ai — All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/supabase-forms.js"></script>
+</body>
+</html>
